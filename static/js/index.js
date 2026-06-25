@@ -75,4 +75,23 @@ $(document).ready(function() {
 
     bulmaSlider.attach();
 
+    // Video modal
+    $('#video-modal-button').click(function(e) {
+      e.preventDefault();
+      $('#video-modal').addClass('is-active');
+      $('#modal-video')[0].play();
+    });
+
+    $('#video-modal .modal-background, #video-modal .modal-close').click(function() {
+      $('#video-modal').removeClass('is-active');
+      $('#modal-video')[0].pause();
+    });
+
+    $(document).keydown(function(e) {
+      if (e.key === 'Escape') {
+        $('#video-modal').removeClass('is-active');
+        $('#modal-video')[0].pause();
+      }
+    });
+
 })
