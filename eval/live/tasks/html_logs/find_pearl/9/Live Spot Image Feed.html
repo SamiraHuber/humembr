@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<!-- saved from url=(0022)http://127.0.0.1:5050/ -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Live Spot Image Feed</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com/">
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="">
+    <link href="./Live Spot Image Feed_files/css2" rel="stylesheet">
+    <link rel="stylesheet" href="./Live Spot Image Feed_files/style.css">
+    <script src="./Live Spot Image Feed_files/jquery.min.js"></script>
+<style>
+        .top-nav a {
+            margin: 0 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="top-nav">
+        <a href="http://127.0.0.1:5050/" class="active">Home</a>
+        <a href="http://127.0.0.1:5050/map">Waypoint Map</a>
+        <a href="http://127.0.0.1:5050/person_observations">Person Observations</a>
+        <a href="http://127.0.0.1:5050/image_log">Image Log</a>
+        <a href="http://127.0.0.1:5050/person_identities">Person Identities</a>
+    </nav>
+    
+    
+<h1>Spot Control Panel</h1>
+
+<div class="main-content">
+    <div class="top-row">
+        <div class="feed-container">
+            <!-- The image will be displayed here -->
+            <img id="live-image" src=""[image removed]" alt="Live feed">
+
+            <div class="metadata">
+                <!-- Connection Status -->
+                <p>
+                    <strong>Websocket Status:</strong> <span class="status connected" id="socket-status">Connected</span>
+                    <strong>Robot Status:</strong> <span class="status connected" id="robot-status">UP</span>
+                </p>
+                <!-- Image metadata will be shown here -->
+                <p> <strong>Uncaptioned Image Queue Size:</strong> <span id="uncaptioned-count">0</span></p>
+                <p><strong>Created:</strong> <span id="timestamp">1.3.2026, 15:52:43</span></p>
+                <p><strong>Location:</strong> <span id="location">'waypoint_99' in room 'unknown room'</span></p>
+                <p><strong>Current command:</strong> <span id="cmd">Prompt: celebrate, for reason I have successfully found Pearl at waypoint_99, as confirmed by real-time observations. -&gt; null [SUCCESS]</span></p>
+            </div>
+        </div>
+
+        <div class="chat-container">
+            <div class="thread-controls">
+                <p><strong>Thread ID:</strong> <span id="thread-id">917400256</span></p>
+                <button id="new-thread-btn">New Thread</button>
+            </div>
+            <div id="chat-box" class="chat-box">
+                <!-- Chat messages will appear here -->
+            <div class="chat-message user-message">find pearl</div><div class="chat-message log-message log-llm-end"></div><div class="chat-message log-message log-tool-start">Using tool: <strong>query_semantic_observations</strong> with input: <em>{'person': 'pearl', 'until': '2026-03-01 14:50:11', 'query_text': 'pearl'}</em></div><div class="chat-message log-message log-tool-end">Tool output: <details><summary>Click to view</summary><pre>I made the following observations:
+2026-02-09 11:00:27 at waypoint_75 in direction of 124.83: 'I am in an office or studio space with large windows and a reception desk. A woman in black is walking past the desk, while two men nearby interact with a large black object, possibly a piece of equipment or furniture.' (Identified persons: unknown person, Pearl)
+2026-02-09 12:37:01 at waypoint_69 in direction of 0.00: 'I am in a modern kitchen or breakroom. A woman in black is walking past a high table, holding a sandwich and interacting with it as she moves.' (Identified persons: Pearl)
+2026-02-09 12:36:45 at waypoint_69 in direction of 0.00: 'I am in a modern kitchen with dark cabinets and a wooden floor. A woman in black is standing by the counter, eating a red apple while casually leaning against it.' (Identified persons: Pearl)
+2026-02-09 14:40:21 at waypoint_69 in direction of 316.98: 'I am in a modern kitchen with dark cabinets and a wooden countertop. A person dressed in black is moving quickly, holding a white object, while interacting with the space near the counter and a black chair in the foreground.' (Identified persons: Pearl)
+2026-02-04 12:08:54 at waypoint_69 in direction of 320.98: 'I am in a modern kitchen or break room with dark cabinets and wood-look flooring. A woman in black clothing stands near the counter, seemingly interacting with a coffee machine or appliance.' (Identified persons: Pearl)
+2026-02-09 14:41:56 at waypoint_69 in direction of 316.74: 'I am in a modern kitchen with dark cabinets and light wood flooring. A woman in black is at the counter holding a cup, while another person in a dark jacket stands nearby, partially obscuring the view.' (Identified persons: Pearl)
+2026-02-09 14:41:22 at waypoint_69 in direction of 316.96: 'I am in a modern office kitchen. A woman in black stands at the counter interacting with a coffee machine, while another person walks past holding a container.' (Identified persons: Pearl)
+2026-02-09 14:40:20 at waypoint_69 in direction of 316.99: 'I am in a kitchen or breakroom with dark cabinets and a coffee station. A woman in black is reaching up to place or retrieve something from a high shelf while holding a tray.' (Identified persons: Pearl)
+2026-02-05 09:22:01 at waypoint_69 in direction of 320.32: 'I am in a modern kitchen or breakroom with grey cabinets and a coffee station. A woman in black holds a large object while a man in brown pants stands nearby, both seemingly interacting with each other or preparing something.' (Identified persons: Pearl, unknown person)
+2026-02-04 12:07:33 at waypoint_69 in direction of 321.00: 'I am in a modern kitchen or breakroom with dark cabinets and wood-look flooring. A woman in black stands near a fridge, touching it, while another person is visible in the background near the counter.' (Identified persons: Pearl)
+2026-02-09 12:28:10 at waypoint_69 in direction of 0.00: 'I am in a modern kitchen with dark cabinets and a wooden countertop. A woman in black stands by the sink, holding a red object, while a black bar stool sits empty nearby.' (Identified persons: Pearl)
+2026-02-11 08:59:19 at waypoint_100 in direction of 104.42: 'I am in an office. A woman in a yellow jacket stands near a desk, smiling and interacting with the space, while a soccer ball and a cardboard box rest on the floor nearby.' (Identified persons: Pearl)
+2026-02-05 09:16:21 at waypoint_57 in direction of 114.28: 'I am in an office reception area. A smiling woman walks toward the camera holding a white bowl, while interacting with the space near a white reception desk and large windows.' (Identified persons: Pearl)
+2026-02-09 11:00:25 at waypoint_75 in direction of 123.09: 'I am in an office or reception area with large windows and a low partition wall. A woman in black gestures toward the camera while a man in a blue hoodie stands nearby holding a small object, and another person is seated at a desk in the background.' (Identified persons: unknown person, Pearl)
+2026-02-05 09:16:14 at waypoint_57 in direction of 123.67: 'I am in an office reception area. A woman is smiling while holding a white object, standing near a white reception desk with large windows behind her.' (Identified persons: Pearl)
+2026-02-09 12:36:42 at waypoint_69 in direction of 0.00: 'I am in a modern kitchen with dark gray cabinets and a wooden countertop. A person in black attire is standing near the counter, holding a red apple, while interacting with the kitchen space around them.' (Identified persons: Pearl)
+2026-02-09 14:41:51 at waypoint_69 in direction of 316.78: 'I am in a kitchen. A woman in black is operating a coffee machine while a man in a puffer jacket stands beside her, holding a red mug.' (Identified persons: Pearl, unknown person)
+2026-02-09 14:41:13 at waypoint_69 in direction of 316.91: 'I am in a kitchen. A woman in black is standing at the counter, interacting with a coffee machine and a cup.' (Identified persons: Pearl)
+2026-02-11 08:59:24 at waypoint_100 in direction of 78.04: 'I am in an office. A woman in a yellow coat waves while standing near a desk and chair, with a coat rack holding scarves nearby.' (Identified persons: Pearl)
+2026-02-09 12:36:43 at waypoint_69 in direction of 0.00: 'I am in a modern kitchen with grey cabinets and a wooden countertop. A person dressed in black is standing and eating a piece of fruit while casually leaning against the counter.' (Identified persons: Pearl)
+2026-02-09 12:37:04 at waypoint_69 in direction of 0.00: 'I am in a modern kitchen with dark cabinets and a wooden countertop. A person in black clothing is walking past, holding a red apple, while interacting with the space by moving toward the counter area.' (Identified persons: Pearl)
+2026-02-09 14:41:41 at waypoint_69 in direction of 316.84: 'I am in a kitchen. A woman in black is using a coffee grinder at the counter, while a person in a dark puffer jacket leans over nearby, observing or waiting.' (Identified persons: unknown person, Pearl)
+2026-02-05 12:49:19 at waypoint_65 in direction of 309.61: 'I am in a modern kitchen. A woman in black is standing at the counter, interacting with a coffee machine and a sink.' (Identified persons: Pearl)
+2026-02-12 12:14:16 at waypoint_69 in direction of 317.10: 'I am in a modern kitchen area. A woman in a plaid jacket is standing near the counter, interacting with a small appliance or device in her hands.' (Identified persons: Pearl)
+2026-02-12 11:18:10 at waypoint_57 in direction of 37.57: 'I am in a modern office hallway. A woman in a patterned jacket walks toward the camera, holding a cup, while passing by doors, a fire extinguisher, and wall art.' (Identified persons: Pearl)
+2026-02-12 14:43:09 at waypoint_57 in direction of 46.14: 'I am in a modern office hallway. A woman in a plaid shirt walks toward the camera, holding a black water bottle, while passing framed art on the walls.' (Identified persons: Pearl)
+2026-02-12 12:10:09 at waypoint_69 in direction of 317.38: 'I am in a modern kitchen area. A woman in a plaid shirt stands at the counter, holding a sandwich and interacting with a coffee maker and sink.' (Identified persons: Pearl)
+2026-02-05 09:16:24 at waypoint_57 in direction of 114.26: 'I am in an office hallway or reception area. A woman stands near a white counter, holding a small white object and looking down at it, seemingly interacting with it or preparing to use it.' (Identified persons: Pearl)
+2026-02-05 09:40:53 at waypoint_69 in direction of 320.29: 'I am in a modern office kitchen. A woman in black is walking toward the counter, where a coffee machine and other kitchen appliances are visible.' (Identified persons: Pearl)
+2026-02-11 09:02:11 at waypoint_57 in direction of 44.89: 'I am in a modern office hallway with white walls and wood-look flooring. A woman in a plaid jacket walks toward the camera, holding a small object, while interacting with the space by moving through the corridor lined with doors and framed art.' (Identified persons: Pearl)</pre></details></div><div class="chat-message log-message log-llm-end"></div><div class="chat-message log-message log-tool-start">Using tool: <strong>get_route_information</strong> with input: <em>{'waypoint_src': 'waypoint_90', 'waypoint_target': 'waypoint_69'}</em></div><div class="chat-message log-message log-tool-end">Tool output: <details><summary>Click to view</summary><pre>    The distance from waypoint_90 to waypoint_69 is 11.97 meters.
+    The shortest path is: waypoint_90 -&gt; waypoint_91 -&gt; waypoint_92 -&gt; waypoint_81 -&gt; waypoint_80 -&gt; waypoint_56 -&gt; waypoint_57 -&gt; waypoint_58 -&gt; waypoint_75 -&gt; waypoint_74 -&gt; waypoint_73 -&gt; waypoint_72 -&gt; waypoint_71 -&gt; waypoint_70 -&gt; waypoint_69.
+</pre></details></div><div class="chat-message log-message log-llm-end"></div><div class="chat-message log-message log-tool-start">Using tool: <strong>go_to_waypoint</strong> with input: <em>{'person_id_name': 'Pearl', 'needs_validation': True, 'waypoint_name': 'waypoint_69', 'direction': 0, 'reason': "Pearl is frequently seen in the kitchen/breakroom (waypoint_69) around this time. The path also passes through waypoint_57 and waypoint_75 where she's also been seen."}</em></div><div class="chat-message log-message log-tool-end">Tool output: <details><summary>Click to view</summary><pre>        You arrived at waypoint waypoint_69!
+        You are currently seeing: I am in a modern kitchen with dark cabinets and a wooden countertop. The room is empty, with no people present to interact with any objects.
+        You have seen the following on your route:
+        2026-03-01 14:50:54 at waypoint_69 in direction of 0.35: 'I am in an empty entryway or hallway with wood-look flooring and a blue mat near a glass door. There are no people present, so no interactions are occurring.'
+2026-03-01 14:50:53 at waypoint_69 in direction of 4.20: 'I am in a hallway or entryway, not a specific room like a kitchen or office. There are no people visible in the scene; the space is empty except for a blue mat near the glass door and a fire alarm on the wall.'
+2026-03-01 14:50:52 at waypoint_69 in direction of 45.30: 'I am in a dimly lit hallway or corridor, not a specific room like a kitchen or office. There are no people visible in the scene; the space is empty except for walls, flooring, and a fire alarm on the wall.'
+2026-03-01 14:50:52 at waypoint_69 in direction of 55.12: 'I am in a dimly lit hallway or entryway, not a specific room like a kitchen or office. There are no people visible in the scene; only a dark mat, a fire alarm on the wall, and a small round object on the floor are present.'
+2026-03-01 14:50:51 at waypoint_69 in direction of 57.29: 'I am in a minimalist hallway or entryway, not a specific room like a kitchen or office. There are no people visible; the scene is empty except for a dark rug, a fire alarm on the wall, and a small object on the floor near the doorway.'
+2026-03-01 14:50:50 at waypoint_69 in direction of 77.82: 'I am in an empty, minimalist room with gray paneled walls and a light wood floor, possibly a modern office or studio. There are no people present, so no interactions are occurring.'
+2026-03-01 14:50:49 at waypoint_69 in direction of 102.40: 'I am in a minimalist room with dark paneled walls and light wood flooring, likely an office or storage area. There are no people visible in the scene.'
+2026-03-01 14:50:48 at waypoint_69 in direction of 125.30: 'I am in a dimly lit room with dark walls and wood flooring, possibly a storage or utility area. There are no people present; only a broom, dustpan, and a box with bottles rest near a window with blinds.'
+2026-03-01 14:50:47 at waypoint_69 in direction of 149.53: 'I am in a modern kitchen with dark cabinets and wood-look flooring. No people are present; the scene is still, with only bottles and a box near the window interacting with the ambient light.'
+2026-03-01 14:50:46 at waypoint_70 in direction of 175.82: 'I am in a kitchen, identifiable by the dark cabinets and cleaning tools like a broom and dustpan near the window. There are no people present; the scene is empty except for a few bottles and a box on the floor.'
+2026-03-01 14:50:45 at waypoint_71 in direction of 178.54: 'I am in an empty, modern room with large windows and a dark cabinet, likely a hallway or storage area. There are no people present, only a broom and a box near the window.'
+2026-03-01 14:50:44 at waypoint_71 in direction of 175.74: 'I am in an empty, modern kitchen with dark cabinets and large windows. There are no people present, so no interactions are occurring.'
+2026-03-01 14:50:43 at waypoint_72 in direction of 167.28: 'I am in a modern kitchen with dark cabinets and wood-look flooring. There are no people present; the space is empty except for a broom leaning against the far wall near large windows.'
+2026-03-01 14:50:43 at waypoint_72 in direction of 147.24: 'I am in a modern kitchen with dark cabinets and wood-look flooring. No people are present; the space is empty except for a broom leaning against the far wall near large windows with blinds.'
+2026-03-01 14:50:42 at waypoint_72 in direction of 121.43: 'I am in a modern kitchen with dark cabinets and wood-look flooring. No people are visible; the scene is empty except for a blue rug by the glass door leading outside.'
+2026-03-01 14:50:41 at waypoint_73 in direction of 113.57: 'I am in a modern kitchen with dark cabinets and wood-look flooring, adjacent to a glass door leading outside. There are no people in the scene; the space is empty except for a blue rug by the door and a green crate near the cabinets.'
+2026-03-01 14:50:40 at waypoint_73 in direction of 97.74: 'I am in a modern entryway or hallway, not a kitchen or office. There are no people visible in the scene; the space is empty except for a dark rug on light wood flooring leading to a glass door.'
+2026-03-01 14:50:39 at waypoint_73 in direction of 92.74: 'I am in a modern entryway or hallway, not a kitchen or office. There are no people present; only a robotic vacuum cleaner rests against the wall, interacting with the floor.'
+2026-03-01 14:50:38 at waypoint_74 in direction of 90.26: 'I am in a hallway leading to a kitchen and a glass door to the outside. There are no people in the scene; only a small, round robot vacuum cleaner interacts with the wooden floor near the wall.'
+2026-03-01 14:50:37 at waypoint_74 in direction of 89.48: 'I am in a hallway, not a specific room like a kitchen or office. There are no people visible; the scene is empty except for a small object on the floor near the door.'
+2026-03-01 14:50:35 at waypoint_74 in direction of 90.95: 'I am in a narrow hallway with light wood flooring and white walls, leading to a glass door at the end. There are no people present, and nothing is being interacted with.'
+2026-03-01 14:50:34 at waypoint_75 in direction of 96.97: 'I am in a narrow hallway with light wood flooring and plain walls, leading to a glass door at the end. There are no people in the scene, only a small dark mat near the door.'
+2026-03-01 14:50:33 at waypoint_75 in direction of 109.93: 'I am in an empty hallway with light wood flooring and white walls, leading to a glass door at the end. There are no people present, so no interactions are occurring.'
+2026-03-01 14:50:32 at waypoint_58 in direction of 124.83: 'I am in an empty, modern hallway with wood-look flooring and large windows. There are no people present, so no interactions are occurring.'
+2026-03-01 14:50:31 at waypoint_57 in direction of 149.13: 'I am in an empty, modern room with wood flooring and large windows, likely a kitchen or dining area given the bar stools. There are no people present, so no interactions are occurring.'
+2026-03-01 14:50:30 at waypoint_56 in direction of 157.08: 'I am in a modern kitchen or dining area with a wooden counter and bar stools. There are no people present; the space is empty and quiet.'
+2026-03-01 14:50:29 at waypoint_56 in direction of 153.96: 'I am in a modern, empty office or lounge area with wood flooring and large windows. There are no people present, so no interactions are occurring.'
+2026-03-01 14:50:28 at waypoint_80 in direction of 139.13: 'I am in a modern office or lounge area with wooden floors and large windows. There are no people visible; the space is empty except for a few bar stools near a counter.'
+2026-03-01 14:50:27 at waypoint_80 in direction of 103.96: 'I am in an empty, modern office space with white walls and a dark carpet. There are no people present, so no interactions are occurring.'
+2026-03-01 14:50:26 at waypoint_81 in direction of 108.61: 'I am in an empty, modern room with white walls and a dark floor, possibly an office or studio. There are no people present, so no interactions are occurring.'
+2026-03-01 14:50:25 at waypoint_81 in direction of 118.71: 'I am in a dimly lit hallway or stairwell, looking toward a bright, empty office space with a reception desk and large windows. There are no people visible in the scene.'
+2026-03-01 14:50:24 at waypoint_81 in direction of 116.07: 'I am in a hallway, not a specific room like a kitchen or office. There are no people visible in the scene; the space is empty except for a red fire extinguisher mounted on the wall.'
+2026-03-01 14:50:23 at waypoint_92 in direction of 93.37: 'I am in a hallway or open-plan office space, not a specific room like a kitchen or office. There are no people visible in the scene; the only interaction is with the environment itself, such as the pixelated poster on the wall and the view into an adjacent area with windows.'
+2026-03-01 14:50:22 at waypoint_92 in direction of 67.58: 'I am in a dimly lit room with white walls and dark lower panels, possibly an office or studio. There are no people visible, only a pixel-art poster on the wall and a blurred chair or couch in the corner.'
+2026-03-01 14:50:21 at waypoint_90 in direction of 40.08: 'I am in an empty, dimly lit room with a brown sofa against the wall and a small side table beside it. There are no people present, so no interactions are occurring.'
+2026-03-01 14:50:21 at waypoint_90 in direction of 18.03: 'I am in a quiet lounge or waiting area with a beige sofa against the wall. No people are present; only a dark jacket rests on the sofa, and a whiteboard hangs nearby.'
+        No persons detected on the route
+        </pre></details></div><div class="chat-message log-message log-llm-end"></div><div class="chat-message log-message log-tool-start">Using tool: <strong>query_person_history</strong> with input: <em>{'start': '2026-02-25 00:00:00', 'end': '2026-03-01 14:50:11', 'person_name': 'Pearl'}</em></div><div class="chat-message log-message log-tool-end">Tool output: <details><summary>Click to view</summary><pre>Pearl was never seen.</pre></details></div><div class="chat-message log-message log-llm-end"></div><div class="chat-message log-message log-tool-start">Using tool: <strong>get_route_information</strong> with input: <em>{'waypoint_src': 'waypoint_69', 'waypoint_target': 'waypoint_100'}</em></div><div class="chat-message log-message log-tool-end">Tool output: <details><summary>Click to view</summary><pre>    The distance from waypoint_69 to waypoint_100 is 18.18 meters.
+    The shortest path is: waypoint_69 -&gt; waypoint_70 -&gt; waypoint_71 -&gt; waypoint_72 -&gt; waypoint_73 -&gt; waypoint_74 -&gt; waypoint_75 -&gt; waypoint_76 -&gt; waypoint_77 -&gt; waypoint_78 -&gt; waypoint_95 -&gt; waypoint_96 -&gt; waypoint_97 -&gt; waypoint_98 -&gt; waypoint_99 -&gt; waypoint_100.
+</pre></details></div><div class="chat-message log-message log-llm-end"></div><div class="chat-message log-message log-tool-start">Using tool: <strong>get_route_information</strong> with input: <em>{'waypoint_target': 'waypoint_65', 'waypoint_src': 'waypoint_69'}</em></div><div class="chat-message log-message log-tool-end">Tool output: <details><summary>Click to view</summary><pre>    The distance from waypoint_69 to waypoint_65 is 2.23 meters.
+    The shortest path is: waypoint_69 -&gt; waypoint_68 -&gt; waypoint_67 -&gt; waypoint_66 -&gt; waypoint_65.
+</pre></details></div><div class="chat-message log-message log-llm-end"></div><div class="chat-message log-message log-tool-start">Using tool: <strong>go_to_waypoint</strong> with input: <em>{'needs_validation': True, 'waypoint_name': 'waypoint_65', 'person_id_name': 'Pearl', 'direction': 0, 'reason': 'Waypoint 65 is another kitchen area where Pearl was seen once. It is very close to my current location.'}</em></div><div class="chat-message log-message log-tool-end">Tool output: <details><summary>Click to view</summary><pre>        You arrived at waypoint waypoint_65!
+        You are currently seeing: I am in a modern kitchen, looking toward a hallway with a large glass door. There are no people in the scene; the only interactions are with inanimate objects like the countertop, coffee maker, and wall-mounted fire alarm.
+        You have seen the following on your route:
+        2026-03-01 14:51:20 at waypoint_65 in direction of 0.36: 'I am in a hallway or entryway, not a kitchen or office. There are no people visible in the scene; the space is empty except for a doormat, a fire alarm, and a framed picture on the wall.'
+2026-03-01 14:51:19 at waypoint_65 in direction of 359.60: 'I am in a hallway or entryway, not a specific room like a kitchen or office. There are no people visible in the scene; the space is empty except for a doormat, a fire alarm, and a window looking outside.'
+2026-03-01 14:51:18 at waypoint_65 in direction of 349.39: 'I am in an empty entryway or hallway with wood-look flooring and a blue mat near a large window. There are no people present, so no interactions are occurring.'
+2026-03-01 14:51:17 at waypoint_65 in direction of 302.41: 'I am in a kitchen with dark cabinets and wood-look flooring. There are no people visible in the scene.'
+2026-03-01 14:51:14 at waypoint_65 in direction of 251.14: 'I am in a modern kitchen with dark green cabinets and light wood flooring. There are no people present; the scene is empty except for kitchen appliances and a stool near the window.'
+2026-03-01 14:51:13 at waypoint_66 in direction of 271.99: 'I am in a modern kitchen with gray cabinets and wood-look flooring. There are no people present, so no interactions are occurring.'
+2026-03-01 14:51:13 at waypoint_68 in direction of 297.59: 'I am in a kitchen with dark gray cabinets and light wood flooring. There are no people in the scene; only a white towel hangs on a cabinet handle.'
+2026-03-01 14:51:12 at waypoint_69 in direction of 322.33: 'I am in a kitchen with dark cabinets and light wood flooring. There are no people visible in the scene.'
+2026-03-01 14:51:11 at waypoint_69 in direction of 348.35: 'I am in a hallway or entryway, not a specific room like a kitchen or office. There are no people visible in the scene; the space is empty except for a doormat, a fire alarm, and a view of the outside through a glass door.'
+        No persons detected on the route
+        </pre></details></div><div class="chat-message log-message log-llm-end"></div><div class="chat-message log-message log-tool-start">Using tool: <strong>go_to_waypoint</strong> with input: <em>{'reason': "Pearl was also seen at waypoint_100 in the morning. I'll check if she's there now.", 'person_id_name': 'Pearl', 'needs_validation': True, 'direction': 0, 'waypoint_name': 'waypoint_100'}</em></div><div class="chat-message log-message log-tool-end">Tool output: <details><summary>Click to view</summary><pre>        You arrived at waypoint waypoint_100!
+        You are currently seeing: I am inside a wooden closet or wardrobe, surrounded by hanging clothes and a glimpse of a chair. No people are visible in the scene.
+        You have seen the following on your route:
+        2026-03-01 14:52:13 at waypoint_100 in direction of 6.14: 'I am in an office, crouched under a desk with wood-grain panels. No people are visible, but a chair with a metal base is partially seen nearby, suggesting someone recently left.'
+2026-03-01 14:52:12 at waypoint_100 in direction of 94.98: 'I am in an office, where a person in a plaid shirt stands near a desk, interacting with a computer monitor. Another individual is partially visible near a coat rack by the window.' (Identified persons: unknown person)
+2026-03-01 14:52:10 at waypoint_100 in direction of 97.90: 'I am in an office. A person in a plaid shirt stands at a desk near a window, interacting with a computer, while an empty office chair sits nearby.' (Identified persons: unknown person)
+2026-03-01 14:52:09 at waypoint_99 in direction of 88.10: 'I am in an office. A person stands at a desk interacting with a computer, while another chair sits empty nearby.' (Identified persons: Pearl)
+2026-03-01 14:52:08 at waypoint_99 in direction of 71.37: 'I am in an office. A person stands near a desk by the window, interacting with a computer, while coats hang on a rack nearby.' (Identified persons: Pearl)
+2026-03-01 14:52:07 at waypoint_99 in direction of 48.90: 'I am in an office hallway, with a person in motion near a windowed office on the left, interacting with a desk or chair. The scene is blurred, suggesting movement or a quick snapshot.'
+2026-03-01 14:52:06 at waypoint_98 in direction of 23.00: 'I am in a hallway, not a specific room like a kitchen or office. There are no people visible in the scene; the space is empty except for doors, walls, and a coat hanging on a hook.'
+2026-03-01 14:52:05 at waypoint_98 in direction of 7.52: 'I am in a long, empty office hallway with dark carpet and white walls. A person is partially visible entering a room on the left, interacting with the doorframe as they step inside.'
+2026-03-01 14:52:05 at waypoint_98 in direction of 3.66: 'I am in a dimly lit office hallway with dark carpet and white walls. A person in dark clothing is partially visible near a door on the left, appearing to interact with the door handle or a coat hanging nearby.'
+2026-03-01 14:52:04 at waypoint_97 in direction of 1.58: 'I am in a long, empty office hallway with dark carpet and white walls. There are no people present, so no interactions are occurring.'
+2026-03-01 14:52:02 at waypoint_97 in direction of 359.33: 'I am in a long, empty hallway with white walls and dark carpet. There are no people present, only framed artwork on the walls and closed doors along the corridor.'
+2026-03-01 14:52:01 at waypoint_97 in direction of 359.60: 'I am in a long, empty hallway with white walls and dark carpet. There are no people present, only framed artwork on the walls and doors along the corridor.'
+2026-03-01 14:52:00 at waypoint_97 in direction of 358.82: 'I am in a long, empty hallway with white walls and dark carpet, lined with abstract art. There are no people present, so no interactions are occurring.'
+2026-03-01 14:51:58 at waypoint_96 in direction of 359.16: 'I am in a long, empty hallway with white walls and dark carpet, lined with abstract art. There are no people present, so no interactions are occurring.'
+2026-03-01 14:51:57 at waypoint_96 in direction of 0.15: 'I am in a long, dimly lit hallway lined with abstract art on white walls. There are no people visible; the space is empty except for the artwork and distant ceiling lights.'
+2026-03-01 14:51:57 at waypoint_96 in direction of 0.66: 'I am in a long, dimly lit hallway lined with abstract art and closed doors. There are no people visible in the scene.'
+2026-03-01 14:51:56 at waypoint_95 in direction of 0.90: 'I am in a long, empty hallway with dark carpet and white walls adorned with abstract art. There are no people present, so no interactions are occurring.'
+2026-03-01 14:51:54 at waypoint_95 in direction of 1.94: 'I am in a long, empty hallway with white walls and dark carpet. There are no people present, only framed pictures on the walls and closed doors along the corridor.'
+2026-03-01 14:51:53 at waypoint_78 in direction of 1.57: 'I am in a long, empty hallway with dark carpet and white walls adorned with abstract art. There are no people present, so no interactions are occurring.'
+2026-03-01 14:51:52 at waypoint_78 in direction of 0.35: 'I am in a long, empty hallway with dark carpet and white walls adorned with abstract art. There are no people present, so no interactions are occurring.'
+2026-03-01 14:51:51 at waypoint_77 in direction of 359.08: 'I am in a long, empty hallway with dark carpet and white walls adorned with abstract art. There are no people present, so no interactions are occurring.'
+2026-03-01 14:51:50 at waypoint_77 in direction of 353.98: 'I am in a long, empty hallway with dark carpet and white walls. There are no people present; the only objects are a red fire extinguisher on the left wall and framed artwork hanging along the corridor.'
+2026-03-01 14:51:49 at waypoint_77 in direction of 349.36: 'I am in a long, empty office hallway with white walls and dark carpet. There are no people visible; the only objects are a red fire extinguisher on the left wall and framed art hanging along the corridor.'
+2026-03-01 14:51:48 at waypoint_76 in direction of 344.19: 'I am in an office hallway, with no people visible. To the right, an empty office contains a desk, computer, and chair, while a fire extinguisher is mounted on the left wall.'
+2026-03-01 14:51:47 at waypoint_76 in direction of 335.65: 'I am in a hallway adjacent to an office. A person is seated at a desk inside the office, interacting with a computer.'
+2026-03-01 14:51:46 at waypoint_76 in direction of 323.72: 'I am in a long, empty office hallway with dark carpet and white walls. No people are visible, but a fire extinguisher is mounted on the wall and a desk with a monitor is visible in a side room.'
+2026-03-01 14:51:45 at waypoint_75 in direction of 299.85: 'I am in a modern office hallway with black carpet and light wood flooring, where no people are visible. The scene includes open doorways leading to rooms with furniture like a sofa, but no one is interacting with anything.'
+2026-03-01 14:51:44 at waypoint_75 in direction of 283.89: 'I am in a modern office hallway with light wood flooring and black carpeted rooms branching off. No people are visible, but a black stool stands near a doorway, suggesting recent or impending human activity.'
+2026-03-01 14:51:43 at waypoint_75 in direction of 272.62: 'I am in an empty office or lounge area with light wood flooring and modern furniture. There are no people present, so no interactions are occurring.'
+2026-03-01 14:51:42 at waypoint_74 in direction of 268.90: 'I am in a modern office or co-working space with light wood flooring and a high-top table with stools. There are no people visible in the scene; the space is empty, with only furniture and a computer setup in the background.'
+2026-03-01 14:51:42 at waypoint_74 in direction of 267.99: 'I am in a modern, empty office or studio space with light wood flooring and a high-top table with stools. No people are present, so there are no interactions occurring.'
+2026-03-01 14:51:41 at waypoint_59 in direction of 267.69: 'I am in a modern, empty room with light wood flooring and white walls, likely a dining or lounge area with a high table and stools. There are no people present, so no interactions are occurring.'
+2026-03-01 14:51:39 at waypoint_59 in direction of 269.61: 'I am in a hallway leading to a kitchen or dining area, where two black bar stools sit at a light wood counter. No people are visible; the scene is empty and still.'
+2026-03-01 14:51:38 at waypoint_60 in direction of 272.98: 'I am in a hallway leading to a kitchen or dining area, where no people are present. The scene features empty bar stools at a counter, with no one interacting with them.'
+2026-03-01 14:51:37 at waypoint_60 in direction of 279.75: 'I am in a hallway leading to an office or study area. No people are visible; the scene is empty except for a stool and desk in the distant room.'
+2026-03-01 14:51:36 at waypoint_60 in direction of 296.95: 'I am in an empty hallway with light wood flooring and white walls. There are no people present, only a distant stool and counter visible at the far end.'
+2026-03-01 14:51:35 at waypoint_61 in direction of 322.95: 'I am in an empty, dimly lit room with plain walls and wood-look flooring, possibly a hallway or unfurnished space. There are no people present, so no interactions are occurring.'
+2026-03-01 14:51:34 at waypoint_61 in direction of 345.66: 'I am in an empty, dimly lit room with plain walls and a wooden floor, possibly a bedroom or storage space. There are no people present, only a small metallic object on the floor near the corner and a dark rectangular shape, perhaps a rug or furniture, partially visible.'
+2026-03-01 14:51:34 at waypoint_62 in direction of 358.96: 'I am in an empty room with light wood flooring and a dark rug near a large window; there are no people present, only a small, round object on the floor in the corner.'
+2026-03-01 14:51:33 at waypoint_63 in direction of 4.29: 'I am in an empty room with wooden floors and a dark rug near a large window; there are no people present, so no interactions are occurring.'
+2026-03-01 14:51:32 at waypoint_64 in direction of 8.49: 'I am in an empty entryway or hallway with wood-look flooring and a dark rug near a large glass door. There are no people present, only a small pet bowl on the floor in the corner.'
+2026-03-01 14:51:31 at waypoint_64 in direction of 7.05: 'I am in an empty entryway or hallway with wood-look flooring and a blue mat near a glass door. There are no people present, so no interactions are occurring.'
+        Pearl was seen at waypoint_99.
+        </pre></details></div><div class="chat-message log-message log-llm-end"></div><div class="chat-message log-message log-tool-start">Using tool: <strong>go_to_waypoint</strong> with input: <em>{'waypoint_name': 'waypoint_99', 'direction': 88, 'reason': "I saw Pearl at waypoint_99 on my way to waypoint_100. I'm going back to confirm her presence.", 'needs_validation': True, 'person_id_name': 'Pearl'}</em></div><div class="chat-message log-message log-tool-end">Tool output: <details><summary>Click to view</summary><pre>        You arrived at waypoint waypoint_99!
+        You are currently seeing: I am in an office. A person in a plaid shirt stands near a desk, while another person is partially visible behind a chair, both seemingly interacting with the office environment.
+        Identified persons here: Pearl
+        You have seen the following on your route:
+        2026-03-01 14:52:30 at waypoint_99 in direction of 87.84: 'I am in an office. A person in a plaid shirt walks past desks and office chairs, while another person stands near a coat rack by the wall.' (Identified persons: unknown person)
+2026-03-01 14:52:29 at waypoint_99 in direction of 86.25: 'I am in an office. A person in a plaid shirt stands near a desk, interacting with a chair and a coat rack holding jackets.' (Identified persons: unknown person)
+2026-03-01 14:52:28 at waypoint_99 in direction of 69.83: 'I am in an office. A woman in a plaid shirt stands near a desk, looking toward the camera, while a black office chair sits empty beside her.' (Identified persons: Pearl)
+2026-03-01 14:52:27 at waypoint_99 in direction of 67.13: 'I am in an office. A woman in a plaid shirt stands near a desk, interacting with a chair and a coat rack beside her.' (Identified persons: Pearl)
+2026-03-01 14:52:27 at waypoint_99 in direction of 70.13: 'I am in an office. A person in a plaid shirt stands near a window, holding a bag, while interacting with the space around a desk and chair.' (Identified persons: Pearl)
+2026-03-01 14:52:26 at waypoint_100 in direction of 80.22: 'I am in an office, where a person in a plaid shirt stands near a desk with a monitor, while another person is partially visible near a coat rack by the wall.' (Identified persons: Pearl)
+2026-03-01 14:52:25 at waypoint_100 in direction of 57.74: 'I am in an office. A person in a plaid shirt stands near a window, interacting with a rolling chair and a filing cabinet.' (Identified persons: unknown person)
+2026-03-01 14:52:24 at waypoint_100 in direction of 34.52: 'I am in an office or bedroom, as indicated by the carpeted floor, coat rack, and laundry basket. There are no people visible in the scene.'
+2026-03-01 14:52:23 at waypoint_100 in direction of 13.91: 'I am in a dimly lit office corner, near a desk with a chair and a trash can. No people are visible in the scene.'
+2026-03-01 14:52:21 at waypoint_100 in direction of 2.73: 'I am inside a dark, empty wooden closet or cabinet, with no people visible in the scene. The only interaction is with the surrounding wood panels and a faint green light reflecting off one wall.'
+        Pearl was seen at waypoint_99.
+Pearl was seen at waypoint_100.
+        </pre></details></div><div class="chat-message log-message log-llm-end"></div><div class="chat-message log-message log-tool-start">Using tool: <strong>on_success</strong> with input: <em>{'reason': 'I have successfully found Pearl at waypoint_99, as confirmed by real-time observations.'}</em></div><div class="chat-message log-message log-tool-end">Tool output: <details><summary>Click to view</summary><pre>You performed a little happy dance.</pre></details></div><div class="chat-message log-message log-llm-end">I have found Pearl at waypoint_99. She is currently in an office area, wearing a plaid shirt and interacting with the desk environment. This was confirmed by real-time observations as of 14:52 on March 1st, 2026.</div><div class="chat-message log-message log-task-complete"><strong>Task completed:</strong> Agent invocation completed. Usage: 96556 tokens. Task took 2.56 minutes.</div><div class="chat-message log-message log-tool-report"><strong>Tool usage report:</strong> Waypoints visited: waypoint_69, waypoint_65, waypoint_100, waypoint_99.Tools called: query_semantic_observations: 1, get_route_information: 3, go_to_waypoint: 4, query_person_history: 1, on_success: 1.</div></div>
+            <form id="prompt-form" class="prompt-form">
+                <input type="text" id="prompt-input" placeholder="Enter your task..." autocomplete="off">
+                <button type="submit">Send</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+    
+<script>
+    function generateThreadId() {
+        return Math.floor(Math.random() * 1000000000).toString();
+    }
+
+    $(document).ready(function () {
+        let threadId;
+        let userPrompt = '';
+        let socket;
+
+        const imageElement = document.getElementById('live-image');
+        const socketStatusElement = document.getElementById('socket-status');
+        const robotStatusElement = document.getElementById('robot-status');
+        const timestampElement = document.getElementById('timestamp');
+        const locationElement = document.getElementById('location');
+        const cmdElement = document.getElementById('cmd');
+        const uncaptionedCountElement = document.getElementById('uncaptioned-count');
+        const chatBox = document.getElementById('chat-box');
+
+        function initializeThread() {
+            threadId = generateThreadId();
+            $('#thread-id').text(threadId);
+        }
+
+        function appendLogMessage(message, type) {
+            const logElement = document.createElement('div');
+            logElement.classList.add('chat-message', 'log-message', `log-${type}`);
+            logElement.innerHTML = message;
+            chatBox.appendChild(logElement);
+        }
+
+        function connect() {
+            const wsProtocol = window.location.protocol === 'https' ? 'wss:' : 'ws:';
+            const wsUrl = `${wsProtocol}//${window.location.host}/ws`;
+
+            console.log(`Connecting to WebSocket at: ${wsUrl}`);
+            socketStatusElement.textContent = 'Connecting...';
+            socketStatusElement.classList.remove('connected');
+
+            socket = new WebSocket(wsUrl);
+
+            socket.onopen = () => {
+                console.log('WebSocket connection established.');
+                socketStatusElement.textContent = 'Connected';
+                socketStatusElement.classList.add('connected');
+                // Send thread_id to server
+                socket.send(JSON.stringify({ thread_id: threadId }));
+            };
+
+            socket.onmessage = (event) => {
+                try {
+                    const data = JSON.parse(event.data);
+
+                    // Handle LLM/tool logs
+                    if (data.type) {
+                        switch (data.type) {
+                            case 'llm_start':
+                                $('#chat-box').scrollTop($('#chat-box')[0].scrollHeight);
+                                break;
+                            // case 'agent_action':
+                            //     appendLogMessage(`Using tool: <strong>${data.tool}</strong> with input: <em>${data.input}</em>`, 'agent-action');
+                            //     break;
+                            case 'tool_start':
+                                appendLogMessage(`Using tool: <strong>${data.tool}</strong> with input: <em>${data.input}</em>`, 'tool-start')
+                                break;
+                            case 'tool_end':
+                                appendLogMessage(`Tool output: <details><summary>Click to view</summary><pre>${data.output}</pre></details>`, 'tool-end');
+                                break;
+                            case 'agent_finish':
+                                const answer = data.output;
+                                let botMessage = `
+                                <div class="chat-message bot-message">
+                                    <p>${answer}</p>
+                                </div>`;
+                                $('#chat-box').append(botMessage);
+                                $('#chat-box').scrollTop($('#chat-box')[0].scrollHeight);
+                                break;
+                            case 'llm_end':
+                                appendLogMessage(data.response, 'llm-end');
+                                break;
+                            case 'task_completed':
+                                appendLogMessage(`<strong>Task completed:</strong> ${data.report}`, 'task-complete');
+                                break;
+                            case 'tool_report':
+                                appendLogMessage(`<strong>Tool usage report:</strong> ${data.tools}`, 'tool-report');
+                                break;
+                            default:
+                                console.log(data)
+                        }
+                        return;
+                    }
+
+
+                    if (data.image_data) {
+                        imageElement.src = 'data:image/jpeg;base64,' + data.image_data;
+                    }
+                    if (data.timestamp) {
+                        const date = new Date(data.timestamp * 1000);
+                        timestampElement.textContent = date.toLocaleString();
+                    }
+                    if (data.waypoint_name && data.room_name) {
+                        locationElement.textContent = `'${data.waypoint_name}' in room '${data.room_name}'`
+                    }
+                    if (data.current_cmd) {
+                        const cmd = data.current_cmd;
+                        cmdElement.textContent = `Prompt: ${cmd.prompt} -> ${cmd.waypoint_name} [${cmd.status}]`;
+                    }
+                    if (data.robot_status) {
+                        robotStatusElement.textContent = data.robot_status;
+                        robotStatusElement.classList.toggle('connected', data.robot_status === 'UP');
+                    }
+                    if (data.uncaptioned_count != null) {
+                        uncaptionedCountElement.textContent = data.uncaptioned_count;
+                    }
+                } catch (e) {
+                    console.error('Failed to parse incoming message:', e, event.data);
+                }
+            };
+
+            socket.onclose = (event) => {
+                console.log('WebSocket connection closed. Reconnecting in 5s...', event);
+                socketStatusElement.textContent = 'Disconnected';
+                socketStatusElement.classList.remove('connected');
+                robotStatusElement.textContent = 'Disconnected';
+                robotStatusElement.classList.remove('connected');
+                setTimeout(connect, 5000);
+            };
+
+            socket.onerror = (error) => {
+                console.error('WebSocket Error:', error);
+                socketStatusElement.textContent = 'Error';
+                socketStatusElement.classList.remove('connected');
+                socket.close();
+            };
+        }
+
+        $('#new-thread-btn').on('click', function () {
+            if (socket) {
+                socket.close();
+            }
+            threadId = generateThreadId();
+            localStorage.setItem('chatThreadId', threadId);
+            $('#thread-id').text(threadId);
+            $('#chat-box').empty();
+        });
+
+        initializeThread();
+        connect();
+
+        $('#prompt-form').on('submit', function (e) {
+            e.preventDefault();
+            let promptText = $('#prompt-input').val().trim();
+            if (promptText === '') return;
+
+            userPrompt = promptText;
+
+            $('#chat-box').append('<div class="chat-message user-message">' + promptText + '</div>');
+            $('#prompt-input').val('');
+            $('#chat-box').scrollTop($('#chat-box')[0].scrollHeight);
+
+            $.ajax({
+                url: '/prompt',
+                type: 'POST',
+                contentType: 'application/json',
+                data: JSON.stringify({ prompt: promptText, thread_id: threadId }),
+                success: function (data) {
+                    console.log('Prompt sent successfully:', data.status);
+                },
+                error: function (xhr, status, error) {
+                    console.error("Error:", error);
+                    let errorMessage = '<div class="chat-message bot-message">Error: ' + xhr.responseText + '</div>';
+                    $('#chat-box').append(errorMessage);
+                    $('#chat-box').scrollTop($('#chat-box')[0].scrollHeight);
+                }
+            });
+        });
+    });
+</script>
+
+
+
+</body></html>

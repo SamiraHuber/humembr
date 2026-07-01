@@ -1,0 +1,83 @@
+{% extends "base.html" %}
+
+{% block title %}Waypoints Map{% endblock %}
+
+{% block content %}
+<div class="main-content">
+    <h1>Map</h1>
+    <div class="container">
+        <img src="{{ url_for('static', filename='images/map_overview.png') }}" width="100%" style="border-radius: 8px;">
+    </div>
+
+    <h1>Waypoints and Captions</h1>
+    <table class="waypoint-table">
+        <thead>
+            <tr>
+                <th>Waypoint</th>
+                <th>Room</th>
+                <th>Captions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for item in items %}
+            <tr>
+                <td>{{ item.waypoint_name }}</td>
+                <td>{{ item.room_name }}</td>
+                <td>
+                    <ul>
+                        {% for caption in item.captions %}
+                        <li class="caption" data-id="{{ caption.id }}">{{ caption.caption }}</li>
+                        {% endfor %}
+                    </ul>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+<!-- Modal -->
+<div id="imageModal" class="modal">
+    <span class="close">&times;</span>
+    <img class="modal-content" id="modalImage">
+    <div id="caption"></div>
+</div>
+
+{% endblock %}
+
+{% block scripts %}
+<script>
+$(document).ready(function(){
+    var modal = $('#imageModal');
+    var modalImg = $('#modalImage');
+    var captionText = $('#caption');
+
+    $('.caption').click(function(){
+        var imageId = $(this).data('id');
+        $.ajax({
+            url: '/image/' + imageId,
+            type: 'GET',
+            success: function(response) {
+                modal.show();
+                modalImg.attr('src', 'data:image/jpeg;base64,' + response.image_data);
+                captionText.text(response.caption);
+            },
+            error: function(error) {
+                console.log(error);
+                alert('Could not load image.');
+            }
+        });
+    });
+
+    $('.close').click(function(){
+        modal.hide();
+    });
+
+    $(window).click(function(event) {
+        if (event.target == modal[0]) {
+            modal.hide();
+        }
+    });
+});
+</script>
+{% endblock %}

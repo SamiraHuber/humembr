@@ -1,0 +1,69 @@
+[project]
+name = "humembr"
+version = "0.1.0"
+description = "HUMEMBR: Learning Human Routines for Predictive Embodied Navigation"
+readme = "README.md"
+requires-python = "==3.10.12"
+dependencies = [
+    "accelerate>=1.11.0",
+    "bosdyn-api==5.0.1",
+    "bosdyn-choreography-client==5.0.1",
+    "bosdyn-client==5.0.1",
+    "bosdyn-core==5.0.1",
+    "bosdyn-mission==5.0.1",
+    "flask>=3.1.2",
+    "flask-sock>=0.7.0",
+    "gdown>=5.2.0",
+    "google-genai>=1.49.0",
+    "matplotlib==3.10.5",
+    "numpy==2.2.6",
+    "ollama>=0.6.1",
+    "opencv-python==4.11.0.86",
+    "pgvector>=0.4.1",
+    "pillow==11.3.0",
+    "psycopg[binary,pool]>=3.2.12",
+    "pygame==2.6.1",
+    "pyopengl==3.1.10",
+    "qwen-vl-utils>=0.0.14",
+    "scipy==1.15.3",
+    "sentence-transformers>=5.1.2",
+    "tensorboard>=2.20.0",
+    "tomli==2.2.1",
+    "torch==2.5.1",
+    "torchreid>=0.2.5",
+    "torchvision==0.20.1",
+    "transformers==4.57.1",
+    "osnet==0.1.0",
+    "ultralytics>=8.3.226",
+    "langchain>=1.2.10",
+    "langchain-google-genai>=3.1.0",
+    "langchain-community>=0.2.10",
+    "langchain-ollama>=1.0.1",
+    "networkx>=3.4.2",
+    "insightface>=0.7.3",
+    "onnxruntime>=1.23.2",
+    "scikit-learn>=1.7.2",
+    "pyright>=1.1.408",
+    "openai>=2.21.0",
+    "langchain-openai>=1.1.10",
+    "seaborn>=0.13.2",
+]
+
+[tool.uv.sources]
+torchreid = { git = "https://github.com/VlSomers/keypoint_promptable_reidentification" }
+osnet = { git = "https://github.com/aeropagz/deep-person-reid"}
+
+[dependency-groups]
+dev = [
+    "pytest>=9.0.2",
+    "pytest-env>=1.2.0",
+]
+
+[tool.pytest.ini_options]
+env = [
+    "DATABASE_URL=postgresql://postgres:mysecretpassword@localhost:5434/spot-db-test?sslmode=disable",
+]
+
+[build-system]
+requires = ["uv_build>=0.9.29,<0.10.0"]
+build-backend = "uv_build"

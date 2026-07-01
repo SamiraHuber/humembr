@@ -1,0 +1,212 @@
+id;question;context_time;type;answer;optimal_context;ready;comment;multiple_days
+6da745da-815e-417d-ba54-5835cd39d2e4;Who is working in the tech lab?;2026-03-01 22:00:00;person;Nemo;2025-11-20 10:24:41;1;;0
+fbc7f99f-879d-4507-8b1b-b972df201899;Who is the team lead in the office?;2026-02-07 22:00:00;person;Tad;;1;;1
+618ae212-50af-4e21-a2ec-7251cbaf9ca0;With who did Nigel play ball today?;2025-11-27 22:00:00;person;Bloat;2025-11-27 15:11:59;1;;0
+cc83d17e-8ed0-43b9-8e94-541b6a705450;Was Nigel playing ball today?;2025-11-27 22:00:00;bool;true;2025-11-27 15:11:59;1;;0
+7600c5fd-1aae-4560-af0b-fbed896e907f;When have you seen Bloat the first time today?;2025-11-27 22:00:00;time;2025-11-27 15:11:56;2025-11-27 15:11:56;1;;0
+7df226e9-ab6f-4ef0-9abd-dfa888142619;Did Nigel sit on the couch today?;2025-11-27 22:00:00;bool;FALSE;2025-11-27 22:00:00;1;Only Bloat;0
+7c92963a-85c8-43cb-8c38-2e501ce540fa;Which two people work at the HiWi office today?;2025-11-27 22:00:00;person;Bloat, Nigel;2025-11-27 15:23:50;1;Mehrmals da zu sehen;0
+84006a8e-4018-4414-a0bc-35176fe8d62c;Have you seen Bloat today?;2025-11-27 22:00:00;bool;True;2025-11-27 14:47:30;1;;0
+a2681dbf-c640-4aa6-a87f-463929faa2ed;With who did Nigel work in the same office today?;2025-11-27 22:00:00;person;Pearl,Squirt,Bloat;2025-11-27 15:30:33;1;;0
+7f9beb88-c2fb-4354-b631-c3605370572e;When have you seen Nigel the first time today?;2025-12-02 22:00:00;time;2025-12-02 11:47:26;2025-12-02 11:47:26;1;;0
+f4762a78-60e9-4474-bd0f-54f2bf5d2f2f;When have you seen Squirt the first time today?;2025-12-02 22:00:00;time;2025-12-02 14:48:20;2025-12-02 14:48:20;1;;0
+46befa3b-0d46-4031-b9a8-c12730f4023a;What is Pearl doing on waypoint_11 today?;2025-12-02 22:00:00;semantic;Working on a pc;2025-12-02 14:51:21;1;;0
+e1ed64a7-3e73-4c69-a9cb-cf15d78d44ee;When did you Pearl see the last time today?;2025-12-02 22:00:00;time;2025-12-02 14:54:45;2025-12-02 14:54:45;1;;0
+17263e9c-41c9-4be0-ab47-216ae6c14e88;Where did you see Pearl the last time today?;2025-12-02 22:00:00;spatial;waypoint_11;2025-12-02 14:54:45;1;;0
+31be5cf1-92c5-4cca-a7bb-958b05f0352b;Was Nigel playing with a ball today?;2025-12-02 22:00:00;bool;False;2025-12-02 22:00:00;1;;0
+f1adb29b-ac3d-4723-9485-15e17c5349c0;Dory was seen today at 15:40:15 on waypoint_99. Who does usually work there?;2025-12-03 15:41:00;person;Pearl;2025-12-03 22:00:00;1;;0
+4506778b-f914-4132-b9b9-85dae7fc17ba;When did you see Pearl the first time on Dec 3rd?;2025-12-03 22:00:00;time;2025-12-03 09:07:24;2025-12-03 09:07:24;1;;0
+50dc19b9-bbd8-47e3-bfaa-ab428826fe0c;When was Squirt last seen today?;2025-12-03 22:00:00;time;2025-12-03 13:49:53;2025-12-03 13:49:53;1;CHECKED but hard;0
+0ec13add-1760-4cdd-acb6-7f43a79a60b0;Where is the volleyball lying around today?;2025-12-03 22:00:00;spatial;waypoint_91;2025-12-03 12:55:09;1;;0
+716d0081-6a59-44cd-83ba-f4d3a2fd7458;How many people work at waypoint 81 this afternoon?;2025-12-03 22:00:00;semantic;3;2025-12-03 13:44:10;1;;0
+427defa7-79ea-40fb-8e14-bfd870f20416;Did Pearl play with the ball today?;2025-12-03 22:00:00;bool;true;2025-12-03 15:41:24;1;;0
+f3c5022d-59e3-4e8e-96a9-d2f869155e94;When did the camera team arrive today?;2025-12-03 22:00:00;time;2025-12-03 17:14:30;2025-12-03 17:14:30;1;;0
+3273c7d1-3627-4504-878c-bef6b419d09e;Was there a camera team in the office today?;2025-12-03 22:00:00;bool;true;2025-12-03 17:14:30;1;;0
+bf0c2a2e-1641-4ede-8515-f1fb65bf8b2b;When was the last interaction today?;2025-12-03 22:00:00;time;2025-12-03 17:37:14;2025-12-03 17:37:14;1;;0
+953f8d09-7595-4c61-af3c-6f184359fe3e;How many people have been working on the waypoint 92 today?;2025-12-03 22:00:00;semantic;3;2025-12-03 13:44:06;0;;0
+12d0d1bc-0059-4c4a-81b7-a1350cc9a468;When have you seen Pearl the last time today?;2025-12-03 22:00:00;time;2025-12-03 17:37:14;2025-12-03 17:37:14;0;;0
+dd1bf066-9c62-4756-82d3-d75432fe0ed9;Have you seen Pearl on the 22nd Dec?;2025-12-22 22:00:00;bool;False;;1;;0
+b8778763-c2e9-48d5-a7d1-d4cba7d26aab;Have you seen Dory today?;2025-12-22 22:00:00;bool;True;2025-12-22 15:21:05;1;CHECKED;0
+bcb92303-5482-4eab-b9e0-47197896109c;Who sat on the couch today?;2025-12-22 22:00:00;person;Crush;2025-12-22 15:22:16;1;;0
+004d2b21-7068-4941-bc1d-2e52c2c48350;How long have you seen Crush in the office today?;2025-12-22 22:00:00;time;2025-12-22 15:22:59;2025-12-22 15:22:59;1;;0
+e51d73ea-9809-454a-8cc0-c860c893c3ba;Who have you seen for the first time today but not on the other days this week?;2025-12-22 22:00:00;person;Crush;2025-12-22 15:22:14;1;;1
+40e3aa97-2a93-4365-99e9-591a71c079f5;Who was in the office just before Christmas?;2025-12-24 22:00:00;person;Crush,Dory,Nigel;;1;Cluster Problem!;0
+b4a41845-749f-4b05-8ed0-cb9500f6eefa;When have you seen Crush overall the first time?;2025-12-31 22:00:00;time;2025-12-22 15:22:14;2025-12-22 15:22:14;1;;1
+2e1e491a-05a7-4127-bfc5-8a3f7fbcfe98;Who did visit the HiWi-office today at 12:11:33?;2026-01-07 12:15:33;person;Pearl;2026-01-07 12:11:33;1;;0
+d6ff76e4-5d22-4869-b0d6-d16e85dabb99;Did you see the ball today?;2026-01-07 22:00:00;bool;False;;1;;0
+2ab07872-58d6-4f18-8e88-5da34a1086ba;Where have you seen Nemo the last time?;2026-01-15 11:37:14;spatial;waypoint_51;2026-01-15 11:37:14;1;;0
+d6ea7b9f-f5c0-483f-a9ce-4049d036efdf;How long did Nigel stay in the office today?;2026-01-15 22:00:00;duration;100;;1;2026-01-15 11:31:30 -  2026-01-15 13:11:11;0
+a21980d1-e787-4440-8428-318403083cc0;Was Pearl in the office today?;2026-01-15 22:00:00;bool;True;2026-01-15 11:33:45;1;;0
+c7bbbde9-8748-467b-9f2f-c79a59396f30;When did Pearl get breakfast today?;2026-01-15 22:00:00;semantic;I don’t know;;1;Hallucination test;0
+4cc0dd3b-d16b-4064-9b5f-e69dc5c87810;From your observations today, which location should be tidied up?;2026-01-15 22:00:00;spatial;waypoint_51;2026-01-15 11:37:14;1;;0
+707832a2-a5bb-4638-88f7-349078a57d71;Did Nigel already have lunch today?;2026-01-21 15:00:00;bool;true;2026-01-21 14:25:45;1;;0
+6d7e43ee-f102-4506-97fc-eb819c9c4adc;Who was the first person in the office today?;2026-01-21 22:00:00;person;Nigel;2026-01-21 14:17:53;1;;0
+8fd6c66d-576a-4efe-bbd5-502c608569ff;When did Nigel come in today?;2026-01-21 22:00:00;time;2026-01-21 14:17:53;2026-01-21 14:17:53;1;;0
+7b5cd0da-0edb-48b1-8a8f-21cf890f18d3;When did Nigel have lunch today?;2026-01-21 22:00:00;time;2026-01-21 14:25:45;2026-01-21 14:25:45;1;;0
+41ad4291-b615-4435-ad52-c7ae317a63ff;Where did Nigel have lunch today?;2026-01-21 22:00:00;spatial;waypoint_83;;1;;0
+9ddb8e13-bba8-441c-a281-bb2d041ea222;How long did Nigel have lunch today?;2026-01-21 22:00:00;duration;8;2026-01-21 14:25:44;1;2026-01-21 14:25:44 - 2026-01-21 14:33:19;0
+3b9b9cee-c8cc-46b1-abb5-aa606cc2a702;How many people worked in the HiWi-office with Nigel today?;2026-01-23 09:49:05;semantic;2;2026-01-23 09:49:04;1;Crush,Darla;0
+87b407a9-210b-4b04-8959-12c2cad03b07;What happened at 2026-01-23 12:22:32 at waypoint_177?;2026-01-23 12:23:32;semantic;Unboxing something or building up something;2026-01-23 12:22:32;1;Oder irgendwas, da sie den 3d-printer aufbauen;0
+d3a34704-613f-40e7-86b2-98ac81cbbe06;Where is the 3d printer unboxed?;2026-01-23 13:19:45;spatial;waypoint_52;2026-01-23 13:19:45;1;verschiedene timestamps;0
+de40b881-064a-493a-80fb-b355407d96f7;Who was at waypoint_52 today at 13:56:39?;2026-01-23 13:56:39;person;Nemo, Chum;2026-01-23 13:56:39;1;;0
+5b0df9c0-f9e7-4c0a-b6fd-19c3434d0e57;Did Nigel come in early today?;2026-01-23 22:00:00;bool;true;2026-01-23 09:08:03;1;wobei early ansichtssache ist;0
+740ebea0-efc0-4396-a56a-aa94a3c2aa8a;When have you seen Nigel the last time on Feb 3rd?;2026-02-03 22:00:00;semantic;he was not there;;1;no data for this day;0
+0cc5fa2d-9177-42f9-b3ed-b0558dd34f84;How long have you seen Pearl in the kitchen after coming in at 12:06:39?;2026-02-04 12:30:00;duration;7;2026-02-04 12:13:43;1;untill 2026-02-04 12:06:39 - 2026-02-04 12:13:43;0
+0c59554e-004f-482a-9f3b-b5f64939f628;Which person came into the kitchen when Nigel and Deb where there today?;2026-02-04 13:00:00;person;Pearl;2026-02-04 12:06:39;1;;0
+5103aa1a-9771-40ed-9674-6801acaa8baf;Which two people joined Nigel in the kitchen at lunchtime today?;2026-02-04 15:00:00;person;Deb,Pearl;2026-02-04 12:06:37;1;hm chum war später auch mal da;0
+9cf8f4a7-bffa-41ab-b046-aba7b3a98efc;Have Nigel and Deb be seen in the kitchen together today?;2026-02-04 22:00:00;bool;True;2026-02-04 12:06:38;1;ja direkt danach;0
+7e5ed769-6848-46e6-b369-1ed200b534ee;Have Pearl and Chum met in the kitchen today?;2026-02-04 22:00:00;bool;False;;1;;0
+08e55b28-c412-4fc8-a823-871db6f3492e;Until when was Pearl with Nigel in the office today?;2026-02-05 09:20:00;time;2026-02-05 09:13:37;2026-02-05 09:13:37;1; unclear;0
+8e2312d3-b8ff-4840-922e-2af755877518;Which two people where in the kitchen at today 09:21:47?;2026-02-05 09:21:48;person;Pearl,Gill;2026-02-05 09:21:47;1;Checked;0
+459e42f1-d7a7-4c1c-973f-f1b368db25df;When did Pearl join Nigel in his office today?;2026-02-05 10:00:00;time;2026-02-05 09:01:46;2026-02-05 09:01:46;1;;0
+9c31a6f7-5d22-41fb-931f-9fa99f58eb99;When did Pearl get her breakfast today?;2026-02-05 10:00:00;time;2026-02-05 09:16:14;2026-02-05 09:16:14;1;;0
+f89c8527-2b06-4716-be21-f01627c4e177;When did Nigel eat from his white container again today?;2026-02-05 22:00:00;time;2026-02-05 09:04:49;2026-02-05 09:04:49;1;showing his container in the camera;0
+d1745a38-bfa0-4a84-8623-45dce6c81d3b;When have you seen Dory in the kitchen today?;2026-02-05 11:00:00;time;2026-02-05 09:58:17;2026-02-05 09:58:17;1;;0
+994fb3ba-cd50-4887-95dd-23aa484f3103;What did Pearl do in the kitchen today at 12:49:19?;2026-02-05 13:00:00;semantic;fill water bottle;2026-02-05 12:49:19;1;;0
+43f68819-94a2-4db4-9523-90543418bf91;How long was Pearl with Nigel on 5th Feb afternoon?;2026-02-05 13:10:00;duration;3;2026-02-05 12:59:43;1;2026-02-05 12:59:43 - 2026-02-05 13:02:24;0
+d80f1fd5-e278-4928-a980-39462a89adc0;What activities has Pearl done today?;2026-02-05 21:11:00;semantic;Juggling, kitchen, cleaning, working with computer;2026-02-09 12:27:59;1;;0
+9c3e9270-0d15-4baf-bf16-c93fc59dc249;For how long was Anchor in the kitchen?;2026-02-11 11:00:00;duration;6;2026-02-11 09:56:36;1;2026-02-11 09:55:53 - 2026-02-11 10:01:18;0
+2814ac00-be30-434a-a0fb-9a914f146d6d;Where have you seen Pearl the first time today?;2026-02-05 21:11:00;spatial;waypoint_90;2026-02-05 09:01:37;1;;0
+7f2dc31f-2a95-4453-b297-ca8d938c0379;Where have you seen Nigel the last time today?;2026-02-05 21:11:00;spatial;waypoint_86;2026-02-05 18:08:51;1;;0
+3141ead9-a5de-4d41-a407-52a7e361d234;When did Nigel have breakfast today?;2026-02-05 22:00:00;time;2026-02-05 09:04:41;2026-02-05 09:04:41;1;;0
+4d4cbddc-89aa-462d-85b4-9b2684b7dbfc;At which workdays was Pearl not in the office this week?;2026-02-05 22:00:00;semantic;Monday,Tuesday;2026-02-05 22:00:00;1;;1
+6c22304e-2fd2-4d89-b376-945bbc1d619d;When have you seen Chum the first time today?;2026-02-05 22:00:00;time;2026-02-05 09:15:55;2026-02-05 09:15:55;1;;0
+59c1d743-5788-4932-8bc9-41e09c7c7c44;When was Anchor the first time in the kitchen today?;2026-02-05 22:00:00;time;2026-02-05 09:38:42;2026-02-05 09:38:42;1;Checked;0
+197f169f-de64-49ae-9d54-7b84e813e8c4;Was Hank in the office today?;2026-02-05 22:00:00;bool;true;2026-02-05 11:47:04;1;;0
+0cdac51f-b56a-4fc8-9644-cfb789cd82de;With who did Dory play ball today?;2026-02-05 22:00:00;person;Anchor;2026-02-05 12:00:37;1;;0
+a756b277-2b25-4abf-95dd-57a169d942cf;Who did have lunch on 2026-02-05 13:03:03?;2026-02-05 22:00:00;person;Nigel;;1;;0
+1bf5cf75-91fc-475c-b743-75b1492f496d;When have you seen Pearl and Nigel last time today?;2026-02-05 22:00:00;time;2026-02-05 18:09:59;2026-02-05 18:09:59;0;;0
+cf026aae-4d44-47b7-ad04-009648153228;What is Nigel currently doing?;2026-02-06 10:50:00;semantic;Sitting on the floor;2026-02-06 10:47:08;1;;0
+79f496e4-f1a2-4ea8-9123-95f251e2f2e0;Was Nigel sitting on the floor today?;2026-02-06 22:00:00;bool;True;2026-02-06 10:47:09;1;;0
+99155ed7-f6b1-44e9-8b25-9f3bc7544110;Have you ever seen Nigel with a ball?;2026-02-06 22:00:00;bool;True;2025-11-27 15:11:56;1;;1
+84ce1012-437b-41a9-b425-1ea44ab3ac2b;Was Anchor ever in the same office as Nigel today?;2026-02-06 22:00:00;bool;True;2026-02-06 14:00:54;1;;0
+958f6a79-3864-46a4-bdf4-5dbf27033d5c;What was the latest time Nigel was in the office this week?;2026-02-07 22:00:00;time;2026-02-05 18:08:51;;1;;0
+b04d214b-61f7-4c1c-bef8-1c59342d04c2;Was Pearl wearing a black sweater this week?;2026-02-08 22:00:00;bool;True;2026-02-05 09:22:07;1;;1
+bd22fd6f-7887-4d03-b65f-dd3068c8aa3b;What did Deb hold in his hand when he arrived today at 10:32 in the kitchen?;2026-02-09 10:34:15;semantic;bring a shopping bag;2026-02-09 10:32:15;1;;0
+b09f4f01-7b52-401e-ba0e-e44eca80c07a;How long did Peach and Tad talk in the kitchen at noon today?;2026-02-09 12:10:00;duration;10;2026-02-09 12:05:34;1;2026-02-09 11:55:32 - 2026-02-09 12:05:34;0
+a7ddcdce-24ae-4950-b6b7-fcf32f2531bf;Where is Nemo currently?;2026-02-09 12:25:29;spatial;Waypoint_69;2026-02-09 12:25:29;1;;0
+4f7ee948-192b-45a1-a82a-d8ce0e547421;What does Pearl hold in her hand when she was in the kitchen today at 12:36 PM?;2026-02-09 12:37:00;semantic;Apple;2026-02-09 12:36:46;1;;0
+1c0747bc-e565-4c27-93ee-a529b54a7061;Who put her stuff in the dishwasher at 12:53 PM today?;2026-02-09 12:54:00;person;Sheldon;2026-02-09 12:53:48;1;;0
+88de5f2f-43eb-4a56-805b-2ab190ffbc4a;How long did Sheldon stay in the kitchen when arriving at 12:52 PM today?;2026-02-09 14:00:00;duration;3;2026-02-09 12:55:23;1;2026-02-09 12:52:37 - 2026-02-09 12:55:23;0
+018ec37d-01ab-4798-a79e-da616e7a169e;Who joined Sheldon in the kitchen when she was doing something with the dishwasher?;2026-02-09 14:00:00;person;Gurgle;2026-02-09 12:55:22;1;;0
+9f4e7621-2fa5-425f-94f3-b5cd73746665;What was Tad doing today?;2026-02-09 22:00:00;semantic;Collaborating on a whiteboard, chatting in the kitchen;2026-02-09 13:46:09;1;;0
+10e2fd68-3bee-4684-8ed3-2cf0db2461c3;What is Nigel typically drinking?;2026-03-01 22:00:00;semantic;Monster Energy;2026-02-05 09:12:28;1;;1
+084cb022-3c25-4199-8662-3a71b21a84bb;With whom was Darla working in the same office today?;2026-02-09 22:00:00;person;Nigel;2026-02-09 14:02:51;1;;0
+f089fb8a-7ec2-41b6-9091-d976e08ebf22;Did Nemo and Gill ever met today?;2026-02-09 22:00:00;bool;True;2026-02-09 14:16:10;1;Checked;1
+502f7711-7898-49d7-8684-8fc7be5b543e;At which time did Chum get his first coffee today?;2026-02-09 22:00:00;time;2026-02-09 14:20:00;2026-02-09 14:20:00;1;Checked;0
+d5312383-d0b7-4acd-badb-7083d9f4c82e;When did Pearl get her lunch today?;2026-02-09 22:00:00;time;2026-02-09 14:40:20;2026-02-09 14:40:20;1;Checked and hard because of apple;0
+c8b256ee-d45f-4576-8d9b-2839c350d494;When did Nigel and Pearl meet in the kitchen today?;2026-02-09 22:00:00;time;2026-02-09 14:41:53;2026-02-09 14:41:53;1;;0
+23ca7d7a-9765-441d-85a4-95066d3bbbca;What did Nigel get as lunch today?;2026-02-09 22:00:00;semantic;Quark in a small white container;2026-02-09 14:42:27;1;englischen Begriff für Speisequark;0
+f097e3ca-fa53-46c7-a1e3-a0bf73cf7d15;When did Nigel throw away is white food container today?;2026-02-09 22:00:00;time;2026-02-09 15:20:47;2026-02-09 15:20:47;1;;0
+47443f59-6062-4cae-bdd7-ca645bc56a63;Who was in the office first today? Pearl or Nigel?;2026-02-09 22:00:00;person;Pearl;2026-02-09 10:21:00;1;;0
+e9ffce3a-3422-40c6-9135-0598e1a0685e;Was Pearl ordering chairs today?;2026-02-09 22:00:00;bool;True;2026-02-09 10:13:05;1;;0
+542bb022-e991-4946-b84c-08b0b3e0d5f7;For how long was Tad working on the whiteboard on the 9th of Feburary 2026?;2026-02-09 22:00:00;duration;6;2026-02-09 13:46:09;1;;0
+8f600f64-d118-4d5f-9d2e-95901f6809c0;When have you seen Chum for the first time today?;2026-02-09 22:00:00;time;2026-02-09 10:21:00;2026-02-09 10:21:00;1;CHECKED;0
+09f066f1-155c-4887-a21e-0c547a4f457f;What is Nigel typically eating?;2026-02-10 22:00:00;semantic;White container or mug;2026-02-09 14:55:28;1;;1
+ea4e7219-9272-4d0a-8067-69e8f7634978;At which time did Nemo get his first coffee today?;2026-02-09 22:00:00;time;2026-02-09 12:26:15;2026-02-09 12:26:15;1;;0
+18f66f2c-37a8-43fc-bc8c-1145578c355a;What did Anchor bring to the office?;2026-02-11 10:00:00;semantic;can and bag with buns;2026-02-11 09:55:53;1;;0
+f741554b-128a-4011-924f-5b8239084862;With whom did Tad talk on the 9th of Feburary at early afternoon?;2026-02-11 11:00:00;person;Darla;2026-02-09 13:46:05;1;;0
+2e39433e-9cb7-412d-8c8d-61b74034f19c;How long did it take Nigel to empty the dishwasher today?;2026-02-11 22:00:00;duration;9;2026-02-11 08:10:25;1;2026-02-11 08:01:20 - 2026-02-11 08:10:25;0
+3bf8ab56-bc25-47bf-9a33-0ffee2c47d34;Who cleared the dishwasher today?;2026-02-11 22:00:00;person;Nigel;2026-02-11 08:09:25;1;;0
+2b548a46-5c66-44a9-a1e3-4f423f4fc912;How often did Pearl visit Nigel today?;2026-02-11 22:00:00;semantic;Twice;2026-02-11 22:00:00;1;10:16:39,09:16:39;0
+db7ab74e-f68b-4e7b-9b88-691137c30d8e;Where was Pearl today at most?;2026-02-11 22:00:00;spatial;waypoint_91;2026-02-11 22:00:00;1;;0
+4fb15c08-9c61-4f61-90c3-e6c46a99b00d;When was the first time you saw Phil?;2026-02-11 22:00:00;semantic;2026-02-11;;0;;1
+4966d05c-57fd-42b2-b228-bff0e5bc62a4;How often did Squirt get water on the 11th?;2026-02-11 22:00:00;semantic;at least once;2026-02-11 08:58:06;1;;0
+18ad9d69-26c5-4970-af88-5b7d1ed85e61;When have you seen Squirt the first time on the 11th?;2026-02-11 22:00:00;time;2026-02-11 08:58:06;2026-02-11 08:58:06;1;;0
+430439d7-d8ec-45a8-88e7-6ac24039d7d9;When did Anchor eat breakfast on the 11th?;2026-02-11 22:00:00;time;2026-02-11 09:59:00;2026-02-11 09:59:00;1;;0
+1a178ebd-d55a-4bf0-86a1-a68dc3960f7f;What did Chum get to drink on the 11th in the morning?;2026-02-11 22:00:00;semantic;Water;2026-02-11 10:09:46;1;;0
+a0a73e6f-755f-42da-8a2d-65dbec2a4ff5;How long did Chum spend in the kitchen in the morning on the 11th?;2026-02-11 22:00:00;duration;3;2026-02-11 10:09:32;1;2026-02-11 10:09:32 - 2026-02-11 10:11:58;0
+9cd91835-c424-4237-b62d-e174fcc6b0bb;How often was Pearl at Squirts desk today?;2026-02-11 22:00:00;semantic;TAt least twice;2026-02-11 10:15:03;1;auf jeden Fall schon zwei mal - vielleicht auch wie lange;0
+426dbf80-1793-4c3a-8952-bab25edf78e9;When did Nemo and Deb talk in the kitchen on Feb 11th?;2026-02-11 22:00:00;time;2026-02-11 10:39:56;2026-02-11 10:39:56;1;;0
+bd0225a9-d6a6-4aac-9ecc-ae61d30af98a;When did Deb get his first coffee today?;2026-02-11 22:00:00;time;2026-02-11 10:41:53;2026-02-11 10:41:53;1;;0
+c0acbc34-b4ba-4458-bcd7-b58e43c47f17;Who is the person in the office (waypoint_81) with Nigel and Squirt today?;2026-02-11 22:00:00;person;Crush;2026-02-11 11:17:37;1;;0
+d2d11451-3f0b-4731-8115-bdb6fce497bb;Does Pearl usually work standing or sitting?;2026-02-11 22:00:00;semantic;Standing;2026-02-11 11:33:32;1;;1
+a3ab6eb6-9f20-4010-9437-fad235aa9dbc;With who did Dory collaborate on the 11th?;2026-02-11 22:00:00;person;Anchor;2026-02-11 12:13:02;1;;0
+be880f98-2294-431f-b162-16ac71165c8c;What did Deb do in the kitchen at 2026-02-11 12:21 PM?;2026-02-11 22:00:00;semantic;Putting his stuff into the fridge;2026-02-11 12:21:38;1;highly doubt it;0
+80effb6a-0d57-4ced-96b7-1a5e3819eaa3;Who else did Anchor and Dory collaborate with on the 11th?;2026-02-11 22:00:00;person;Tad;2026-02-11 12:26:54;1;;0
+f323f565-2cd2-4ebe-839d-3899ecf6d5f2;How long was Tad with Dory and Anchor on the 11th?;2026-02-11 22:00:00;duration;15;2026-02-11 12:26:51;1;2026-02-11 12:26:51 - 2026-02-11 12:41:21;0
+764e42ed-9e5a-4359-991e-5a1ed7a73213;When did Pearl get breakfast today?;2026-02-11 22:00:00;time;2026-02-11 09:38:47;2026-02-11 09:38:47;1;;0
+c2ec3fca-479c-4d80-9517-e12d60abe675;When did you see Anchor the first time today?;2026-02-11 22:00:00;time;2026-02-11 09:55:53;2026-02-11 09:55:53;1;;0
+52560c18-9fa3-4e0c-9878-35c02c5af4ac;Does Deb clean the kitchen?;2026-02-12 12:00:00;bool;True;2026-02-12 11:40:09;1;;1
+c61aedaa-2c74-44f2-b2b4-f2929feceedc;Does Deb put his dishes in the dishwasher after eating today?;2026-02-12 12:00:00;bool;True;2026-02-12 11:54:34;1;;1
+492c281c-0002-4a58-897a-431b3b9a5cf8;Who cleared the dishwasher today?;2026-02-12 22:00:00;person;Chum;2026-02-12 11:53:48;1;;0
+a992ada5-6f0b-4824-a814-268a93967794;Who is wearing a yellow jacket?;2026-02-12 22:00:00;person;Pearl;2026-02-11 08:59:24;1;;1
+9af4d5f9-f7cc-4c25-b7e2-928a3d0850ad;When do you typically see Chum the first time each day the last three weeks?;2026-02-12 22:00:00;semantic;Around 10 am in the morning;2026-02-11 10:09:16;1;;1
+c6adb52b-d457-4e4a-a64a-06bf008095fe;When did Pearl get breakfast today?;2026-02-12 22:00:00;time;2026-02-12 09:25:52;2026-02-12 09:25:52;1;;0
+485b8342-2c78-4426-92ec-a5c523772bc4;When did Pearl get lunch on the 12th?;2026-02-12 22:00:00;time;2026-02-12 12:10:09;2026-02-12 12:10:09;1;;
+4440efff-f593-4bca-a8f7-633592b773ad;How long was Hank in the kitchen in morning of the 12th?;2026-02-12 22:00:00;duration;5;2026-02-12 09:54:30;1;2026-02-12 09:54:30 - 2026-02-12 09:59:28;0
+9e435749-7cbf-4f01-8b00-72cefec26829;Was Deb or Chum earlier in the office on Feb 12th?;2026-02-12 22:00:00;person;Deb;2026-02-12 11:29:10;1;;0
+5090fe5a-b296-4a59-b0bb-e6b0a92e53df;Do Pearl and Deb know each other?;2026-02-12 22:00:00;bool;True;2026-02-12 11:37:53;1;CHECKED;1
+2c1d1366-15e8-4bee-af70-9eeb65959e44;When did Chum have lunch today?;2026-02-12 22:00:00;time;2026-02-12 11:43:20;2026-02-12 11:43:20;1;CHECKED;0
+b55a815d-7959-4dbd-b9c3-8190e29d4f99;How long did Chum have lunch on the 12th?;2026-02-12 22:00:00;duration;10;2026-02-12 11:43:20;1;2026-02-12 11:43:20 - 2026-02-12 11:53:42 Ungefähr;0
+b84ea35a-5fcb-48c4-8f10-aa39cb81c389;With whom did Chum have lunch on the 12th?;2026-02-12 22:00:00;person;Deb;2026-02-12 11:53:41;1;;0
+d63ecd2c-36df-4cde-a580-7aee3b93bc26;How long was Sheldon in the kitchen on the 12th?;2026-02-12 22:00:00;duration;3;2026-02-12 12:03:44;1;2026-02-12 12:03:44 - 2026-02-12 12:06:13;0
+14b7af8c-fb06-4b5c-8143-f1dab667ada2;When did Pearl get lunch on the 12th?;2026-02-12 22:00:00;time;2026-02-12 12:10:09;2026-02-12 12:10:09;1;;0
+d9bb3258-c50c-42b9-8be4-84a4182ee318;Was Nemo in the office on the 12th?;2026-02-12 22:00:00;bool;True;2026-02-12 14:21:03;1;;0
+0953eb7c-bb9b-4d68-8d3c-19c1f91b3b0c;Was Nigel in the office today?;2026-02-12 22:00:00;bool;False;;1;ich glaube nicht;0
+49c273ca-9aec-4696-924a-c4f4d3db9c4a;When did Pearl leave today?;2026-02-12 22:00:00;time;2026-02-12 14:52:16;2026-02-12 14:52:16;1;;0
+54d2eb5d-bd2d-42aa-ad95-c0b4c3e4bf48;Where was Pearl this week at most?;2026-02-15 22:00:00;spatial;waypoint_69;2026-02-12 22:00:00;1;;1
+425ae9ca-a7e0-4c3c-b5ea-ba572e94dc51;Who does usually order the chairs?;2026-02-15 22:00:00;person;Pearl;2026-02-09 15:29:00;1;;1
+989c0d1a-41c3-49c8-a298-bfd27adf628e;Did Squirt once start to work before 9 AM?;2026-02-15 22:00:00;bool;True;;1;;1
+718b3c19-8870-4934-88f3-e9ece3a8f5f9;When did Pearl come in on the 11th?;2026-02-15 22:00:00;time;2026-02-11 08:59:19;2026-02-11 08:59:19;1;;0
+346d30ca-6efb-4991-b8c7-f208a4f24969;Did Pearl talk to Nigel on the 11th?;2026-02-15 22:00:00;bool;True;2026-02-11 09:07:28;1;;0
+5ef5096f-d9c5-46f6-b428-af80c8b9c0c4;When do you usually saw Deb for the first time of the day this week so far?;2026-02-11 22:00:00;semantic;10:00AM to 10:30AM;;1;;0
+d59e885e-bf71-4135-8cbc-5d87e3c3a62b;When did Pearl fill up her bottle on the 11th?;2026-02-11 22:00:00;time;2026-02-11 10:18:35;2026-02-11 10:18:35;1;;0
+4e16bef1-4944-4400-b14b-01dfbba533e3;When did Deb prepare food on the 11th?;2026-02-11 22:00:00;time;2026-02-11 10:36:04;2026-02-11 10:36:04;1;;0
+1e123686-7c7d-457c-bcea-933f79d71665;How long was Deb in the kitchen to prepare food today?;2026-02-11 22:00:00;duration;19;2026-02-11 10:19:05;1;2026-02-11 10:19:05 - 2026-02-11 10:37:55, bleibt aber noch kurz um mit Nemo zu sprechen und dann macht er Kaffee kurz später;0
+8d445acf-f62d-43bc-a8b4-ab7530bad973;Where does Chum work?;2026-03-01 22:00:00;spatial;waypoint_125;2026-02-11 11:34:37;1;;1
+29a1b83a-3c26-42e0-aac0-bd7f4edd7f05;Where did you see Pearl the first time today?;2026-02-12 22:00:00;spatial;waypoint_90;2026-02-12 09:16:01;1;;0
+2d71634c-ea57-4d73-8226-2ed94568bec0;When did you see Pearl the first time today?;2026-02-12 22:00:00;time;2026-02-12 09:16:01;2026-02-12 09:16:01;1;;0
+fe63c521-02f0-4b69-936d-7832f970f548;When did you see Hank the first time today;2026-02-12 22:00:00;time;2026-02-12 09:54:30;2026-02-12 09:54:30;1;;0
+89ec7ac2-527e-4291-a0c7-4c5bd3bbc1d8;Did Dory and Anchor meet in the kitchen today?;2026-02-12 22:00:00;bool;True;2026-02-12 10:06:24;1;;0
+8f8a1a57-f71b-49dd-b24c-f548088cd9bf;Who sits on the couch most often?;2026-02-15 22:00:00;semantic;Crush and Nigel (at least one);;1;;1
+a70537d5-fa2d-4a5f-80e5-93006eb4b8de;Where does nigel usually have lunch?;2026-03-01 22:00:00;spatial;;;0;;0
+7cafb34a-9370-45a1-9e9b-7d2c2812991d;When does Deb usually have lunch?;2026-03-01 22:00:00;time;;;0;;1
+54afccb4-955f-4679-9f3b-10a831eea671;At which position was Tad the longest/most this week?;2026-03-01 22:00:00;spatial;;;0;;1
+f933b0f8-8aa0-472d-835c-bbc9112e9b07;Does Squirt work at the hiwi-office?;2026-03-01 22:00:00;bool;true;;1;;1
+4b995c03-234a-42c0-a6cc-3f3eff02d0b1;Does Nemo drink Coffee?;2026-03-01 22:00:00;bool;True;;1;;1
+9144289f-c918-400c-a87b-b368def4101a;Where is Nemos office?;2026-03-01 22:00:00;spatial;waypoint_51;;1;;0
+6d149d56-a761-4a93-99da-91fefd2de092;When was a camera team in the office?;2026-03-01 22:00:00;semantic;2025-12-03;2025-12-03 17:20:22;1;;0
+99768192-9a44-45cd-931a-afd1526866b2;Where is Dory working place?;2026-03-01 22:00:00;spatial;waypoint_27;2026-02-11 12:41:18;1;;1
+ed9b18cd-b6af-4c6d-8808-d35b75410878;Is the desk of Dory and the desk of Pearl in the same office?;2026-03-01 22:00:00;bool;true;;1;;1
+8e5104d3-ba09-45ae-9a50-f2a91203af49;Does Nemo a technican?;2026-03-01 22:00:00;bool;True;2025-12-03 15:40:45;1;;1
+38611432-b505-4cae-8865-d735856d79a9;Does Pearl play volleyball?;2026-03-01 22:00:00;bool;True;2025-12-03 15:41:24;1;;1
+6a40b489-65fa-424c-8f05-f333b459b4d4;How long did Hank grind coffee today?;2026-02-13 22:00:00;duration;7;2026-02-13 14:10:31;1;First time seen Hank in the kitchen 2026-02-13 14:02:24 and at 2026-02-13 14:03:12 first time visible with the tool and last time visible at 2026-02-13 14:10:31;0
+56b71583-b616-451f-b87e-d824dda0dcdc;What was the first thing Nigel did today?;2026-02-11 22:00:00;semantic;Empty the dishwasher;2026-02-11 08:04:34;1;note;0
+8dd73c2a-811f-4ade-8b70-2cad4c9675d4;Who was the first person in the office today?;2026-02-11 22:00:00;person;Nigel;2026-02-11 08:01:15;1;note;0
+003ec1ca-0ae3-4c9f-b156-8ecd80d75960;Where did you see Squirt the first time today?;2026-02-11 22:00:00;spatial;waypoint_65;2026-02-11 08:57:53;1;note;0
+f5def9f4-53e4-4e63-b380-b7e75aa179d5;Which days this week was Nigel not in the office?;2026-02-13 22:00:00;semantic;Tuesday (2026-02-10) and Thursday (2026-02-12);;1;note;1
+452f2c93-40db-4396-ba24-13d551b1105e;Which day this week have you seen Anchor the earliest?;2026-02-13 22:00:00;semantic;Wednesday (2026-02-11);2026-02-11 08:24:58;1;note;1
+dcc1c918-ee00-42af-aa1b-4a7dcf6af993;Which day this week have you seen Deb the first time after 12 PM?;2026-02-13 22:00:00;semantic;Friday (2026-02-13);2026-02-13 14:13:55;1;note;1
+41b51922-dd9d-4b5b-b256-3a31a4bce602;Where have you seen Nigel the first time today?;2026-02-09 22:00:00;spatial;waypoint_69;2026-02-09 10:27:44;1;CHECKED;0
+80bb020d-e80c-4f92-96fa-692293c4f0f3;Where was Tad today at 11:55:26?;2026-02-09 22:00:00;spatial;waypoint_93;2026-02-09 11:55:26;1;note;0
+509bf6df-48f8-45d6-bf23-7fe5495a308e;Where was Nigel today at 12:59:21?;2026-02-13 22:00:00;spatial;waypoint_101;2026-02-13 12:59:21;1;note;0
+f0bf6dcd-00c5-4921-a5b8-057ac4ace9d6;Have you seen Tad today?;2026-02-12 22:00:00;bool;false;;1;CHECKED;0
+01fdeaa1-a8fe-4598-86e3-121d8fd85b8d;When have you seen Tad the first time today?;2026-02-13 22:00:00;time;2026-02-13 13:46:25;;1;CHECKED;0
+3c8fc71b-34de-4acd-ba55-f85b02ba0dc6;When have you seen Pearl today for the first time at waypoint_18?;2026-02-13 22:00:00;time;2026-02-13 12:59:09;;1;note;0
+96f7c1c2-186f-46f5-b6c5-aa195fd6f2ea;Where have you seen Deb the first time today?;2026-02-09 22:00:00;spatial;waypoint_69;2026-02-09 10:32:14;1;note;0
+f7b518ff-64d7-4302-af99-3079fe99af3b;What does Pearl have in her hand currently?;2026-02-12 10:02:49;semantic;tablet;2026-02-12 10:02:49;1;note;0
+fa4ae869-1a25-4c9d-8842-8fca733f9203;Where is Hank right now?;2026-02-12 09:56:33;spatial;waypoint_69;2026-02-12 09:56:33;1;note;0
+ad2c2ab5-348f-4e46-8fa4-3c97600e9a12;Was Nemo today in the office of Pearl?;2026-02-13 22:00:00;bool;true;2026-02-13 12:59:09;1;note;0
+57b5e527-84c8-449a-b37a-b20626584d36;Did Nigel visit Pearl today at her desk?;2026-02-13 22:00:00;bool;true;2026-02-13 12:59:22;1;note;0
+422008b6-d075-4068-8097-993ed70924a7;Which days was Peach in the office;2026-03-01 22:00:00;semantic;2026-02-09;;1;note;1
+7a47fce5-066a-4df0-85f8-cdb4a072f966;Where is the dishwasher?;2026-03-01 22:00:00;spatial;waypoint_69;;1;note;0
+92a8209a-9d9a-40c7-a29a-085b64960385;Did Dory ever interact with the dishwasher?;2026-03-01 22:00:00;bool;false;;1;note;1
+74a127ce-4604-4450-82e6-8ba87ba0ebc3;Have you seen Squirt at waypoint_93 today?;2026-02-13 22:00:00;bool;true;;1;note;0
+10be0d7f-6a51-45b6-b2bc-328bca083b08;When did Dory go to the kitchen today?;2026-02-13 22:00:00;time;2026-02-13 13:53:19;;1;note;0
+45208bcf-f82f-421a-8e77-d2f58f40c073;Have you seen Tad today?;2026-02-13 22:00:00;bool;true;2026-02-13 13:46:25;1;note;0
+5f8094a7-2954-4009-a70d-240f90dcf5ea;Who is working at waypoint_124?;2026-02-13 22:00:00;person;Chum;2026-02-13 12:58:11;1;note;0
+e97d3cd5-6602-4b86-bcd4-70fd6700552f;Where is Chum currently?;2026-02-09 10:21:18;spatial;waypoint_69;2026-02-09 10:21:18;1;note;0
+f1326ff2-1e22-480b-b7ac-a5152741d599;Who is living in the office?;2026-03-01 22:00:00;person;Deb;;0;note;1
+ab5aa628-0683-4bee-9321-bfd88c0a8eab;Who is the longest time in the kitchen the last two weeks?;2026-02-13 22:00:00;person;Deb;;0;note;1
+738ea489-1336-44b9-8394-20ef1effc2ed;Have you seen Pearl sitting on the couch the last two weeks?;2026-02-15 22:00:00;bool;false;;1;note;1
+2df42589-6603-4317-a51f-1285488789fe;When did Pearl have dinner today?;2026-02-04 22:00:00;semantic;I do not know;;1;note;0
+6272e7a2-1b00-426f-ac29-5289723acddc;When did Tad come in today?;2026-02-04 22:00:00;semantic;He was not there;;1;note;0
+34b735d8-53e7-4ce5-9bcc-db6d8ebfc93b;Where does Jacques work?;2026-03-01 22:00:00;spatial;waypoint_87;;1;note;1
+628db610-0270-4fa6-8b61-c3edea767f85;Does Chum drink coffee?;2026-03-01 22:00:00;bool;True;;1;note;1
+5a9a3ff5-db74-4fb1-b487-b6ff7947321f;Do Nigel and Pearl work together?;2026-03-01 22:00:00;bool;True;;1;note;1
+32481206-230f-4318-a060-d0f6bfae5929;Who did wear a red hoodie today?;2026-02-13 22:00:00;person;Dory;2026-02-13 13:53:59;1;note;0
+34d2f2ac-a740-4c67-911f-16c06293394b;Squirt was at waypoint_16 at 13:01:29. Who did he visit there?;2026-02-13 22:00:00;person;Pearl;2026-02-13	13:01:29;1;note;1
+bf621ba9-5191-4cd8-9951-f8637fce99cd;Who played with the volleyball today?;2025-12-01 22:00:00;semantic;Noone;;1;note;0
+29fba322-f45b-47ea-9b33-c6dd9229625e;Where is a door to the outside in the office?;2026-03-01 22:00:00;spatial;waypoint_72;;1;note;1
+71ba9a8e-be66-4acd-99ab-ff424de27b6b;Where is the couch?;2026-03-01 22:00:00;spatial;waypoint_92;;1;note;1

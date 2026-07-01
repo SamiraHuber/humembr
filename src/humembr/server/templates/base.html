@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Spot Image Feed{% endblock %}</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<style>
+        .top-nav a {
+            margin: 0 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="top-nav">
+        <a href="/" {% if request.path == '/' %}class="active"{% endif %}>Home</a>
+        <a href="/map" {% if request.path == '/map' %}class="active"{% endif %}>Waypoint Map</a>
+        <a href="/person_observations" {% if request.path == '/person_observations' %}class="active"{% endif %}>Person Observations</a>
+        <a href="/image_log" {% if request.path == '/image_log' %}class="active"{% endif %}>Image Log</a>
+        <a href="/person_identities" {% if request.path == '/person_identities' %}class="active"{% endif %}>Person Identities</a>
+    </nav>
+    
+    {% block content %}{% endblock %}
+
+    {% block scripts %}{% endblock %}
+</body>
+
+</html>

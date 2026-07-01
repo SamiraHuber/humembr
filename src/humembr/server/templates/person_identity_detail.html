@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+
+{% block title %}Person Identity Detail{% endblock %}
+
+{% block content %}
+<style>
+    .gallery {
+        --gap: 1rem;
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+        gap: var(--gap);
+        padding: 1rem 0;
+    }
+    .gallery-item {
+        background-color: var(--surface-color);
+        border-radius: var(--border-radius);
+        box-shadow: var(--box-shadow);
+        padding: 1rem;
+        border: 1px solid var(--border-color);
+        text-align: center;
+        transition: transform 0.2s ease-in-out;
+    }
+    .gallery-item:hover {
+        transform: translateY(-5px);
+    }
+    .gallery-item img {
+        max-width: 100%;
+        height: auto;
+        display: block;
+        margin-bottom: 0.5rem;
+        border-radius: 8px;
+        border: 1px solid var(--border-color);
+    }
+    .gallery-item span {
+        font-size: 0.8rem;
+        color: var(--on-surface-variant-color);
+    }
+    .header-actions {
+        display: flex;
+        justify_content: space-between;
+        align-items: center;
+        margin-bottom: 1rem;
+    }
+</style>
+<div class="main-content">
+    <div class="header-actions">
+        <h1>Identity: {{ mapping.name }}</h1>
+        <a href="{{ url_for('person_identities_page') }}" class="btn">Back to Overview</a>
+    </div>
+
+    <div class="gallery">
+        {% for person in mapping.person_obs %}
+        <div class="gallery-item">
+            <img loading="lazy" src="{{ url_for('person_image_by_id', person_id=person.id) }}" alt="Person Image" />
+            <span>ID: {{person.id}}</span>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<!-- saved from url=(0022)http://127.0.0.1:5050/ -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Live Spot Image Feed</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com/">
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="">
+    <link href="./Live Spot Image Feed_files/css2" rel="stylesheet">
+    <link rel="stylesheet" href="./Live Spot Image Feed_files/style.css">
+    <script src="./Live Spot Image Feed_files/jquery.min.js"></script>
+<style>
+        .top-nav a {
+            margin: 0 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="top-nav">
+        <a href="http://127.0.0.1:5050/" class="active">Home</a>
+        <a href="http://127.0.0.1:5050/map">Waypoint Map</a>
+        <a href="http://127.0.0.1:5050/person_observations">Person Observations</a>
+        <a href="http://127.0.0.1:5050/image_log">Image Log</a>
+        <a href="http://127.0.0.1:5050/person_identities">Person Identities</a>
+    </nav>
+    
+    
+<h1>Spot Control Panel</h1>
+
+<div class="main-content">
+    <div class="top-row">
+        <div class="feed-container">
+            <!-- The image will be displayed here -->
+            <img id="live-image" src=""[image removed]" alt="Live feed">
+
+            <div class="metadata">
+                <!-- Connection Status -->
+                <p>
+                    <strong>Websocket Status:</strong> <span class="status connected" id="socket-status">Connected</span>
+                    <strong>Robot Status:</strong> <span class="status connected" id="robot-status">UP</span>
+                </p>
+                <!-- Image metadata will be shown here -->
+                <p> <strong>Uncaptioned Image Queue Size:</strong> <span id="uncaptioned-count">2</span></p>
+                <p><strong>Created:</strong> <span id="timestamp">1.3.2026, 17:04:17</span></p>
+                <p><strong>Location:</strong> <span id="location">'waypoint_90' in room 'unknown room'</span></p>
+                <p><strong>Current command:</strong> <span id="cmd">Prompt: celebrate, for reason I successfully went to Pearl's workplace at waypoint_100, where I found her holding the package. I have now returned to waypoint_90 as requested. -&gt; null [SUCCESS]</span></p>
+            </div>
+        </div>
+
+        <div class="chat-container">
+            <div class="thread-controls">
+                <p><strong>Thread ID:</strong> <span id="thread-id">801965141</span></p>
+                <button id="new-thread-btn">New Thread</button>
+            </div>
+            <div id="chat-box" class="chat-box">
+                <!-- Chat messages will appear here -->
+            <div class="chat-message user-message">Please go to Pearl’s workplace and pick up a package that she has for me. When you have received the package come back to me</div><div class="chat-message log-message log-llm-end"></div><div class="chat-message log-message log-tool-start">Using tool: <strong>query_semantic_observations</strong> with input: <em>{'person': None, 'query_text': "Where is Pearl's workplace?", 'until': '2026-03-01 16:02:45'}</em></div><div class="chat-message log-message log-tool-end">Tool output: <details><summary>Click to view</summary><pre>I made the following observations:
+2026-03-01 16:02:33 at waypoint_90 in direction of 180.34: 'I am in an empty office with a desk, chair, and computer. No people are present to interact with any objects.'
+2026-02-09 11:00:27 at waypoint_75 in direction of 124.83: 'I am in an office or studio space with large windows and a reception desk. A woman in black is walking past the desk, while two men nearby interact with a large black object, possibly a piece of equipment or furniture.' (Identified persons: unknown person, Pearl)
+2025-12-03 12:32:24 at waypoint_89 in direction of 94.54: 'I am in an office. A person in black clothing is walking past a desk and chair, moving toward a whiteboard covered in writing, while a brown sofa sits against the far wall.' (Identified persons: unknown person)
+2026-02-09 11:03:35 at waypoint_75 in direction of 116.15: 'I am in an office reception area. A person in a blue hoodie walks past the white reception desk, which holds papers and a basket, while large windows line the wall.' (Identified persons: unknown person)
+2026-02-09 11:04:07 at waypoint_75 in direction of 116.36: 'I am in an office reception area. A person in a blue hoodie stands at the white reception desk, seemingly interacting with someone behind it, while large windows and modern decor frame the scene.' (Identified persons: unknown person)
+2026-02-09 11:05:38 at waypoint_75 in direction of 115.85: 'I am in a modern office or studio space with large windows and a reception desk. One person in a yellow jacket is mid-motion, possibly dancing or posing, while another in a blue hoodie stands by the desk, observing or waiting.' (Identified persons: Dory, unknown person)
+2026-02-09 11:03:33 at waypoint_75 in direction of 116.15: 'I am in an office reception area. A person in a blue hoodie stands near a window, holding a white object, while interacting with the space around a white reception desk.' (Identified persons: unknown person)
+2026-02-09 11:07:37 at waypoint_75 in direction of 115.85: 'I am in an office or modern workspace with large windows and minimalist furniture. A person in a blue hoodie and dark pants is walking past, seemingly interacting with the space by moving through it, while two black chairs stand idle near the window.'
+2026-02-09 12:12:49 at waypoint_0 in direction of 354.79: 'I am in an office, where a person in a dark hoodie and jeans stands near white cabinets, hands in pockets, seemingly observing the space or waiting. The room features modern office furniture and a QR code on a cabinet, suggesting a workplace or tech environment.' (Identified persons: unknown person)
+2026-02-05 09:16:21 at waypoint_57 in direction of 114.28: 'I am in an office reception area. A smiling woman walks toward the camera holding a white bowl, while interacting with the space near a white reception desk and large windows.' (Identified persons: Pearl)
+2026-02-09 11:06:44 at waypoint_75 in direction of 115.81: 'I am in an office reception area. A person in a blue hoodie stands near the window holding a bottle, while another person is partially visible behind the reception desk.' (Identified persons: unknown person)
+2026-02-05 09:16:14 at waypoint_57 in direction of 123.67: 'I am in an office reception area. A woman is smiling while holding a white object, standing near a white reception desk with large windows behind her.' (Identified persons: Pearl)
+2026-02-04 09:57:25 at waypoint_179 in direction of 102.92: 'I am in an office reception area. A person in a green hoodie walks toward the front desk where another person is seated, likely interacting with them or checking in.' (Identified persons: unknown person)
+2026-02-09 11:00:25 at waypoint_75 in direction of 123.09: 'I am in an office or reception area with large windows and a low partition wall. A woman in black gestures toward the camera while a man in a blue hoodie stands nearby holding a small object, and another person is seated at a desk in the background.' (Identified persons: Pearl, unknown person)
+2026-02-04 09:57:12 at waypoint_179 in direction of 102.46: 'I am in a modern office reception area. A person stands near the entrance door, while another person’s legs are visible in the foreground, suggesting they are walking or standing nearby.'
+2026-02-05 09:58:21 at waypoint_76 in direction of 104.50: 'I am in an office reception area. A person in a black hoodie is walking past the reception desk, seemingly adjusting their clothing or reaching for something.' (Identified persons: Dory)
+2026-02-09 11:00:02 at waypoint_57 in direction of 150.52: 'I am in an office reception area. A person in a blue jacket stands near the entrance holding a cup, while another person is partially visible behind the white reception desk.' (Identified persons: unknown person)
+2025-12-03 12:33:51 at waypoint_89 in direction of 94.54: 'I am in an office, where a person in dark clothing stands near a desk chair, seemingly interacting with the space or preparing to sit. In the background, a whiteboard covered in writing and a sofa suggest a collaborative or meeting area.' (Identified persons: unknown person)
+2026-02-09 11:07:12 at waypoint_75 in direction of 115.93: 'I am in a modern office or studio space with large windows and light wood floors. One person stands close to the camera, while another walks past in the background holding a can, near a white counter with papers and a basket.' (Identified persons: Dory, Nigel)
+2026-02-13 14:33:56 at waypoint_179 in direction of 357.81: 'I am in an office, where a person stands near a doorway, interacting with the door frame or a nearby object. The room contains office furniture like shelves and a step ladder, suggesting a workspace environment.' (Identified persons: unknown person)
+2026-02-05 12:01:10 at waypoint_104 in direction of 93.54: 'I am in an office with white desks and black carpeting. A person in a hoodie stands near a soccer ball, interacting with it, while coats hang on a rack nearby.' (Identified persons: Dory)
+2025-11-20 13:17:46 at waypoint_86 in direction of 244.86: 'I am in an office, where a person in a dark jacket is partially visible near a chair. They appear to be moving toward a door, while a whiteboard and sofa sit unused in the background.'
+2026-02-05 09:16:17 at waypoint_57 in direction of 104.57: 'I am in an office reception area with a white desk and large windows. A person in a pink shirt stands near the entrance, partially visible, while no one else is actively interacting with objects in the scene.'
+2025-12-03 17:17:02 at waypoint_93 in direction of 102.43: 'I am in an office or modern workspace, where a person in dark clothing stands near a white counter, possibly interacting with items on it or preparing to move. The room features minimalist design with light wood flooring and large windows in the background.' (Identified persons: unknown person)
+2026-02-05 13:10:00 at waypoint_91 in direction of 346.45: 'I am in an office, where a person in a green hoodie and black pants is walking past a desk with a computer and chairs. They are moving toward a whiteboard covered in writing, with a brown couch nearby.' (Identified persons: unknown person)
+2026-02-09 12:13:05 at waypoint_0 in direction of 354.79: 'I am in an office, where a person in a dark hoodie and jeans stands near white cabinets with hands in pockets, seemingly observing the space or waiting. The room features dark carpeting, modern furniture, and a QR code on a cabinet, suggesting a tech or corporate environment.' (Identified persons: unknown person)
+2026-02-06 16:33:07 at waypoint_82 in direction of 281.85: 'I am in an office. A person in a green hoodie is mid-stride, moving past desks with monitors and office chairs, seemingly interacting with the space rather than any specific object or person.' (Identified persons: Chum)
+2026-02-09 11:00:18 at waypoint_75 in direction of 122.92: 'I am in an office reception area. A person in a blue hoodie stands at the counter, interacting with something on the desk, while large windows and a hallway are visible in the background.' (Identified persons: Chum)
+2026-02-05 09:16:11 at waypoint_57 in direction of 133.20: 'I am in a modern office reception area. A woman smiles while holding a bowl and spoon, standing near a white reception desk with large windows behind her.' (Identified persons: unknown person)
+2025-12-03 12:32:23 at waypoint_89 in direction of 94.54: 'I am in an office. A person in a black sweater walks toward the camera, passing a whiteboard and a sofa, while an empty office chair sits near a desk.' (Identified persons: Pearl)</pre></details></div><div class="chat-message log-message log-llm-end"></div><div class="chat-message log-message log-tool-start">Using tool: <strong>query_semantic_observations</strong> with input: <em>{'person': 'Pearl', 'until': '2026-03-01 16:02:45', 'query_text': "Where is Pearl's desk?"}</em></div><div class="chat-message log-message log-tool-end">Tool output: <details><summary>Click to view</summary><pre>I made the following observations:
+2025-12-03 12:34:38 at waypoint_89 in direction of 94.54: 'I am in an office. A person stands near a desk, holding the back of an office chair, while a whiteboard with writing and a sofa are visible in the background.' (Identified persons: Pearl)
+2026-02-05 10:58:55 at waypoint_18 in direction of 132.36: 'I am in an office. A person stands near a desk interacting with a computer, while an empty chair with a jacket draped over it sits nearby.' (Identified persons: Pearl)
+2026-02-09 13:38:39 at waypoint_19 in direction of 63.64: 'I am in an office. A person stands by a desk near a window, interacting with papers or a computer, while an empty chair and coat rack sit nearby.' (Identified persons: Pearl)
+2026-02-09 13:38:48 at waypoint_104 in direction of 127.85: 'I am in an office. A person in black stands at a standing desk interacting with a computer, while an empty chair with a jacket draped over it sits nearby.' (Identified persons: Pearl)
+2026-02-05 10:58:37 at waypoint_11 in direction of 63.24: 'I am in an office. A person stands near a desk with a computer, while another chair sits empty beside a coat rack holding jackets.' (Identified persons: Pearl)
+2026-02-09 13:36:23 at waypoint_100 in direction of 93.03: 'I am in an office. A person stands near a desk, interacting with a computer, while another chair sits empty nearby.' (Identified persons: Pearl)
+2025-12-03 09:08:47 at waypoint_11 in direction of 63.88: 'I am in an office. A person stands near a desk, interacting with a computer, while another chair sits empty nearby.' (Identified persons: Pearl)
+2025-12-03 09:29:43 at waypoint_99 in direction of 67.11: 'I am in an office. A person stands near a desk, interacting with a computer, while another chair sits empty nearby.' (Identified persons: Pearl)
+2025-12-02 14:49:55 at waypoint_11 in direction of 63.88: 'I am in an office. A person stands near a desk with a computer, interacting with the monitor, while another chair sits empty nearby.' (Identified persons: Pearl)
+2026-02-09 13:38:49 at waypoint_104 in direction of 77.44: 'I am in an office. A person stands at a standing desk interacting with a computer, while an empty chair and a jacket on its back sit nearby.' (Identified persons: Pearl)
+2026-02-09 13:38:46 at waypoint_104 in direction of 127.68: 'I am in an office. A person stands at a standing desk interacting with a computer, while an empty chair with a jacket draped over it sits nearby.' (Identified persons: Pearl)
+2026-02-09 13:38:44 at waypoint_104 in direction of 120.10: 'I am in an office. A person stands at a standing desk interacting with a computer, while an empty chair with a jacket draped over it sits nearby.' (Identified persons: Pearl)
+2026-02-09 13:38:43 at waypoint_104 in direction of 118.41: 'I am in an office. A person stands at a standing desk interacting with a computer, while an empty chair with a jacket draped over it sits nearby.' (Identified persons: Pearl)
+2025-12-03 09:09:13 at waypoint_10 in direction of 30.88: 'I am in an office. A person stands at a desk, interacting with a computer, while another chair sits empty nearby.' (Identified persons: Pearl)
+2026-01-07 12:09:53 at waypoint_99 in direction of 67.12: 'I am in an office. A person is standing at a desk, interacting with a computer, while another chair sits empty nearby.' (Identified persons: Pearl)
+2026-02-09 10:44:09 at waypoint_19 in direction of 101.39: 'I am in an office. A person stands at a desk interacting with a computer, while an empty office chair sits nearby.' (Identified persons: Pearl)
+2026-02-05 09:56:07 at waypoint_12 in direction of 78.88: 'I am in an office. A person stands at a desk interacting with a computer, while another chair sits empty nearby.' (Identified persons: Pearl)
+2026-01-07 12:09:55 at waypoint_99 in direction of 89.92: 'I am in an office. A person stands at a desk interacting with a computer, while another chair sits empty nearby.' (Identified persons: Pearl)
+2025-12-03 09:09:14 at waypoint_99 in direction of 67.11: 'I am in an office. A person stands at a desk interacting with a computer, while another chair sits empty nearby.' (Identified persons: Pearl)
+2025-12-03 09:26:53 at waypoint_99 in direction of 67.11: 'I am in an office. A person stands at a desk interacting with a computer, while another chair sits empty nearby.' (Identified persons: Pearl)
+2025-12-03 09:29:44 at waypoint_99 in direction of 67.11: 'I am in an office. A person stands at a desk interacting with a computer, while another chair sits empty nearby.' (Identified persons: Pearl)
+2026-02-04 12:37:51 at waypoint_11 in direction of 57.81: 'I am in an office. A person stands at a desk interacting with a computer, while another chair nearby holds a jacket, suggesting someone recently left or will return.' (Identified persons: Pearl)
+2026-02-09 13:38:38 at waypoint_19 in direction of 90.24: 'I am in an office. A person stands near a desk by the window, interacting with a computer, while an empty office chair sits nearby.' (Identified persons: Pearl)
+2026-02-09 11:00:27 at waypoint_75 in direction of 124.83: 'I am in an office or studio space with large windows and a reception desk. A woman in black is walking past the desk, while two men nearby interact with a large black object, possibly a piece of equipment or furniture.' (Identified persons: unknown person, Pearl)
+2026-02-05 10:58:38 at waypoint_120 in direction of 74.60: 'I am in an office. A woman stands near a desk with a computer, while another person is partially visible in the foreground, and coats hang on a rack nearby.' (Identified persons: Pearl)
+2025-12-03 15:34:11 at waypoint_92 in direction of 132.94: 'I am in an office, where one person stands near a desk while another leans over a laptop, both interacting with their workstations. A brown sofa sits unused against the wall.' (Identified persons: Pearl)
+2026-02-09 13:38:49 at waypoint_104 in direction of 96.18: 'I am in an office. A person stands at a standing desk interacting with a computer, while an empty office chair sits nearby.' (Identified persons: Pearl)
+2026-02-09 13:36:24 at waypoint_100 in direction of 96.63: 'I am in an office. A person stands near a desk interacting with a computer, while another chair holds a jacket, suggesting someone recently left or is nearby.' (Identified persons: Pearl)
+2026-02-09 10:44:17 at waypoint_99 in direction of 133.21: 'I am in an office. One person stands near a desk holding a yellow cloth, while another sits in a chair by a large window, both surrounded by office furniture and computers.' (Identified persons: Anchor, Pearl)
+2026-02-05 10:58:40 at waypoint_18 in direction of 88.75: 'I am in an office. A person in dark clothing stands at a desk interacting with a computer, while another person’s arm is visible in the foreground, suggesting they are nearby or moving through the space.' (Identified persons: Pearl)</pre></details></div><div class="chat-message log-message log-llm-end"></div><div class="chat-message log-message log-tool-start">Using tool: <strong>query_semantic_observations</strong> with input: <em>{'query_text': 'package from Pearl', 'person': None, 'until': '2026-03-01 16:02:45'}</em></div><div class="chat-message log-message log-tool-end">Tool output: <details><summary>Click to view</summary><pre>I made the following observations:
+2026-03-01 16:02:33 at waypoint_90 in direction of 180.34: 'I am in an empty office with a desk, chair, and computer. No people are present to interact with any objects.'
+2026-01-23 13:41:10 at waypoint_51 in direction of 102.35: 'I am in an office where two people are unpacking a large cardboard box labeled "PRUSA CORE ONE." One person is bent over the box while the other stands nearby, both interacting with its contents.' (Identified persons: unknown person)
+2026-01-23 13:56:07 at waypoint_51 in direction of 102.10: 'I am in an office, where several people are gathered around a large cardboard box labeled "PRUSA CORE ONE L," likely unpacking or assembling equipment. One person is crouched near the box, while others stand nearby, observing or assisting.' (Identified persons: unknown person)
+2026-01-23 13:20:03 at waypoint_177 in direction of 118.94: 'I am in an office space with scattered cardboard boxes, including a Prusa Core One L 3D printer box, and a person is partially visible behind a desk, interacting with a computer monitor. The room has dark carpeting, office chairs, and a large window letting in natural light.'
+2026-01-23 13:25:12 at waypoint_51 in direction of 97.48: 'I am in an office, where a person is unpacking a large cardboard box near a desk. They are interacting with the box and its contents, while an office chair and filing cabinets are nearby.'
+2026-01-23 13:55:55 at waypoint_52 in direction of 94.82: 'I am in an office where several people are gathered around a desk, interacting with a large open cardboard box labeled "CORE ONE." One person appears to be unpacking or examining its contents while others observe.' (Identified persons: unknown person)
+2026-01-23 13:41:12 at waypoint_51 in direction of 106.57: 'I am in an office. A person is bending over to unpack items from a large cardboard box near a desk, while another box sits open nearby.' (Identified persons: unknown person)
+2026-01-23 13:25:28 at waypoint_52 in direction of 91.55: 'I am in an office, where a person is seated at a desk interacting with a computer. Several cardboard boxes are scattered around, suggesting a move or reorganization is underway.'
+2026-01-23 13:24:41 at waypoint_53 in direction of 69.51: 'I am in an office, where a person is seated at a desk interacting with a computer. A large cardboard box sits on the floor nearby, suggesting recent moving or unpacking activity.'
+2026-01-23 13:19:11 at waypoint_51 in direction of 86.49: 'You are in an office, where a person is unpacking a large cardboard box near a desk. They are interacting with the box’s contents, possibly setting up equipment, while an empty chair and filing cabinets stand nearby.' (Identified persons: unknown person)
+2026-02-13 13:55:52 at waypoint_50 in direction of 76.84: 'I am in an office, where a person sits at a desk interacting with a computer. The room contains office furniture, a crate of bottles on the floor, and a cardboard box nearby.'
+2026-02-12 12:05:00 at waypoint_69 in direction of 317.45: 'I am in a modern kitchen with dark cabinets and light wood floors. A woman in a pink hoodie and jeans stands near the counter, holding a box and appearing to eat from it, while interacting with the kitchen space around her.' (Identified persons: Sheldon)
+2026-02-05 09:16:24 at waypoint_57 in direction of 114.26: 'I am in an office hallway or reception area. A woman stands near a white counter, holding a small white object and looking down at it, seemingly interacting with it or preparing to use it.' (Identified persons: Pearl)
+2026-02-13 13:45:15 at waypoint_179 in direction of 48.76: 'I am in an office. A person sits at a desk interacting with a computer, while a blue crate of bottles rests on the floor nearby.'
+2026-01-23 13:19:47 at waypoint_52 in direction of 91.66: 'I am in an office where a person is unpacking boxes at a desk. They are interacting with the contents of the boxes and the computer monitor on the desk.' (Identified persons: Deb)
+2025-11-20 12:15:10 at waypoint_178 in direction of 142.80: 'I am in an office. A person sits at a desk, interacting with a computer, while a crate of bottles rests on the floor nearby.' (Identified persons: unknown person)
+2026-01-23 12:56:54 at waypoint_176 in direction of 149.53: 'I am in an office hallway, looking into a room where a person is unpacking or assembling something at a desk with a large cardboard box. They are interacting with the box and its contents, possibly setting up equipment.'
+2026-02-09 11:07:29 at waypoint_75 in direction of 116.03: 'I am in an office or studio space with large windows and wooden floors. A person in a blue hoodie and black pants is walking past, holding a plastic bag, while two black instrument cases stand near the window.'
+2026-01-23 13:24:54 at waypoint_51 in direction of 105.16: 'I am in an office, where a person sits at a desk near a window, interacting with a computer. A large cardboard box labeled “CORE ONE” sits on the floor nearby, and an empty office chair rests against a cabinet.'
+2026-01-23 12:21:29 at waypoint_177 in direction of 108.15: 'I am in an office where three people stand near a large open box labeled "CORE ONE," with one person partially obscured behind an office chair. They appear to be unpacking or assembling equipment, interacting with the box and surrounding furniture.' (Identified persons: unknown person, unknown person)
+2026-02-05 13:01:13 at waypoint_90 in direction of 273.21: 'I am in an office. A woman in black stands holding a small box, while a man in green sits at a desk, interacting with his computer.' (Identified persons: unknown person, Pearl)
+2026-02-13 14:30:23 at waypoint_0 in direction of 73.80: 'I am in an office, where a person is partially visible behind a white desk, interacting with a computer monitor and keyboard. A blue crate labeled “VISA” sits on the floor nearby, suggesting recent deliveries or supplies.'
+2026-02-12 11:17:20 at waypoint_57 in direction of 37.51: 'I am in a modern office hallway. A woman walks down the corridor holding a tablet, passing by doors and a fire extinguisher mounted on the wall.' (Identified persons: Pearl)
+2026-01-23 13:24:53 at waypoint_51 in direction of 91.71: 'I am in an office, where a person is seated at a desk in the background, likely interacting with a computer. The foreground features large cardboard boxes, suggesting a move or setup is underway.'
+2026-02-06 12:19:16 at waypoint_8 in direction of 287.63: 'I am in an office, viewing a person seated at a desk interacting with a computer. A large cardboard box rests against the wall nearby.' (Identified persons: unknown person)
+2026-02-13 13:04:27 at waypoint_0 in direction of 164.45: 'I am in an office, viewing the scene from floor level. A person in jeans and boots stands near a cardboard box, interacting with it while a small device sits on a mat nearby.'
+2026-01-23 13:24:43 at waypoint_52 in direction of 95.14: 'I am in an office with scattered cardboard boxes and a person sitting at a desk near a window. They are interacting with their computer, seemingly focused on work amidst the unpacking or packing activity.'
+2026-01-23 13:19:33 at waypoint_51 in direction of 124.41: 'I am in an office space with dark carpeting and scattered cardboard boxes. A person stands near a desk in the background, seemingly unpacking or organizing items, while another individual is partially visible near a large open box labeled "CORE ONE" in the foreground.'
+2026-02-11 08:59:19 at waypoint_100 in direction of 104.42: 'I am in an office. A woman in a yellow jacket stands near a desk, smiling and interacting with the space, while a soccer ball and a cardboard box rest on the floor nearby.' (Identified persons: Pearl)
+2026-02-13 13:45:25 at waypoint_178 in direction of 71.19: 'I am in an office, where a person sits at a desk interacting with a computer. A black crate filled with bottles rests on the floor nearby.'</pre></details></div><div class="chat-message log-message log-llm-end"></div><div class="chat-message log-message log-tool-start">Using tool: <strong>query_waypoint_history</strong> with input: <em>{'until': '2026-03-01 16:02:45', 'start': '2025-01-01 00:00:00', 'waypoint_name': 'waypoint_104'}</em></div><div class="chat-message log-message log-tool-end">Tool output: <details><summary>Click to view</summary><pre>Here is the information I have for 'waypoint_104':
+2026-02-09 13:38:57 at waypoint_104 in direction of 284.58: 'I am in a hallway or entryway, not a specific room like a kitchen or office. There are no people visible in the scene; the space is empty, featuring a dark carpet, a wood-paneled door, and a white wall with a framed picture and signs.'
+2026-02-09 13:38:56 at waypoint_104 in direction of 321.72: 'I am in an office hallway, not a specific room. There are no people visible in the scene; only a closed door, a wall-mounted coat rack, and a partial view of a desk or table leg are present.'
+2026-02-09 13:38:55 at waypoint_104 in direction of 355.75: 'I am in a bedroom or dressing area, indicated by the clothing rack and trash bin. There are no people visible in the scene.'
+2026-02-09 13:38:54 at waypoint_104 in direction of 34.21: 'I am in an empty office or studio space with dark carpet and white walls. There are no people present; the only objects are a coat rack with jackets and some boxes near a window.'
+2026-02-09 13:38:53 at waypoint_104 in direction of 73.52: 'I am in an office. A person is walking past a desk and office chair, interacting with the space by moving through it.'
+2026-02-09 13:38:52 at waypoint_104 in direction of 105.23: 'I am in an office, where a person stands near a desk, interacting with a computer setup, while an empty chair and a jacket on a hanger suggest recent or impending activity.'
+2026-02-09 13:38:51 at waypoint_104 in direction of 78.26: 'I am in an office, looking down at the carpeted floor near a desk. A person in dark pants and white sneakers stands nearby, interacting with a rolling office chair.'
+2026-02-09 13:38:50 at waypoint_104 in direction of 78.50: 'You are in an office. A person in dark pants and white sneakers stands near a desk, interacting with a computer or monitor, while an empty office chair sits nearby.'
+2026-02-09 13:38:49 at waypoint_104 in direction of 77.44: 'I am in an office. A person stands at a standing desk interacting with a computer, while an empty chair and a jacket on its back sit nearby.' (Identified persons: Pearl)
+2026-02-09 13:38:49 at waypoint_104 in direction of 96.18: 'I am in an office. A person stands at a standing desk interacting with a computer, while an empty office chair sits nearby.' (Identified persons: Pearl)
+2026-02-09 13:38:48 at waypoint_104 in direction of 127.85: 'I am in an office. A person in black stands at a standing desk interacting with a computer, while an empty chair with a jacket draped over it sits nearby.' (Identified persons: Pearl)
+2026-02-09 13:38:46 at waypoint_104 in direction of 127.68: 'I am in an office. A person stands at a standing desk interacting with a computer, while an empty chair with a jacket draped over it sits nearby.' (Identified persons: Pearl)
+2026-02-09 13:38:44 at waypoint_104 in direction of 120.10: 'I am in an office. A person stands at a standing desk interacting with a computer, while an empty chair with a jacket draped over it sits nearby.' (Identified persons: Pearl)
+2026-02-09 13:38:43 at waypoint_104 in direction of 118.41: 'I am in an office. A person stands at a standing desk interacting with a computer, while an empty chair with a jacket draped over it sits nearby.' (Identified persons: Pearl)
+2026-02-09 13:38:42 at waypoint_104 in direction of 102.52: 'I am in an office. A person in dark pants and light shoes stands near a desk, interacting with a computer setup, while an empty office chair sits by the window.'
+2026-02-09 13:38:41 at waypoint_104 in direction of 74.20: 'I am in an office. A person is standing near a filing cabinet, possibly retrieving or placing items, while an empty office chair sits nearby.'
+2026-02-05 12:01:23 at waypoint_104 in direction of 98.19: 'I am in an empty office with white desks, black chairs, and a coat rack holding jackets. No people are present, so there is no interaction occurring.'
+2026-02-05 12:01:21 at waypoint_104 in direction of 94.63: 'I am in an empty office with white desks, black chairs, and a soccer ball on the floor. No people are present, so there is no interaction occurring.'
+2026-02-05 12:01:19 at waypoint_104 in direction of 75.46: 'I am in an empty office with desks, chairs, and a coat rack holding jackets. No people are present, so there is no interaction occurring.'
+2026-02-05 12:01:18 at waypoint_104 in direction of 83.57: 'I am in an empty office with desks, chairs, and a coat rack holding jackets. No people are present, so no interactions are occurring.'
+2026-02-05 12:01:17 at waypoint_104 in direction of 107.77: 'I am in an empty office with white desks, chairs, and a whiteboard. No people are present, so no interactions are occurring.'
+2026-02-05 12:01:17 at waypoint_104 in direction of 98.09: 'I am in an empty office with white desks, chairs, and a coat rack holding jackets. No people are present, so there is no interaction occurring.'
+2026-02-05 12:01:15 at waypoint_104 in direction of 68.84: 'I am in an empty office with desks, chairs, and a coat rack holding jackets. No people are present, so no interactions are occurring.'
+2026-02-05 12:01:15 at waypoint_104 in direction of 88.51: 'I am in an office, where a person is partially visible near the door, interacting with the doorknob. The room contains empty desks, chairs, and a coat rack with jackets, suggesting others may have recently left or are out of frame.'
+2026-02-05 12:01:14 at waypoint_104 in direction of 94.04: 'I am in an office, where a person in a grey hoodie and black pants is walking past desks and a soccer ball on the floor. Another person is seated at a desk in the background, interacting with a computer.' (Identified persons: unknown person)
+2026-02-05 12:01:13 at waypoint_104 in direction of 94.04: 'I am in an office, where a person in a white hoodie is walking toward the camera, interacting with a soccer ball on the floor. The room contains desks, chairs, and a coat rack with jackets.' (Identified persons: person-29)
+2026-02-05 12:01:12 at waypoint_104 in direction of 93.62: 'I am in an office. A person in a white hoodie stands near a soccer ball on the floor, with desks, chairs, and a coat rack nearby.' (Identified persons: Dory)
+2026-02-05 12:01:11 at waypoint_104 in direction of 93.54: 'I am in an office. A person in a white hoodie stands near a soccer ball on the floor, with desks, chairs, and a coat rack nearby.' (Identified persons: Dory)
+2026-02-05 12:01:10 at waypoint_104 in direction of 93.54: 'I am in an office with white desks and black carpeting. A person in a hoodie stands near a soccer ball, interacting with it, while coats hang on a rack nearby.' (Identified persons: Dory)
+2026-02-05 12:01:10 at waypoint_104 in direction of 93.54: 'I am in an office. A person in a hoodie is casually kicking a soccer ball near a coat rack, while empty desks and chairs line the room.' (Identified persons: Dory)
+2026-02-05 12:01:09 at waypoint_104 in direction of 94.14: 'I am in an office, where a person in a white hoodie and black pants is interacting with a soccer ball on the floor near a coat rack and desks.'
+2026-02-05 12:01:08 at waypoint_104 in direction of 94.64: 'I am in an office, where a person is casually kicking a soccer ball near white desks and a coat rack. The scene includes empty office chairs and a window, suggesting a relaxed moment during work hours.'
+2026-02-04 12:38:07 at waypoint_104 in direction of 77.94: 'I am in an office, where a person in dark pants and white sneakers stands near a filing cabinet, while an empty office chair with a jacket draped over it sits nearby.'</pre></details></div><div class="chat-message log-message log-llm-end"></div><div class="chat-message log-message log-tool-start">Using tool: <strong>query_waypoint_history</strong> with input: <em>{'start': '2025-01-01 00:00:00', 'waypoint_name': 'waypoint_99', 'until': '2026-03-01 16:02:45'}</em></div><div class="chat-message log-message log-tool-end">Tool output: <details><summary>Click to view</summary><pre>Here is the information I have for 'waypoint_99':
+2026-02-11 12:41:30 at waypoint_99 in direction of 231.70: 'I am in a dimly lit hallway, not a specific room like a kitchen or office. There are no people visible in the scene, only a textured wall hanging and a distant window at the end of the corridor.'
+2026-02-11 12:41:30 at waypoint_99 in direction of 268.23: 'I am in a dimly lit gallery or hallway with white walls and dark flooring. A person in black pants and white sneakers is walking past a large abstract artwork on the wall.'
+2026-02-11 12:13:30 at waypoint_99 in direction of 259.05: 'I am in a minimalist gallery room with white and black walls, where a single abstract artwork hangs. No people are present, so there is no interaction occurring.'
+2026-02-11 08:59:35 at waypoint_99 in direction of 237.76: 'I am in a dimly lit gallery or hallway, not a kitchen or office. There are no people visible; the scene features only a textured wall-mounted artwork and a dark lower wall under a window.'
+2026-02-09 13:38:59 at waypoint_99 in direction of 303.34: 'I am in a dimly lit hallway, not a room. There are no people visible; the scene is empty except for the walls, carpet, and distant doors.'
+2026-02-09 10:44:31 at waypoint_99 in direction of 97.20: 'I am in an office with white desks and black carpeting. A person stands near a window, interacting with a computer monitor at their workstation.'
+2026-02-09 10:44:17 at waypoint_99 in direction of 133.21: 'I am in an office. One person stands near a desk holding a yellow cloth, while another sits in a chair by a large window, both surrounded by office furniture and computers.' (Identified persons: Anchor, Pearl)
+2026-02-09 10:44:17 at waypoint_99 in direction of 140.18: 'I am in an office. One person stands near a desk holding a yellow cloth, while another sits in a chair at a computer, both surrounded by white desks and large windows.' (Identified persons: Pearl, Pearl)
+2026-02-06 16:38:24 at waypoint_99 in direction of 308.97: 'I am in a dimly lit hallway, not a room, with no people present. The scene is empty, featuring only walls, doors, and a carpeted floor under overhead lighting.'
+2026-02-06 12:19:54 at waypoint_99 in direction of 197.96: 'I am in a long, empty hallway with white walls and dark carpet, lined with abstract art. No people are present, so there is no interaction occurring.'
+2026-02-06 12:19:53 at waypoint_99 in direction of 226.78: 'I am in a quiet, empty hallway lined with abstract art, where no people are present to interact with the space or its features.'
+2026-02-06 12:19:52 at waypoint_99 in direction of 261.28: 'I am in a minimalist art gallery corner, observing a textured black-and-white abstract piece mounted on a two-toned wall. No people are present; the only interaction is the viewer’s gaze with the artwork.'
+2026-02-06 12:19:52 at waypoint_99 in direction of 295.92: 'I am in a dimly lit hallway or corner room with dark lower walls and white upper walls. There are no people visible in the scene.'
+2026-02-06 12:19:29 at waypoint_99 in direction of 58.47: 'I am in an office, peeking from behind a wall. A person in a light jacket stands near a desk by the window, seemingly interacting with the office chair or desk items.'
+2026-02-05 13:13:15 at waypoint_99 in direction of 268.46: 'I am in a minimalist gallery room with stark white and black walls. No people are present; the only interaction is the ambient light grazing the wall beneath a textured, monochrome artwork.'
+2026-02-05 13:13:15 at waypoint_99 in direction of 283.32: 'I am in an empty gallery or exhibition room with dark lower walls and white upper walls displaying abstract art. There are no people present to interact with anything.'
+2026-02-05 09:56:50 at waypoint_99 in direction of 314.32: 'I am in a long, empty hallway with dark carpet and white walls. There are no people visible, so no interactions are occurring.'
+2026-01-15 11:34:35 at waypoint_99 in direction of 94.90: 'I am in an office, viewing a person standing at a desk with a computer monitor. They appear to be interacting with the computer while facing a large window.'
+2026-01-15 11:34:00 at waypoint_99 in direction of 66.86: 'I am in an office, crouched low near a desk. A woman in dark clothing stands by a window, interacting with her phone while leaning against the desk.' (Identified persons: Pearl)
+2026-01-15 11:33:46 at waypoint_99 in direction of 66.97: 'I am in an office. A person is standing near a desk, interacting with a computer monitor while a jacket hangs on the back of their chair.'
+2026-01-15 11:33:45 at waypoint_99 in direction of 67.67: 'I am in an office. A person stands near a window, interacting with a coat hanging on a chair beside them.' (Identified persons: Pearl)
+2026-01-15 11:33:29 at waypoint_99 in direction of 79.65: 'I am in an office. A person stands near a window, interacting with a coat hanging on a chair beside their desk.' (Identified persons: Pearl)
+2026-01-15 11:33:28 at waypoint_99 in direction of 46.19: 'I am in an office hallway, with a person visible in the background near a window, seemingly interacting with a chair or desk. The scene is blurry, suggesting motion or a quick snapshot.'
+2026-01-07 12:10:29 at waypoint_99 in direction of 230.76: 'I am in a dimly lit hallway or corridor, not a specific room like a kitchen or office. There are no people visible in the scene; the space is empty, with only walls, a textured ceiling, and a distant window interacting with ambient light.'
+2026-01-07 12:10:28 at waypoint_99 in direction of 264.10: 'I am in a dimly lit, empty room with dark lower walls and a textured abstract artwork on the upper wall; no people are present to interact with anything.'
+2026-01-07 12:09:55 at waypoint_99 in direction of 89.92: 'I am in an office. A person stands at a desk interacting with a computer, while another chair sits empty nearby.' (Identified persons: Pearl)
+2026-01-07 12:09:53 at waypoint_99 in direction of 67.12: 'I am in an office. A person is standing at a desk, interacting with a computer, while another chair sits empty nearby.' (Identified persons: Pearl)
+2025-12-22 15:21:53 at waypoint_99 in direction of 67.11: 'I am in a dimly lit gallery or exhibition space, not a kitchen or office. There are no people visible; the scene features only framed abstract artworks on white walls above a dark lower wall panel.'
+2025-12-22 15:21:52 at waypoint_99 in direction of 67.11: 'I am in a dimly lit room with dark lower walls and a white upper section, possibly a gallery or minimalist living space. There are no people visible, only a textured black-and-white artwork hanging on the wall.'
+2025-12-22 15:20:33 at waypoint_99 in direction of 67.11: 'I am in an empty office with white desks, black chairs, and a coat hanging on one chair. No people are present to interact with anything.'
+2025-12-22 15:20:32 at waypoint_99 in direction of 67.11: 'I am in an office hallway with dark carpet and wood-paneled walls. A person in light clothing is partially visible on the left, standing near a window with blinds, possibly interacting with a garment rack or coat.'
+2025-12-03 15:40:16 at waypoint_99 in direction of 67.11: 'I am in an office, standing near a desk with a computer monitor. A person in a green hoodie is walking toward me, holding a small object, while empty office chairs and desks line the room.' (Identified persons: Dory)
+2025-12-03 15:40:15 at waypoint_99 in direction of 67.11: 'I am in an office. A person in a green hoodie is standing near a desk, interacting with a black office chair while holding a small object.' (Identified persons: Dory)
+2025-12-03 15:40:14 at waypoint_99 in direction of 67.11: 'I am in an office. A person in a green hoodie and jeans is walking away from the camera, passing by desks and office chairs.' (Identified persons: unknown person)
+2025-12-03 15:39:48 at waypoint_99 in direction of 67.11: 'I am in an office hallway. A person in a green hoodie and light jeans is walking past desks and office chairs, moving toward a door at the end of the corridor.' (Identified persons: unknown person)
+2025-12-03 15:39:38 at waypoint_99 in direction of 67.11: 'I am in an office. A person in a green hoodie and light jeans stands near a desk, looking down, possibly at a phone or object in their hands, while surrounded by office chairs and computer monitors.' (Identified persons: unknown person)
+2025-12-03 15:39:35 at waypoint_99 in direction of 67.11: 'I am in an office. A person in a green shirt and jeans is walking toward a door, passing by empty desks and office chairs.' (Identified persons: unknown person)
+2025-12-03 15:39:34 at waypoint_99 in direction of 67.11: 'I am in an office hallway. A person in a green hoodie walks away down the corridor, passing by empty desks and office chairs.' (Identified persons: unknown person)
+2025-12-03 15:39:33 at waypoint_99 in direction of 67.11: 'I am in an office, observing a person in a green sweater and jeans walking away down a hallway lined with desks and chairs. They are not interacting with anyone or anything, simply moving through the space.' (Identified persons: unknown person)
+2025-12-03 15:39:32 at waypoint_99 in direction of 67.11: 'I am in an office, where a person in a blue shirt is walking past a desk with a computer monitor, while another person sits in a black office chair nearby. The scene is slightly blurred, suggesting motion as the person moves through the space.'
+2025-12-03 15:39:31 at waypoint_99 in direction of 67.11: 'I am in an office, where a person in a blue shirt is partially visible, interacting with a wooden door or wall. The room contains empty desks, chairs, and computer monitors, suggesting a quiet, unoccupied workspace.'
+2025-12-03 15:39:28 at waypoint_99 in direction of 67.11: 'I am in an empty office with desks, chairs, and computers, but no people are present to interact with anything. The space is quiet and still, with only cardboard boxes near the back door suggesting recent activity.'
+2025-12-03 15:39:27 at waypoint_99 in direction of 67.11: 'I am in an office, where a person’s hands are raised close to the camera, interacting with the space as if adjusting a headset or gesturing. In the background, empty desks and chairs suggest a quiet, unoccupied workspace.'
+2025-12-03 15:39:26 at waypoint_99 in direction of 67.11: 'You are in an office, where a person’s hand is reaching toward the camera, partially obscuring the view of desks and office furniture in the background. No other people are clearly visible, and the hand appears to be interacting with or adjusting the camera itself.'
+2025-12-03 15:39:17 at waypoint_99 in direction of 67.11: 'I am in an empty office with desks, chairs, and computers, but no people are present to interact with anything. The space is quiet and still, with only cardboard boxes near the door suggesting recent activity.'
+2025-12-03 15:39:15 at waypoint_99 in direction of 67.11: 'I am in an empty office with desks, chairs, and filing cabinets. No people are present, so there is no interaction occurring.'
+2025-12-03 15:39:14 at waypoint_99 in direction of 67.11: 'I am in an office hallway, with no people visible in the scene. The space features a dark carpet, a wooden door, and an office chair near a windowed wall.'
+2025-12-03 09:29:44 at waypoint_99 in direction of 67.11: 'I am in an office. A person stands at a desk interacting with a computer, while another chair sits empty nearby.' (Identified persons: Pearl)
+2025-12-03 09:29:43 at waypoint_99 in direction of 67.11: 'I am in an office. A person stands near a desk, interacting with a computer, while another chair sits empty nearby.' (Identified persons: Pearl)
+2025-12-03 09:28:23 at waypoint_99 in direction of 67.11: 'I am in a dimly lit gallery or exhibition space, not a kitchen or office. There are no people visible; the scene features only abstract wall art and architectural elements like windows and a dark floor.'
+2025-12-03 09:28:22 at waypoint_99 in direction of 67.11: 'I am in a minimalist art gallery room with stark white and black walls. There are no people present; the only interaction is the ambient light grazing the textured abstract artwork mounted on the wall.'
+2025-12-03 09:26:53 at waypoint_99 in direction of 67.11: 'I am in an office. A person stands at a desk interacting with a computer, while another chair sits empty nearby.' (Identified persons: Pearl)
+2025-12-03 09:26:52 at waypoint_99 in direction of 67.11: 'I am in an office. A person stands near a desk, interacting with a computer, while another person is seated nearby, also engaged with their workstation.' (Identified persons: Pearl)
+2025-12-03 09:16:40 at waypoint_99 in direction of 67.11: 'I am in an office, viewing a person standing at a desk interacting with a computer monitor. The room contains office chairs, a coat rack, and trash bins, suggesting a typical workspace environment.'
+2025-12-03 09:16:39 at waypoint_99 in direction of 67.11: 'I am in an office. A person stands at a desk interacting with a computer, while another chair sits empty nearby.'
+2025-12-03 09:12:49 at waypoint_99 in direction of 67.11: 'I am in an office. A person stands at a desk interacting with a computer, while another person is seated nearby, also at a workstation.'
+2025-12-03 09:12:48 at waypoint_99 in direction of 67.11: 'I am in an office. A person stands at a desk interacting with a computer, while another person is seated nearby, also engaged with their workstation.' (Identified persons: Pearl)
+2025-12-03 09:12:46 at waypoint_99 in direction of 67.11: 'I am in an office. A person is standing near a desk, interacting with a computer, while another person is seated in the background, also working at a desk.' (Identified persons: Pearl)
+2025-12-03 09:11:22 at waypoint_99 in direction of 67.11: 'I am in an office. A person is seated at a desk, interacting with a computer monitor.' (Identified persons: unknown person)
+2025-12-03 09:11:21 at waypoint_99 in direction of 67.11: 'I am in an office. A person stands at a standing desk interacting with a computer, while another person is seated nearby in an office chair.' (Identified persons: unknown person)
+2025-12-03 09:09:14 at waypoint_99 in direction of 67.11: 'I am in an office. A person stands at a desk interacting with a computer, while another chair sits empty nearby.' (Identified persons: Pearl)
+2025-12-03 09:07:50 at waypoint_99 in direction of 67.11: 'I am in an office, where a person stands at a desk interacting with a computer. The room contains office chairs, filing cabinets, and trash bins, with no one else visible.'
+2025-12-03 09:07:49 at waypoint_99 in direction of 67.11: 'I am in an office. A person stands at a desk interacting with a computer, while another person is seated nearby, also at a workstation.' (Identified persons: Pearl)
+2025-12-03 09:07:27 at waypoint_99 in direction of 67.11: 'I am in an office. A person stands near a desk, interacting with a computer, while another person is visible through the glass door in the background.'
+2025-12-03 09:07:24 at waypoint_99 in direction of 67.11: 'I am in an office. A person stands near a desk interacting with a computer, while another person is visible through the glass partition in the background.' (Identified persons: Pearl)
+2025-12-03 09:07:23 at waypoint_99 in direction of 67.11: 'I am in an office hallway, observing a person in motion near a glass-walled room. They appear to be interacting with an office chair or desk inside, while coats hang nearby and bins sit against the wall.'
+2025-12-02 14:51:19 at waypoint_99 in direction of 67.11: 'I am in an office, where a woman stands at a desk interacting with a computer monitor. She is surrounded by office chairs, filing cabinets, and a coat rack with hanging garments.' (Identified persons: unknown person)
+2025-12-02 14:50:18 at waypoint_99 in direction of 67.11: 'I am in an office, where a person stands near a desk with multiple monitors, interacting with the computer setup. Another empty chair and a coat rack with jackets are nearby, suggesting a shared workspace.'
+2025-12-02 14:49:57 at waypoint_99 in direction of 67.11: 'I am in an office. A person stands near a desk with multiple monitors, appearing to interact with the computer, while another person is seated in the background, also at a workstation.'
+2025-12-02 14:49:56 at waypoint_99 in direction of 67.11: 'I am in an office. A person stands near a desk, interacting with a computer monitor, while another person is seated nearby, partially obscured by an office chair.' (Identified persons: Pearl)
+2025-11-20 12:54:30 at waypoint_99 in direction of 67.11: 'I am in an office. A person sits at a desk interacting with a computer, while another person stands near a coat rack, possibly adjusting their jacket.'
+2025-11-20 12:54:29 at waypoint_99 in direction of 67.11: 'I am in an office, where a person sits at a desk interacting with a computer. Another individual is partially visible nearby, also engaged with their workstation.'
+2025-11-20 12:03:10 at waypoint_99 in direction of 67.11: 'You are in an office. A person in jeans sits in a rolling chair, interacting with a desk or computer just out of frame, while the rest of the room—featuring a whiteboard, sofa, and trash can—remains empty.'
+2025-11-20 11:55:34 at waypoint_99 in direction of 67.11: 'I am in an empty, minimalist room with white walls and dark carpet, possibly a hallway or gallery space. There are no people present, so no interactions are occurring.'
+2025-11-20 11:28:13 at waypoint_99 in direction of 67.11: 'I am in an office. A person sits at a desk interacting with a computer, while another person walks past near a blue trash bin.' (Identified persons: unknown person)</pre></details></div><div class="chat-message log-message log-llm-end"></div><div class="chat-message log-message log-tool-start">Using tool: <strong>query_waypoint_history</strong> with input: <em>{'until': '2026-03-01 16:02:45', 'start': '2025-01-01 00:00:00', 'waypoint_name': 'waypoint_100'}</em></div><div class="chat-message log-message log-tool-end">Tool output: <details><summary>Click to view</summary><pre>Here is the information I have for 'waypoint_100':
+2026-02-13 12:59:05 at waypoint_100 in direction of 173.40: 'I am in an office hallway, with no people visible in the scene. The space features white walls adorned with abstract art and leads to an open-plan office area with desks and chairs.'
+2026-02-13 12:59:04 at waypoint_100 in direction of 173.23: 'I am in an office hallway, looking toward an open-plan workspace. No people are visible; the scene is empty, with only desks, chairs, and wall art interacting with the quiet, modern environment.'
+2026-02-13 12:59:00 at waypoint_100 in direction of 173.29: 'I am in a modern office hallway with dark carpet and white walls adorned with abstract art. No people are visible; the scene is empty except for a glimpse into an adjacent office with desks and chairs.'
+2026-02-13 12:58:59 at waypoint_100 in direction of 172.62: 'I am in a hallway, not a specific room. A person in a brown shirt and orange pants stands in an adjacent office, interacting with a desk and computer.' (Identified persons: unknown person)
+2026-02-11 11:33:32 at waypoint_100 in direction of 76.73: 'I am in an office. A person stands at a desk interacting with a computer, while another chair sits empty nearby.' (Identified persons: unknown person)
+2026-02-11 08:59:33 at waypoint_100 in direction of 281.70: 'I am in a dimly lit hallway or gallery space, not a kitchen or office. There are no people visible; the scene features only walls with abstract art and QR codes, and a partially open door.'
+2026-02-11 08:59:32 at waypoint_100 in direction of 259.32: 'I am in a dimly lit hallway or elevator lobby, not a specific room like a kitchen or office. There are no people visible in the scene; the space is empty and features dark flooring, white walls, and a textured panel or artwork.'
+2026-02-11 08:59:31 at waypoint_100 in direction of 227.92: 'I am in a minimalist office hallway with white walls and dark carpet. There are no people visible, only a closed door and a framed abstract print on the wall.'
+2026-02-11 08:59:30 at waypoint_100 in direction of 191.46: 'I am in an empty office hallway with no people present; the scene features white desks, a whiteboard, and a cabinet, all unoccupied and still.'
+2026-02-11 08:59:29 at waypoint_100 in direction of 155.57: 'I am in an office with white desks and filing cabinets. There are no people visible in the scene.'
+2026-02-11 08:59:29 at waypoint_100 in direction of 125.17: 'I am in an office. A person in a tan coat stands near a desk, interacting with a computer or items on the desk, while another person is partially visible sitting nearby.' (Identified persons: unknown person)
+2026-02-11 08:59:28 at waypoint_100 in direction of 89.96: 'I am in an office, where a person in a tan coat stands near a desk, interacting with a chair and possibly preparing to sit or move it. The room contains typical office furniture like desks and filing cabinets, with a few items scattered on the floor nearby.'
+2026-02-11 08:59:27 at waypoint_100 in direction of 82.34: 'I am in an office. A person in a yellow coat stands near a desk, interacting with the space by looking around, while a backpack rests on a nearby chair.' (Identified persons: Pearl)
+2026-02-11 08:59:26 at waypoint_100 in direction of 97.79: 'I am in an office. A woman in a yellow coat stands near a desk, smiling, while a backpack rests on a nearby office chair.' (Identified persons: Pearl)
+2026-02-11 08:59:25 at waypoint_100 in direction of 95.70: 'I am in an office. A person in a yellow coat stands near the doorway, waving, while interacting with the space around them, which includes desks, chairs, and office equipment.' (Identified persons: Pearl)
+2026-02-11 08:59:24 at waypoint_100 in direction of 78.04: 'I am in an office. A woman in a yellow coat waves while standing near a desk and chair, with a coat rack holding scarves nearby.' (Identified persons: Pearl)
+2026-02-11 08:59:21 at waypoint_100 in direction of 103.98: 'I am in an office. A woman in a yellow coat stands near a desk, smiling as she interacts with her surroundings, while a backpack rests on a nearby chair.' (Identified persons: Pearl)
+2026-02-11 08:59:20 at waypoint_100 in direction of 103.98: 'I am in an office. A woman in a yellow coat stands near a desk, interacting with her surroundings as she appears to be adjusting her coat or preparing to leave.' (Identified persons: Pearl)
+2026-02-11 08:59:19 at waypoint_100 in direction of 104.42: 'I am in an office. A woman in a yellow jacket stands near a desk, smiling and interacting with the space, while a soccer ball and a cardboard box rest on the floor nearby.' (Identified persons: Pearl)
+2026-02-11 08:59:18 at waypoint_100 in direction of 82.62: 'I am in an office. A person in a yellow coat stands near a desk, interacting with a computer monitor, while another person is partially visible on the right, near a chair with a patterned scarf draped over it.' (Identified persons: unknown person)
+2026-02-11 08:59:16 at waypoint_100 in direction of 78.44: 'I am in an office. A person in a yellow coat stands near a desk, interacting with a backpack, while a coat rack with scarves is nearby.' (Identified persons: unknown person)
+2026-02-09 13:38:58 at waypoint_100 in direction of 279.27: 'I am in a dimly lit gallery or hallway with white walls and dark flooring. There are no people visible; the only interaction is with the abstract artwork hanging on the wall.'
+2026-02-09 13:36:25 at waypoint_100 in direction of 96.33: 'I am in an office. A person stands near a desk interacting with a computer, while another person is partially visible near a chair and coat rack.' (Identified persons: Pearl)
+2026-02-09 13:36:25 at waypoint_100 in direction of 71.03: 'I am in an office. A person in black stands near a desk, interacting with a computer, while another person is partially visible behind a chair near the window.' (Identified persons: Pearl)
+2026-02-09 13:36:24 at waypoint_100 in direction of 96.63: 'I am in an office. A person stands near a desk interacting with a computer, while another chair holds a jacket, suggesting someone recently left or is nearby.' (Identified persons: Pearl)
+2026-02-09 13:36:23 at waypoint_100 in direction of 93.03: 'I am in an office. A person stands near a desk, interacting with a computer, while another chair sits empty nearby.' (Identified persons: Pearl)
+2026-02-09 13:36:22 at waypoint_100 in direction of 49.56: 'I am in an office. A person in black is walking past a desk, while another person is seated at a desk in the background, both interacting with their workspaces.' (Identified persons: Pearl)
+2026-02-09 13:36:21 at waypoint_100 in direction of 91.48: 'I am in an office. A person stands at a standing desk interacting with a computer, while coats hang on a rack nearby.' (Identified persons: Pearl)
+2026-02-09 13:36:20 at waypoint_100 in direction of 96.91: 'I am in an office. A person stands near a desk, interacting with a computer, while another person is seated in the background, partially visible through a glass partition.' (Identified persons: Pearl)
+2026-02-09 13:36:19 at waypoint_100 in direction of 56.69: 'I am in an office. A person in dark clothing stands near a desk with a computer, while coats hang on a nearby rack.' (Identified persons: Pearl)
+2026-02-09 13:36:18 at waypoint_100 in direction of 91.13: 'I am in an office. A person stands near a desk with a computer, while another person is partially visible behind a chair, both interacting with office furniture and equipment.' (Identified persons: unknown person)
+2026-02-09 13:36:17 at waypoint_100 in direction of 96.41: 'I am in an office. A man in black stands by a desk, interacting with a computer monitor, while another person sits nearby in a chair, partially obscured.' (Identified persons: Pearl)
+2026-02-09 13:36:17 at waypoint_100 in direction of 96.72: 'I am in an office. A person in black is adjusting a chair at a long desk, while another chair nearby holds a draped coat.' (Identified persons: Pearl)
+2026-02-09 13:36:16 at waypoint_100 in direction of 73.32: 'I am in an office. A person in black stands near a desk, interacting with a computer, while another person is partially visible near a coat rack.' (Identified persons: unknown person)
+2026-02-09 13:36:14 at waypoint_100 in direction of 72.79: 'I am in an office. A person in dark clothes and white sneakers stands near a black office chair, seemingly interacting with it or preparing to sit down.'
+2026-02-09 10:44:07 at waypoint_100 in direction of 98.19: 'I am in an office, where a person stands near a desk interacting with a computer while another person is partially visible moving near the window.' (Identified persons: unknown person)
+2026-02-05 10:58:39 at waypoint_100 in direction of 79.02: 'I am in an office. A person in dark clothing stands near a desk with monitors, while another person is partially visible near a coat rack, interacting with their surroundings.' (Identified persons: Pearl)
+2026-02-05 10:58:38 at waypoint_100 in direction of 75.05: 'I am in an office. A person stands at a desk interacting with a computer, while another chair sits empty near a window, and coats hang on a rack against the wall.' (Identified persons: Pearl)
+2026-01-15 11:33:44 at waypoint_100 in direction of 84.40: 'I am in an office. A person stands near a desk, interacting with a computer, while another person is partially visible near a coat rack.' (Identified persons: unknown person)
+2026-01-15 11:33:33 at waypoint_100 in direction of 98.95: 'I am in an office. A person stands near a desk by the window, interacting with a computer, while another person is partially visible in the background near a coat rack.'
+2026-01-15 11:33:31 at waypoint_100 in direction of 97.33: 'I am in an office. A person stands near a desk, interacting with a computer, while another person is partially visible near a coat rack by the window.'
+2026-01-07 12:10:27 at waypoint_100 in direction of 287.57: 'I am in a dimly lit hallway or corner room with dark carpeting and a textured wall hanging. There are no people visible in the scene.'
+2026-01-07 12:10:25 at waypoint_100 in direction of 320.20: 'I am in a dimly lit hallway or corner room with dark walls and a wooden door. There are no people visible in the scene.'
+2026-01-07 12:09:57 at waypoint_100 in direction of 157.19: 'I am in an office hallway with white walls and dark carpeting. No people are visible, and the only interaction is with the empty space and a distant whiteboard.'
+2026-01-07 12:09:56 at waypoint_100 in direction of 122.82: 'I am in an office. A person stands near a window, interacting with their phone, while an office chair and filing cabinet sit nearby.' (Identified persons: unknown person)
+2025-12-22 15:21:51 at waypoint_100 in direction of 98.82: 'I am in a dimly lit hallway or gallery space, not a specific room like a kitchen or office. There are no people visible in the scene; the walls are adorned with framed artwork and informational plaques, which are the only objects present.'
+2025-12-22 15:21:50 at waypoint_100 in direction of 98.82: 'I am in a dimly lit hallway or entryway, not a specific room like a kitchen or office. There are no people visible in the scene; the space is empty except for a door and a wall with QR codes.'
+2025-12-22 15:20:37 at waypoint_100 in direction of 98.82: 'I am in an empty office or classroom with white walls and dark carpet. There are no people present, so no interactions are occurring.'
+2025-12-22 15:20:36 at waypoint_100 in direction of 98.82: 'I am in an empty office with white cubicle partitions and black carpeting. There are no people present, so no interactions are occurring.'
+2025-12-22 15:20:35 at waypoint_100 in direction of 98.82: 'I am in an empty office with white desks, rolling chairs, and filing cabinets. No people are present, so there is no interaction occurring.'
+2025-12-22 15:20:34 at waypoint_100 in direction of 98.82: 'I am in an empty office with white desks, black chairs, and dark carpeting. No people are present, so there is no interaction occurring.'
+2025-12-03 09:29:47 at waypoint_100 in direction of 98.82: 'I am in an office. A person stands near a desk interacting with a computer, while another person is partially visible in the foreground, seemingly moving past a chair.'
+2025-12-03 09:29:45 at waypoint_100 in direction of 98.82: 'I am in an office. A person stands near a desk interacting with a computer, while another person is partially visible near a window, possibly adjusting blinds or looking outside.' (Identified persons: unknown person)
+2025-12-03 09:28:21 at waypoint_100 in direction of 98.82: 'I am in a dimly lit gallery or exhibition space, not a kitchen or office. There are no people visible; the scene features only white walls with abstract art and dark flooring, suggesting an empty, contemplative environment.'
+2025-12-03 09:28:19 at waypoint_100 in direction of 98.82: 'I am in a hallway, not a specific room like a kitchen or office. There are no people visible in the scene; the space is empty, featuring white walls, a dark floor, and a closed white door.'
+2025-12-03 09:27:36 at waypoint_100 in direction of 98.82: 'I am in an empty office or classroom with white walls, a black carpet, and a whiteboard with writing on it. There are no people present, so no interactions are occurring.'
+2025-12-03 09:27:35 at waypoint_100 in direction of 98.82: 'I am in an empty office with white partitions and dark carpeting. There are no people present, so no interactions are occurring.'
+2025-12-03 09:27:34 at waypoint_100 in direction of 98.82: 'I am in an office. A person stands near a window holding a laptop, while another person is seated at a desk, interacting with a computer.' (Identified persons: unknown person)
+2025-12-03 09:26:56 at waypoint_100 in direction of 98.82: 'I am in an office. A person stands near a desk interacting with a computer, while another person is seated at a nearby workstation, also engaged with their computer.'
+2025-12-03 09:26:55 at waypoint_100 in direction of 98.82: 'I am in an office. A person stands at a desk interacting with a computer, while another chair sits empty nearby.'
+2025-12-03 09:11:20 at waypoint_100 in direction of 98.82: 'I am in an office, where a person stands at a desk interacting with a computer. The room contains office chairs, filing cabinets, and trash bins, with no one else visible.' (Identified persons: unknown person)
+2025-12-03 09:09:44 at waypoint_100 in direction of 98.82: 'I am in an office. A person stands at a desk interacting with a computer, while another person is seated nearby, also at a workstation.'
+2025-12-03 09:09:42 at waypoint_100 in direction of 98.82: 'I am in an office. A person stands near a desk, interacting with a computer, while another person is seated in an office chair nearby.' (Identified persons: unknown person)
+2025-12-03 09:09:17 at waypoint_100 in direction of 98.82: 'I am in an office with white desks, a whiteboard, and a cabinet. There are no people visible in the scene.'
+2025-12-03 09:09:16 at waypoint_100 in direction of 98.82: 'I am in an office with white desks and black carpeting. There are no people visible in the scene.'
+2025-12-03 09:09:15 at waypoint_100 in direction of 98.82: 'I am in an office with dark carpet and white desks. A person in dark clothing stands near a window, interacting with a computer or desk items, while another chair sits empty nearby.' (Identified persons: unknown person)
+2025-12-03 09:08:46 at waypoint_100 in direction of 98.82: 'I am in an office, where a person stands near a desk, interacting with a computer monitor. The room contains office chairs, filing cabinets, and trash bins, suggesting a typical workspace environment.' (Identified persons: unknown person)
+2025-12-03 09:08:20 at waypoint_100 in direction of 98.82: 'I am in an empty office with white walls, a black carpet, and a desk with a monitor. There are no people present, so no interactions are occurring.'
+2025-12-03 09:08:18 at waypoint_100 in direction of 98.82: 'I am in an office with white desks and black chairs. No people are visible, so there are no interactions occurring.'
+2025-12-03 09:08:17 at waypoint_100 in direction of 98.82: 'I am in an office with dark carpeting and white desks. A person stands near a window, interacting with a computer monitor on a desk, while another chair sits empty nearby.' (Identified persons: unknown person)
+2025-12-03 09:07:52 at waypoint_100 in direction of 98.82: 'I am in an office. A person stands at a desk interacting with a computer, while another person is seated nearby, also working at a computer.'
+2025-12-03 09:07:51 at waypoint_100 in direction of 98.82: 'I am in an office, where a person stands at a desk interacting with a computer. Another empty office chair sits nearby, and cardboard boxes and trash bins are visible against the wall.'
+2025-12-02 14:51:18 at waypoint_100 in direction of 98.82: 'I am in an office. A person stands at a standing desk interacting with a laptop, while an empty office chair sits nearby.' (Identified persons: unknown person)
+2025-12-02 14:50:46 at waypoint_100 in direction of 98.82: 'I am in an empty office with white desks, a whiteboard, and a cabinet. There are no people present to interact with anything.'
+2025-12-02 14:50:44 at waypoint_100 in direction of 98.82: 'I am in an empty office with white cubicles and a dark carpet. There are no people present, so no interactions are occurring.'
+2025-12-02 14:50:43 at waypoint_100 in direction of 98.82: 'I am in an empty office with no people present. The scene includes office chairs, desks, and filing cabinets, but no one is interacting with them.'
+2025-12-02 14:50:36 at waypoint_100 in direction of 98.82: 'I am in an office with white desks, multiple monitors, and ergonomic chairs. A person stands near the window, arms crossed, observing the room, while another person is partially visible seated at a desk in the background.'
+2025-12-02 14:50:22 at waypoint_100 in direction of 98.82: 'I am in an office with white desks, black chairs, and large windows. A woman stands near a desk, seemingly interacting with a computer or monitor, while another person is partially visible in the background.'
+2025-12-02 14:50:20 at waypoint_100 in direction of 98.82: 'I am in an office, where a person stands near a desk interacting with a computer monitor. Another person is partially visible in the background, and office chairs, filing cabinets, and a blue trash bin are scattered around the room.'
+2025-11-20 12:03:12 at waypoint_100 in direction of 98.82: 'You are in an office. A person in jeans sits on a rolling chair, interacting with a desk, while the room also contains a whiteboard, a sofa, and a trash can.'
+2025-11-20 11:55:32 at waypoint_100 in direction of 98.82: 'I am in a minimalist, empty room with white walls and dark carpet, possibly an office or gallery space. There are no people present, so no interactions are occurring.'
+2025-11-20 11:54:04 at waypoint_100 in direction of 98.82: 'I am in an empty office room with a sofa, desks, and chairs. There are no people present to interact with anything.'
+2025-11-20 11:53:59 at waypoint_100 in direction of 98.82: 'I am in an office, viewed from a low angle on the carpeted floor. No people are visible; only empty office chairs and desks are present, suggesting a quiet or unoccupied workspace.'
+2025-11-20 11:28:17 at waypoint_100 in direction of 98.82: 'I am in an empty office or meeting room with white walls, a black carpet, and a whiteboard with writing on it. There are no people present, so no interactions are occurring.'
+2025-11-20 11:28:16 at waypoint_100 in direction of 98.82: 'I am in an empty office hallway with white walls and dark carpet. There are no people present, so no interactions are occurring.'
+2025-11-20 11:28:15 at waypoint_100 in direction of 98.82: 'I am in an office, where a person sits in a rolling chair at a desk, interacting with a computer. The room features white filing cabinets and dark carpeting, with another empty chair nearby.'
+2025-11-20 11:28:14 at waypoint_100 in direction of 98.82: 'I am in an office. A person sits at a desk by a large window, interacting with a computer, while a backpack rests on the floor nearby.' (Identified persons: unknown person)</pre></details></div><div class="chat-message log-message log-llm-end"></div><div class="chat-message log-message log-tool-start">Using tool: <strong>get_route_information</strong> with input: <em>{'waypoint_target': 'waypoint_100', 'waypoint_src': 'waypoint_90'}</em></div><div class="chat-message log-message log-tool-end">Tool output: <details><summary>Click to view</summary><pre>    The distance from waypoint_90 to waypoint_100 is 12.92 meters.
+    The shortest path is: waypoint_90 -&gt; waypoint_91 -&gt; waypoint_92 -&gt; waypoint_93 -&gt; waypoint_94 -&gt; waypoint_95 -&gt; waypoint_96 -&gt; waypoint_97 -&gt; waypoint_98 -&gt; waypoint_99 -&gt; waypoint_100.
+</pre></details></div><div class="chat-message log-message log-llm-end"></div><div class="chat-message log-message log-tool-start">Using tool: <strong>go_to_waypoint</strong> with input: <em>{'needs_validation': True, 'direction': 98.82, 'reason': "Go to Pearl's likely workplace at waypoint_100 to pick up a package.", 'waypoint_name': 'waypoint_100', 'person_id_name': 'Pearl'}</em></div><div class="chat-message log-message log-tool-end">Tool output: <details><summary>Click to view</summary><pre>        You arrived at waypoint waypoint_100!
+        You are currently seeing: I am in an office hallway, where a person in dark pants and white sneakers is walking past a white desk and a coat rack with hanging jackets. The scene is dimly lit, with another person partially visible in the background near a doorway.
+        You have seen the following on your route:
+        2026-03-01 16:03:38 at waypoint_100 in direction of 99.02: 'I am in an office, where a person in dark pants and white sneakers is walking past a white desk and filing cabinet. They appear to be moving toward a window at the far end, with no direct interaction with objects or others visible.'
+2026-03-01 16:03:37 at waypoint_100 in direction of 99.03: 'I am in an office. A person stands in the center, holding a small object, while interacting with the space around them, including a desk, chair, and coat rack.' (Identified persons: Pearl)
+2026-03-01 16:03:35 at waypoint_100 in direction of 99.02: 'I am in an office. A woman stands near a desk, holding a tablet and looking toward the camera, while interacting with the office environment that includes a chair, computer monitors, and a coat rack.' (Identified persons: Pearl)
+2026-03-01 16:03:34 at waypoint_100 in direction of 98.80: 'I am in an office with white desks, black chairs, and dark carpeting. A person stands near a desk, interacting with a computer monitor, while another individual is partially visible near a doorway.' (Identified persons: unknown person)
+2026-03-01 16:03:33 at waypoint_100 in direction of 98.32: 'I am in an office. A person stands at a desk interacting with a computer, while another person sits nearby in a chair, seemingly engaged with their own work.' (Identified persons: unknown person)
+2026-03-01 16:03:33 at waypoint_99 in direction of 91.78: 'I am in an office. A person stands at a desk interacting with a computer, while another person is partially visible near a coat rack.' (Identified persons: unknown person)
+2026-03-01 16:03:32 at waypoint_99 in direction of 55.47: 'I am in an office. A person is seated at a desk near a window, interacting with a computer, while another individual stands nearby, possibly in conversation or observing.'
+2026-03-01 16:03:31 at waypoint_98 in direction of 16.99: 'I am in a hallway, not a specific room like a kitchen or office. There are no people visible in the scene; the space is empty except for doors and a coat hanging on a wall hook.'
+2026-03-01 16:03:30 at waypoint_97 in direction of 1.33: 'I am in a long, empty hallway with dark carpet and white walls. There are no people present, only closed doors and framed art on the walls.'
+2026-03-01 16:03:29 at waypoint_97 in direction of 359.10: 'I am in a long, empty hallway with white walls and dark carpet. There are no people present, only framed artwork on the walls and doors along the corridor.'
+2026-03-01 16:03:28 at waypoint_96 in direction of 359.29: 'I am in a long, empty hallway with white walls and dark carpet, lined with abstract art. There are no people present, so no interactions are occurring.'
+2026-03-01 16:03:27 at waypoint_96 in direction of 359.79: 'I am in a long, dimly lit hallway lined with abstract art on white walls. There are no people present; the only interaction is with the silent, empty space and distant emergency exit sign.'
+2026-03-01 16:03:26 at waypoint_95 in direction of 0.46: 'I am in a long, dimly lit hallway with white walls and dark flooring. There are no people visible; the scene is empty except for framed artwork on the walls and closed doors along the corridor.'
+2026-03-01 16:03:25 at waypoint_95 in direction of 4.83: 'I am in a long, empty hallway with dark carpet and white walls adorned with abstract art. There are no people present, so no interactions are occurring.'
+2026-03-01 16:03:25 at waypoint_94 in direction of 24.99: 'I am in a dimly lit hallway, not a room, with no people visible. The scene features a red fire extinguisher mounted on the wall and framed artwork along the corridor.'
+2026-03-01 16:03:24 at waypoint_94 in direction of 73.31: 'I am in a dimly lit hallway corner, not a specific room like a kitchen or office. There are no people visible in the scene; only a red fire extinguisher mounted on the wall is present.'
+2026-03-01 16:03:23 at waypoint_93 in direction of 109.27: 'I am in an empty, modern room with white walls and large windows, likely an office or studio. There are no people present, so no interactions are occurring.'
+2026-03-01 16:03:22 at waypoint_92 in direction of 139.52: 'I am in a dim, empty hallway corner with dark walls and floor, leading to a brighter room ahead. There are no people visible in the scene.'
+2026-03-01 16:03:21 at waypoint_92 in direction of 165.82: 'I am in an empty office room with a desk, chair, and filing cabinet. No people are present, so there is no interaction occurring.'
+2026-03-01 16:03:20 at waypoint_90 in direction of 180.35: 'I am in an office, where a person is seated at a desk interacting with a computer. The room is otherwise empty, with a chair and filing cabinet nearby.'
+        Pearl was seen at waypoint_100.
+        </pre></details></div><div class="chat-message log-message log-llm-end"></div><div class="chat-message log-message log-tool-start">Using tool: <strong>go_to_waypoint</strong> with input: <em>{'waypoint_name': 'waypoint_90', 'direction': 180.35, 'reason': 'Return to the user at waypoint_90 after picking up the package from Pearl.', 'needs_validation': False, 'person_id_name': None}</em></div><div class="chat-message log-message log-tool-end">Tool output: <details><summary>Click to view</summary><pre>You arrived at waypoint_90</pre></details></div><div class="chat-message log-message log-llm-end"></div><div class="chat-message log-message log-tool-start">Using tool: <strong>on_success</strong> with input: <em>{'reason': "I successfully went to Pearl's workplace at waypoint_100, where I found her holding the package. I have now returned to waypoint_90 as requested."}</em></div><div class="chat-message bot-message">Error: undefined</div><div class="chat-message log-message log-tool-end">Tool output: <details><summary>Click to view</summary><pre>You performed a little happy dance.</pre></details></div></div>
+            <form id="prompt-form" class="prompt-form">
+                <input type="text" id="prompt-input" placeholder="Enter your task..." autocomplete="off">
+                <button type="submit">Send</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+    
+<script>
+    function generateThreadId() {
+        return Math.floor(Math.random() * 1000000000).toString();
+    }
+
+    $(document).ready(function () {
+        let threadId;
+        let userPrompt = '';
+        let socket;
+
+        const imageElement = document.getElementById('live-image');
+        const socketStatusElement = document.getElementById('socket-status');
+        const robotStatusElement = document.getElementById('robot-status');
+        const timestampElement = document.getElementById('timestamp');
+        const locationElement = document.getElementById('location');
+        const cmdElement = document.getElementById('cmd');
+        const uncaptionedCountElement = document.getElementById('uncaptioned-count');
+        const chatBox = document.getElementById('chat-box');
+
+        function initializeThread() {
+            threadId = generateThreadId();
+            $('#thread-id').text(threadId);
+        }
+
+        function appendLogMessage(message, type) {
+            const logElement = document.createElement('div');
+            logElement.classList.add('chat-message', 'log-message', `log-${type}`);
+            logElement.innerHTML = message;
+            chatBox.appendChild(logElement);
+        }
+
+        function connect() {
+            const wsProtocol = window.location.protocol === 'https' ? 'wss:' : 'ws:';
+            const wsUrl = `${wsProtocol}//${window.location.host}/ws`;
+
+            console.log(`Connecting to WebSocket at: ${wsUrl}`);
+            socketStatusElement.textContent = 'Connecting...';
+            socketStatusElement.classList.remove('connected');
+
+            socket = new WebSocket(wsUrl);
+
+            socket.onopen = () => {
+                console.log('WebSocket connection established.');
+                socketStatusElement.textContent = 'Connected';
+                socketStatusElement.classList.add('connected');
+                // Send thread_id to server
+                socket.send(JSON.stringify({ thread_id: threadId }));
+            };
+
+            socket.onmessage = (event) => {
+                try {
+                    const data = JSON.parse(event.data);
+
+                    // Handle LLM/tool logs
+                    if (data.type) {
+                        switch (data.type) {
+                            case 'llm_start':
+                                $('#chat-box').scrollTop($('#chat-box')[0].scrollHeight);
+                                break;
+                            // case 'agent_action':
+                            //     appendLogMessage(`Using tool: <strong>${data.tool}</strong> with input: <em>${data.input}</em>`, 'agent-action');
+                            //     break;
+                            case 'tool_start':
+                                appendLogMessage(`Using tool: <strong>${data.tool}</strong> with input: <em>${data.input}</em>`, 'tool-start')
+                                break;
+                            case 'tool_end':
+                                appendLogMessage(`Tool output: <details><summary>Click to view</summary><pre>${data.output}</pre></details>`, 'tool-end');
+                                break;
+                            case 'agent_finish':
+                                const answer = data.output;
+                                let botMessage = `
+                                <div class="chat-message bot-message">
+                                    <p>${answer}</p>
+                                </div>`;
+                                $('#chat-box').append(botMessage);
+                                $('#chat-box').scrollTop($('#chat-box')[0].scrollHeight);
+                                break;
+                            case 'llm_end':
+                                appendLogMessage(data.response, 'llm-end');
+                                break;
+                            case 'task_completed':
+                                appendLogMessage(`<strong>Task completed:</strong> ${data.report}`, 'task-complete');
+                                break;
+                            case 'tool_report':
+                                appendLogMessage(`<strong>Tool usage report:</strong> ${data.tools}`, 'tool-report');
+                                break;
+                            default:
+                                console.log(data)
+                        }
+                        return;
+                    }
+
+
+                    if (data.image_data) {
+                        imageElement.src = 'data:image/jpeg;base64,' + data.image_data;
+                    }
+                    if (data.timestamp) {
+                        const date = new Date(data.timestamp * 1000);
+                        timestampElement.textContent = date.toLocaleString();
+                    }
+                    if (data.waypoint_name && data.room_name) {
+                        locationElement.textContent = `'${data.waypoint_name}' in room '${data.room_name}'`
+                    }
+                    if (data.current_cmd) {
+                        const cmd = data.current_cmd;
+                        cmdElement.textContent = `Prompt: ${cmd.prompt} -> ${cmd.waypoint_name} [${cmd.status}]`;
+                    }
+                    if (data.robot_status) {
+                        robotStatusElement.textContent = data.robot_status;
+                        robotStatusElement.classList.toggle('connected', data.robot_status === 'UP');
+                    }
+                    if (data.uncaptioned_count != null) {
+                        uncaptionedCountElement.textContent = data.uncaptioned_count;
+                    }
+                } catch (e) {
+                    console.error('Failed to parse incoming message:', e, event.data);
+                }
+            };
+
+            socket.onclose = (event) => {
+                console.log('WebSocket connection closed. Reconnecting in 5s...', event);
+                socketStatusElement.textContent = 'Disconnected';
+                socketStatusElement.classList.remove('connected');
+                robotStatusElement.textContent = 'Disconnected';
+                robotStatusElement.classList.remove('connected');
+                setTimeout(connect, 5000);
+            };
+
+            socket.onerror = (error) => {
+                console.error('WebSocket Error:', error);
+                socketStatusElement.textContent = 'Error';
+                socketStatusElement.classList.remove('connected');
+                socket.close();
+            };
+        }
+
+        $('#new-thread-btn').on('click', function () {
+            if (socket) {
+                socket.close();
+            }
+            threadId = generateThreadId();
+            localStorage.setItem('chatThreadId', threadId);
+            $('#thread-id').text(threadId);
+            $('#chat-box').empty();
+        });
+
+        initializeThread();
+        connect();
+
+        $('#prompt-form').on('submit', function (e) {
+            e.preventDefault();
+            let promptText = $('#prompt-input').val().trim();
+            if (promptText === '') return;
+
+            userPrompt = promptText;
+
+            $('#chat-box').append('<div class="chat-message user-message">' + promptText + '</div>');
+            $('#prompt-input').val('');
+            $('#chat-box').scrollTop($('#chat-box')[0].scrollHeight);
+
+            $.ajax({
+                url: '/prompt',
+                type: 'POST',
+                contentType: 'application/json',
+                data: JSON.stringify({ prompt: promptText, thread_id: threadId }),
+                success: function (data) {
+                    console.log('Prompt sent successfully:', data.status);
+                },
+                error: function (xhr, status, error) {
+                    console.error("Error:", error);
+                    let errorMessage = '<div class="chat-message bot-message">Error: ' + xhr.responseText + '</div>';
+                    $('#chat-box').append(errorMessage);
+                    $('#chat-box').scrollTop($('#chat-box')[0].scrollHeight);
+                }
+            });
+        });
+    });
+</script>
+
+
+
+</body></html>

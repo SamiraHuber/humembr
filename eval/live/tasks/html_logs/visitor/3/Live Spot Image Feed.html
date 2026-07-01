@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<!-- saved from url=(0022)http://127.0.0.1:5050/ -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Live Spot Image Feed</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com/">
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="">
+    <link href="./Live Spot Image Feed_files/css2" rel="stylesheet">
+    <link rel="stylesheet" href="./Live Spot Image Feed_files/style.css">
+    <script src="./Live Spot Image Feed_files/jquery.min.js"></script>
+<style>
+        .top-nav a {
+            margin: 0 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="top-nav">
+        <a href="http://127.0.0.1:5050/" class="active">Home</a>
+        <a href="http://127.0.0.1:5050/map">Waypoint Map</a>
+        <a href="http://127.0.0.1:5050/person_observations">Person Observations</a>
+        <a href="http://127.0.0.1:5050/image_log">Image Log</a>
+        <a href="http://127.0.0.1:5050/person_identities">Person Identities</a>
+    </nav>
+    
+    
+<h1>Spot Control Panel</h1>
+
+<div class="main-content">
+    <div class="top-row">
+        <div class="feed-container">
+            <!-- The image will be displayed here -->
+            <img id="live-image" src=""[image removed]" alt="Live feed">
+
+            <div class="metadata">
+                <!-- Connection Status -->
+                <p>
+                    <strong>Websocket Status:</strong> <span class="status connected" id="socket-status">Connected</span>
+                    <strong>Robot Status:</strong> <span class="status connected" id="robot-status">UP</span>
+                </p>
+                <!-- Image metadata will be shown here -->
+                <p> <strong>Uncaptioned Image Queue Size:</strong> <span id="uncaptioned-count">0</span></p>
+                <p><strong>Created:</strong> <span id="timestamp">1.3.2026, 16:30:34</span></p>
+                <p><strong>Location:</strong> <span id="location">'waypoint_90' in room 'unknown room'</span></p>
+                <p><strong>Current command:</strong> <span id="cmd">Prompt: celebrate, for reason I have successfully picked up the visitor at waypoint_168, brought them to the kitchen at waypoint_69, and shown them a couch at waypoint_90. -&gt; null [SUCCESS]</span></p>
+            </div>
+        </div>
+
+        <div class="chat-container">
+            <div class="thread-controls">
+                <p><strong>Thread ID:</strong> <span id="thread-id">542105523</span></p>
+                <button id="new-thread-btn">New Thread</button>
+            </div>
+            <div id="chat-box" class="chat-box">
+                <!-- Chat messages will appear here -->
+            <div class="chat-message user-message">Pick up our visitor at waypoint 168. Then bring him to the kitchen and after arriving show him where he can sit on a couch</div><div class="chat-message log-message log-llm-end"></div><div class="chat-message log-message log-tool-start">Using tool: <strong>query_semantic_observations</strong> with input: <em>{'query_text': 'Where is the kitchen?', 'person': None}</em></div><div class="chat-message log-message log-tool-start">Using tool: <strong>query_semantic_observations</strong> with input: <em>{'query_text': 'Where is a couch?', 'person': None}</em></div><div class="chat-message log-message log-tool-end">Tool output: <details><summary>Click to view</summary><pre>I made the following observations:
+2026-03-01 15:28:37 at waypoint_90 in direction of 358.36: 'I am in an office or meeting room with a sofa, whiteboard, and desk. A person in a striped shirt stands near the desk, while another person is partially visible sitting at the desk, interacting with a computer.'
+2026-01-23 12:36:48 at waypoint_90 in direction of 29.64: 'I am in a minimalist room with dark carpet and a whiteboard, likely an office or meeting space. A person sits on a beige couch, partially visible, interacting with a black jacket or bag resting beside them.'
+2026-02-13 13:55:00 at waypoint_75 in direction of 302.25: 'I am in a hallway with wood-look flooring and dark carpet, near a closed door. In the background, a person is lying on a couch in a lit room, seemingly resting or watching something.'
+2025-11-27 15:23:19 at waypoint_89 in direction of 94.54: 'I am in an office or meeting room with dark carpeting and a whiteboard. A person in a beanie and jacket is reclining on a couch, seemingly relaxed or resting, while an empty office chair sits nearby.' (Identified persons: unknown person)
+2026-01-23 12:36:11 at waypoint_90 in direction of 19.40: 'I am in a dimly lit living room, observing a person seated on a brown couch with their legs crossed, interacting with a black bag resting beside them. The room is otherwise empty, with plain white walls and dark carpeting.'
+2026-01-07 12:16:19 at waypoint_85 in direction of 334.85: 'I am in a living room, viewing the scene from floor level near a dark leather couch. A person is partially visible sitting on the couch, interacting with a white desk or computer setup nearby.'
+2025-12-22 15:16:39 at waypoint_83 in direction of 308.92: 'I am in a dimly lit living room or office lounge. A person in a festive sweater lies on a brown couch, gazing upward, while an office desk and chair sit unused in the background.'
+2026-02-09 13:49:18 at waypoint_91 in direction of 8.56: 'I am in a living room, where a beige sofa sits against a wall next to a dark trash can. No people are present; the only interaction is a draped blanket resting on the sofa’s arm.'
+2026-01-23 12:32:30 at waypoint_90 in direction of 0.00: 'I am in a dimly lit living room, viewed from floor level. A person in dark pants and shoes reclines on a brown couch, interacting with a black object—possibly a phone or remote—resting on their lap.'
+2025-12-22 15:22:58 at waypoint_88 in direction of 180.55: 'I am in an office or meeting room. A person sits relaxed on a brown couch, interacting with the space by leaning back, while a whiteboard and filing cabinet stand nearby.' (Identified persons: Crush)
+2025-11-27 15:28:02 at waypoint_89 in direction of 94.54: 'I am in an office or meeting room with dark carpeting and a whiteboard. A person is reclining on a couch, seemingly resting or waiting, while an empty office chair sits nearby, suggesting recent or impending work.' (Identified persons: unknown person)
+2025-12-22 15:23:00 at waypoint_89 in direction of 94.54: 'I am in an office or study room with a whiteboard and shelving. A person in a red patterned shirt is reclining on a couch, seemingly resting or looking at something in their lap.'
+2026-02-09 13:49:19 at waypoint_85 in direction of 342.21: 'I am in a living room with a large, worn beige sofa as the central feature. No people are present; the sofa sits empty on dark carpet, interacting only with the surrounding walls and furniture.'
+2025-12-22 15:16:37 at waypoint_82 in direction of 339.12: 'I am in a dimly lit living room or office lounge. A person in a red and white patterned sweater lies on a brown couch, holding a phone, while an empty desk and chair sit nearby.'
+2026-01-23 12:37:02 at waypoint_90 in direction of 40.69: 'I am in a minimalist living room with a beige sofa against a two-toned wall. No people are present; only a dark garment rests on the sofa, interacting with the cushions.'
+2025-11-27 15:18:21 at waypoint_89 in direction of 94.54: 'I am in an office or meeting room with dark carpeting and a whiteboard on the wall. A person is reclining on a couch, seemingly resting or waiting, while another person is partially visible near a desk or chair on the left.' (Identified persons: unknown person)
+2025-12-22 15:16:36 at waypoint_81 in direction of 306.48: 'I am in a dimly lit living room or home office. A person in a red patterned sweater lies on a brown couch, holding a remote, while a desk with a computer and chair sits nearby, unoccupied.'
+2026-01-15 11:30:59 at waypoint_83 in direction of 10.75: 'I am in a living room with a large brown sofa against a white wall. There are no people in the scene; the sofa is empty and interacts only with the dark carpet and the wall behind it.'
+2026-01-23 12:23:12 at waypoint_90 in direction of 40.42: 'I am in a dimly lit living room with a person sitting on a beige couch, partially obscured, interacting with a black object on their lap. The room features a two-tone wall and a dark carpet, with no other visible people or distinct activities.'
+2026-01-15 12:13:50 at waypoint_85 in direction of 352.99: 'I am in a living room with a brown leather sofa against a white wall. There are no people in the scene, so no interactions are occurring.'
+2026-01-23 09:49:30 at waypoint_92 in direction of 27.97: 'I am in a dimly lit living room with a beige sofa against the wall. A person is lying on the sofa, partially covered by a black blanket, seemingly resting or asleep.'
+2025-12-22 15:22:46 at waypoint_88 in direction of 180.55: 'I am in an office or lounge area. A man with a beard is reclining on a couch, interacting with his surroundings by relaxing, while an empty office chair sits near a desk in the background.'
+2025-12-22 15:22:59 at waypoint_89 in direction of 94.54: 'I am in an office or meeting room with a whiteboard and a couch. A person in a red patterned sweater is lounging on the couch, seemingly relaxed and not actively interacting with anything.' (Identified persons: Crush)
+2025-12-22 15:22:47 at waypoint_88 in direction of 180.55: 'I am in an office. A person is reclining on a couch, interacting with a red and white patterned blanket, while a desk with a monitor and an office chair sit nearby.'
+2025-12-22 15:16:38 at waypoint_82 in direction of 339.12: 'I am in a dimly lit living room or lounge area. A person in red and white patterned pajamas lies on a brown couch, holding a smartphone above their face, while an office desk and chair sit unused in the background.'
+2026-01-15 12:48:56 at waypoint_83 in direction of 24.80: 'I am in a living room with a large brown sofa against a white wall. There are no people in the scene; the sofa and a whiteboard on the wall are the only objects present.'
+2025-11-27 15:18:20 at waypoint_89 in direction of 94.54: 'I am in an office or meeting room with dark carpeting and a whiteboard. A person is lounging on a couch, seemingly relaxed, while another person is partially visible near a desk with a chair, possibly working or moving around.' (Identified persons: unknown person)
+2026-01-15 12:06:55 at waypoint_92 in direction of 44.18: 'I am in a minimalist living room or lounge area with a brown sofa against a white wall and a dark carpeted floor. There are no people visible in the scene.'
+2026-01-23 09:50:02 at waypoint_81 in direction of 33.69: 'I am in a dimly lit living room with a beige sofa against the wall. A person is seated on the sofa, partially visible, interacting with a dark object in their lap, possibly a phone or tablet.'
+2026-01-23 09:48:12 at waypoint_90 in direction of 29.59: 'I am in a minimalist room with dark carpet and white walls, likely an office or lounge. A man with a beard sits relaxed on a brown couch, interacting with a black object in his lap, possibly a laptop or tablet.' (Identified persons: unknown person)</pre></details></div><div class="chat-message log-message log-tool-end">Tool output: <details><summary>Click to view</summary><pre>I made the following observations:
+2026-03-01 15:28:37 at waypoint_90 in direction of 358.36: 'I am in an office or meeting room with a sofa, whiteboard, and desk. A person in a striped shirt stands near the desk, while another person is partially visible sitting at the desk, interacting with a computer.'
+2026-02-09 15:18:02 at waypoint_65 in direction of 312.69: 'You are in a modern kitchen with grey cabinets and a wooden countertop. A person in dark clothing is walking past, partially obscuring the view, while another person is visible in the background near the counter, possibly preparing food or drinks.'
+2026-02-11 10:09:11 at waypoint_62 in direction of 163.46: 'I am in a modern kitchen or breakroom, where a person in dark clothing stands near a counter, possibly preparing food or drink. In the background, a dining table with chairs is visible, suggesting a shared space for meals or casual work.'
+2026-02-09 13:32:16 at waypoint_72 in direction of 195.36: 'I am in a kitchen, where a person stands near dark cabinets, possibly interacting with a countertop or appliance. Another person is visible in the background near a window, perhaps seated at a table or counter.'
+2026-02-09 14:15:55 at waypoint_69 in direction of 322.18: 'I am in a kitchen area where a person in a red shirt and grey pants stands at the counter, interacting with items near the sink. The room also features dark cabinets, a coffee maker, and a partial view of an office chair, suggesting a combined kitchen-office space.' (Identified persons: unknown person)
+2026-02-12 10:29:38 at waypoint_69 in direction of 304.02: 'I am in a modern kitchen with dark gray cabinets and light wood flooring. A person’s foot is visible near the entrance, and a black bar stool sits near the counter, suggesting someone may be seated or about to sit.'
+2026-02-11 10:09:31 at waypoint_69 in direction of 316.67: 'I am in a kitchen with dark green cabinets and light wood flooring. A person in dark clothing stands at the counter, seemingly preparing something, while a modern chair with black metal legs sits nearby.' (Identified persons: unknown person)
+2026-02-13 14:21:16 at waypoint_69 in direction of 306.13: 'I am in a modern kitchen with dark cabinets and a wooden countertop. A person in khaki pants is walking past, interacting with the space by moving through it, while another person is partially visible near the counter, possibly preparing something.'
+2026-02-11 10:17:31 at waypoint_69 in direction of 299.52: 'I am in a modern kitchen with dark green cabinets and light wood flooring. A person’s foot is visible near the left cabinet, suggesting they are standing and possibly preparing food or cleaning at the counter.'
+2026-02-12 11:38:41 at waypoint_69 in direction of 301.89: 'I am in a modern kitchen with dark green cabinets and light wood flooring. A person’s foot is visible near the left cabinet, suggesting they are standing or moving nearby, while black bar stools sit idle at the counter.'
+2026-02-09 15:18:01 at waypoint_65 in direction of 312.69: 'I am in a modern kitchen with dark cabinets and bar stools. A person is partially visible on the left, standing near the counter, possibly interacting with kitchen appliances or preparing something.'
+2026-02-09 10:50:48 at waypoint_61 in direction of 134.30: 'You are in a modern kitchen with dark cabinets and light wood flooring. A person in jeans and sneakers stands near the counter, interacting with a cabinet or appliance, while a glass door reveals a tiled patio outside.'
+2026-02-12 09:17:10 at waypoint_69 in direction of 296.73: 'I am in a kitchen with dark cabinets and light wood flooring. A person’s foot is visible near the cabinets, and a black bar stool stands by a counter, suggesting someone may be sitting or has just stood up.'
+2026-02-12 11:38:38 at waypoint_69 in direction of 302.02: 'I am in a modern kitchen with dark cabinets and light wood flooring. A person’s foot is visible near the left wall, suggesting they are standing or moving near the counter, while bar stools sit idle at the kitchen island.'
+2026-02-05 09:17:21 at waypoint_69 in direction of 325.07: 'I am in a kitchen, where a person is interacting with a cabinet, possibly retrieving or storing an item. The scene includes wooden flooring and a dark mat near a doorway.'
+2026-02-09 13:32:12 at waypoint_71 in direction of 186.42: 'I am in a modern kitchen, where a person stands silhouetted near the counter, interacting with a tall bar stool or possibly reaching for something on the counter. Another person is partially visible behind them, also engaged with the kitchen space near the window.'
+2026-02-13 14:12:23 at waypoint_69 in direction of 306.14: 'I am in a modern kitchen with dark cabinets and wood floors. Two people are present: one person in red pants walks past the camera, while another stands at the counter, seemingly interacting with items near the sink or coffee maker.' (Identified persons: unknown person)
+2026-02-06 13:26:34 at waypoint_65 in direction of 307.56: 'You are in a modern kitchen with dark gray cabinets and a wooden countertop. A person in jeans stands near the counter, while another person is partially visible near a high wooden table with black stools.'
+2026-02-09 13:00:08 at waypoint_69 in direction of 0.00: 'You are in a kitchen, where one person is walking away toward a bright doorway while another stands near dark cabinets, possibly preparing food or cleaning.'
+2026-02-09 14:17:04 at waypoint_69 in direction of 318.50: 'I am in a kitchen area where one person is standing by the counter, seemingly preparing something, while another person walks past holding a jacket. The scene includes modern cabinets, a coffee maker, and a framed picture on the wall.' (Identified persons: Deb)
+2026-02-09 14:15:10 at waypoint_69 in direction of 320.34: 'I am in a kitchen with dark cabinets and wood-look flooring. A person in jeans and boots stands nearby, while another person’s legs are visible near a black bar stool, suggesting they are interacting with the counter or seated area.'
+2026-02-09 13:32:07 at waypoint_71 in direction of 162.37: 'I am in a kitchen, where a person in dark clothing stands near a counter, interacting with a tall, light-colored object, possibly a refrigerator or cabinet. The scene includes dark cabinets, a wooden floor, and a window with blinds in the background.'
+2026-02-12 11:55:15 at waypoint_69 in direction of 317.50: 'I am in a modern kitchen with dark cabinets and a wooden countertop. A person in khaki pants is partially visible on the left, standing near the counter, while black bar stools sit empty at the counter’s edge.'
+2026-02-12 12:05:19 at waypoint_69 in direction of 317.45: 'I am in a modern kitchen with dark cabinets and wood-look flooring. A person in a pink hoodie and jeans stands at a high counter, interacting with something on the surface, possibly preparing food or a drink.'
+2026-02-06 12:27:23 at waypoint_66 in direction of 306.99: 'You are in a modern kitchen with dark cabinets and a wooden countertop. A person in a black jacket and brown pants is walking past, while another person is partially visible sitting at a high table with black stools.'
+2026-02-11 08:10:04 at waypoint_69 in direction of 313.67: 'You are in a modern kitchen with dark cabinets and light wood flooring. A person in a light shirt and dark pants is walking past, reaching toward the counter, while another person is partially visible sitting on a high stool at the bar.'
+2026-02-09 14:15:33 at waypoint_69 in direction of 324.45: 'I am in a modern kitchen with dark cabinets and light wood floors. Two people are present: one in a red shirt stands at the sink, while another is partially visible behind the counter, both interacting with kitchen items like a coffee maker and bottles.' (Identified persons: unknown person)
+2026-02-12 10:06:05 at waypoint_69 in direction of 302.26: 'I am in a modern kitchen with dark cabinets and a wooden floor. Two people are walking through the space, one heading toward the counter with a sink and coffee maker, while the other moves past a bar-height table with black stools.'
+2026-02-13 13:53:45 at waypoint_65 in direction of 323.67: 'I am in a kitchen with dark cabinets and a wooden countertop. A person in a red hoodie and light jeans stands near the counter, hands on hips, seemingly observing the space or preparing to use the coffee maker and sink nearby.' (Identified persons: Dory)
+2026-02-13 14:10:52 at waypoint_69 in direction of 306.12: 'I am in a modern kitchen with dark cabinets and wood flooring. Two people are present: one walks away from the camera toward the counter, while the other stands near the sink, seemingly interacting with kitchen items or appliances.' (Identified persons: unknown person, Nemo)</pre></details></div><div class="chat-message log-message log-llm-end"></div><div class="chat-message log-message log-tool-start">Using tool: <strong>get_route_information</strong> with input: <em>{'waypoint_src': 'waypoint_90', 'waypoint_target': 'waypoint_168'}</em></div><div class="chat-message log-message log-tool-end">Tool output: <details><summary>Click to view</summary><pre>    The distance from waypoint_90 to waypoint_168 is 19.16 meters.
+    The shortest path is: waypoint_90 -&gt; waypoint_91 -&gt; waypoint_92 -&gt; waypoint_93 -&gt; waypoint_94 -&gt; waypoint_95 -&gt; waypoint_96 -&gt; waypoint_8 -&gt; waypoint_174 -&gt; waypoint_173 -&gt; waypoint_172 -&gt; waypoint_171 -&gt; waypoint_170 -&gt; waypoint_169 -&gt; waypoint_168.
+</pre></details></div><div class="chat-message log-message log-llm-end"></div><div class="chat-message log-message log-tool-start">Using tool: <strong>get_route_information</strong> with input: <em>{'waypoint_target': 'waypoint_69', 'waypoint_src': 'waypoint_168'}</em></div><div class="chat-message log-message log-tool-end">Tool output: <details><summary>Click to view</summary><pre>    The distance from waypoint_168 to waypoint_69 is 24.41 meters.
+    The shortest path is: waypoint_168 -&gt; waypoint_169 -&gt; waypoint_170 -&gt; waypoint_171 -&gt; waypoint_172 -&gt; waypoint_173 -&gt; waypoint_174 -&gt; waypoint_8 -&gt; waypoint_96 -&gt; waypoint_95 -&gt; waypoint_78 -&gt; waypoint_77 -&gt; waypoint_76 -&gt; waypoint_75 -&gt; waypoint_74 -&gt; waypoint_73 -&gt; waypoint_72 -&gt; waypoint_71 -&gt; waypoint_70 -&gt; waypoint_69.
+</pre></details></div><div class="chat-message log-message log-llm-end"></div><div class="chat-message log-message log-tool-start">Using tool: <strong>get_route_information</strong> with input: <em>{'waypoint_src': 'waypoint_69', 'waypoint_target': 'waypoint_90'}</em></div><div class="chat-message log-message log-tool-end">Tool output: <details><summary>Click to view</summary><pre>    The distance from waypoint_69 to waypoint_90 is 11.97 meters.
+    The shortest path is: waypoint_69 -&gt; waypoint_70 -&gt; waypoint_71 -&gt; waypoint_72 -&gt; waypoint_73 -&gt; waypoint_74 -&gt; waypoint_75 -&gt; waypoint_58 -&gt; waypoint_57 -&gt; waypoint_56 -&gt; waypoint_80 -&gt; waypoint_81 -&gt; waypoint_92 -&gt; waypoint_91 -&gt; waypoint_90.
+</pre></details></div><div class="chat-message log-message log-llm-end"></div><div class="chat-message log-message log-tool-start">Using tool: <strong>go_to_waypoint</strong> with input: <em>{'waypoint_name': 'waypoint_168', 'person_id_name': 'visitor', 'needs_validation': True, 'direction': 0, 'reason': 'Pick up the visitor at waypoint_168.'}</em></div><div class="chat-message log-message log-tool-end">Tool output: <details><summary>Click to view</summary><pre>        You arrived at waypoint waypoint_168!
+        You are currently seeing: I am in an office hallway. A man stands in the doorway ahead, hands clasped, while an adjacent office contains a desk and chair, suggesting others may be working nearby.
+        Identified persons here: Nigel
+        You have seen the following on your route:
+        2026-03-01 15:29:21 at waypoint_168 in direction of 359.59: 'I am in an office hallway. A person in jeans and sneakers stands ahead, facing away, while another person is partially visible at a desk in the adjacent office, interacting with a computer.'
+2026-03-01 15:29:20 at waypoint_168 in direction of 354.80: 'I am in an office hallway, where a person stands near a doorway, interacting with the space by facing forward, possibly preparing to enter or exit a room. The hallway features a fire extinguisher on the wall and an open office area visible to the left, suggesting a professional environment.'
+2026-03-01 15:29:19 at waypoint_168 in direction of 352.19: 'I am in an office hallway, not a room. A person stands ahead, interacting with the space by walking, while a fire extinguisher and abstract wall art are static elements nearby.'
+2026-03-01 15:29:18 at waypoint_169 in direction of 352.61: 'I am in an office hallway, not a specific room. A person in jeans and sneakers stands ahead, interacting with the space by walking toward an open doorway, while a fire extinguisher and abstract wall art remain static on the right.'
+2026-03-01 15:29:18 at waypoint_169 in direction of 358.02: 'I am in a hallway, not a room. A person stands ahead, interacting with the space by standing still near an open doorway, while a fire extinguisher and abstract wall art are nearby.'
+2026-03-01 15:29:17 at waypoint_170 in direction of 1.39: 'I am in a hallway, not a room. A person stands at the far end, facing forward, near a fire extinguisher and a large abstract artwork on the wall.' (Identified persons: unknown person)
+2026-03-01 15:29:16 at waypoint_170 in direction of 2.31: 'I am in a hallway, not a room. A man stands at the far end, interacting with the space by facing forward, near a fire extinguisher and wall art.' (Identified persons: unknown person)
+2026-03-01 15:29:15 at waypoint_171 in direction of 1.40: 'I am in a dimly lit hallway, not a room. A man stands at the far end, facing forward, seemingly interacting with the space or waiting, with no visible objects in his hands.'
+2026-03-01 15:29:14 at waypoint_171 in direction of 359.88: 'I am in a long, dimly lit hallway with white walls and dark carpet. A single person stands at the far end, facing forward, seemingly interacting with the space or waiting near a doorway.'
+2026-03-01 15:29:13 at waypoint_172 in direction of 358.91: 'I am in a dimly lit hallway, not a room. A person stands at the far end near a doorway, while a coat rack with hanging garments is visible on the right wall.'
+2026-03-01 15:29:12 at waypoint_172 in direction of 357.46: 'I am in a long, dimly lit hallway with white walls and dark carpet. A single person stands at the far end near a doorway, appearing to interact with the door or something just beyond it.'
+2026-03-01 15:29:11 at waypoint_173 in direction of 357.16: 'I am in a long, dimly lit hallway with white walls and dark carpet. At the far end, a person stands near a doorway, seemingly interacting with the door or something just beyond it.'
+2026-03-01 15:29:11 at waypoint_173 in direction of 356.81: 'I am in a long, dimly lit hallway with dark carpet and white walls adorned with abstract art. There are no people visible in the scene, only closed doors and a distant exit sign at the far end.'
+2026-03-01 15:29:10 at waypoint_174 in direction of 358.05: 'I am in a long, empty hallway with white walls and dark carpet. There are no people visible, only framed artwork on the walls and closed doors along the sides.'
+2026-03-01 15:29:09 at waypoint_8 in direction of 358.20: 'I am in a long, dimly lit gallery hallway with abstract art on the walls. A few distant figures stand near the far end, observing the artwork or conversing quietly.'
+2026-03-01 15:29:08 at waypoint_96 in direction of 359.61: 'I am in a long, dimly lit hallway with dark carpet and abstract art on the walls. At the far end, two indistinct figures stand near a doorway, seemingly engaged in conversation or waiting.'
+2026-03-01 15:29:07 at waypoint_95 in direction of 0.82: 'I am in a long, dimly lit hallway with white walls and dark carpet. A few distant figures stand near the far end, interacting with a door or wall panel, while others are not clearly visible.'
+2026-03-01 15:29:06 at waypoint_95 in direction of 358.61: 'I am in a long, empty hallway lined with framed artwork on white walls. There are no people visible, so no interactions are occurring.'
+2026-03-01 15:29:05 at waypoint_94 in direction of 350.10: 'I am in a long, dimly lit hallway with dark carpet and white walls adorned with abstract art. There are no people visible in the scene; the only interaction is with the environment itself — doors, wall art, and distant ceiling lights.'
+2026-03-01 15:29:04 at waypoint_93 in direction of 308.83: 'I am in an office hallway, looking into a workspace where a person in a plaid shirt stands near a desk with a computer, while another person sits at a nearby workstation. They appear to be interacting with their computers and possibly each other.' (Identified persons: unknown person)
+2026-03-01 15:29:04 at waypoint_93 in direction of 282.32: 'I am in an office. A woman in a plaid shirt walks toward the camera while another person sits at a desk, interacting with a computer.' (Identified persons: unknown person)
+2026-03-01 15:29:03 at waypoint_92 in direction of 298.94: 'I am in an office. One person sits at a desk using a laptop while another stands nearby, interacting with a monitor.' (Identified persons: unknown person)
+2026-03-01 15:29:02 at waypoint_92 in direction of 325.33: 'I am in an office. A person stands near a desk with a computer, while another sits in a chair, both seemingly engaged in work.' (Identified persons: unknown person)
+2026-03-01 15:29:01 at waypoint_91 in direction of 352.08: 'I am in an office. There are no people present; a jacket rests on the sofa and a backpack sits on the floor near a desk with a laptop.'
+        visitor is an unknown person and no references could be found in the memory.
+        </pre></details></div><div class="chat-message log-message log-llm-end"></div><div class="chat-message log-message log-tool-start">Using tool: <strong>go_to_waypoint</strong> with input: <em>{'waypoint_name': 'waypoint_69', 'needs_validation': False, 'person_id_name': None, 'direction': 0, 'reason': 'Bring the visitor to the kitchen.'}</em></div><div class="chat-message log-message log-tool-end">Tool output: <details><summary>Click to view</summary><pre>You arrived at waypoint_69</pre></details></div><div class="chat-message log-message log-llm-end"></div><div class="chat-message log-message log-tool-start">Using tool: <strong>go_to_waypoint</strong> with input: <em>{'reason': 'Show the visitor a place to sit on a couch.', 'direction': 0, 'needs_validation': False, 'waypoint_name': 'waypoint_90', 'person_id_name': None}</em></div><div class="chat-message log-message log-tool-end">Tool output: <details><summary>Click to view</summary><pre>You arrived at waypoint_90</pre></details></div><div class="chat-message log-message log-llm-end"></div><div class="chat-message log-message log-tool-start">Using tool: <strong>on_success</strong> with input: <em>{'reason': 'I have successfully picked up the visitor at waypoint_168, brought them to the kitchen at waypoint_69, and shown them a couch at waypoint_90.'}</em></div><div class="chat-message log-message log-tool-end">Tool output: <details><summary>Click to view</summary><pre>You performed a little happy dance.</pre></details></div><div class="chat-message log-message log-llm-end">The visitor was successfully picked up at waypoint 168. I then escorted them to the kitchen area at waypoint 69. Finally, I guided them to a lounge area at waypoint 90, where they can sit on a couch.</div><div class="chat-message log-message log-task-complete"><strong>Task completed:</strong> Agent invocation completed. Usage: 76529 tokens. Task took 1.89 minutes.</div><div class="chat-message log-message log-tool-report"><strong>Tool usage report:</strong> Waypoints visited: waypoint_168, waypoint_69, waypoint_90.Tools called: query_semantic_observations: 1, get_route_information: 3, go_to_waypoint: 3, on_success: 1.</div></div>
+            <form id="prompt-form" class="prompt-form">
+                <input type="text" id="prompt-input" placeholder="Enter your task..." autocomplete="off">
+                <button type="submit">Send</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+    
+<script>
+    function generateThreadId() {
+        return Math.floor(Math.random() * 1000000000).toString();
+    }
+
+    $(document).ready(function () {
+        let threadId;
+        let userPrompt = '';
+        let socket;
+
+        const imageElement = document.getElementById('live-image');
+        const socketStatusElement = document.getElementById('socket-status');
+        const robotStatusElement = document.getElementById('robot-status');
+        const timestampElement = document.getElementById('timestamp');
+        const locationElement = document.getElementById('location');
+        const cmdElement = document.getElementById('cmd');
+        const uncaptionedCountElement = document.getElementById('uncaptioned-count');
+        const chatBox = document.getElementById('chat-box');
+
+        function initializeThread() {
+            threadId = generateThreadId();
+            $('#thread-id').text(threadId);
+        }
+
+        function appendLogMessage(message, type) {
+            const logElement = document.createElement('div');
+            logElement.classList.add('chat-message', 'log-message', `log-${type}`);
+            logElement.innerHTML = message;
+            chatBox.appendChild(logElement);
+        }
+
+        function connect() {
+            const wsProtocol = window.location.protocol === 'https' ? 'wss:' : 'ws:';
+            const wsUrl = `${wsProtocol}//${window.location.host}/ws`;
+
+            console.log(`Connecting to WebSocket at: ${wsUrl}`);
+            socketStatusElement.textContent = 'Connecting...';
+            socketStatusElement.classList.remove('connected');
+
+            socket = new WebSocket(wsUrl);
+
+            socket.onopen = () => {
+                console.log('WebSocket connection established.');
+                socketStatusElement.textContent = 'Connected';
+                socketStatusElement.classList.add('connected');
+                // Send thread_id to server
+                socket.send(JSON.stringify({ thread_id: threadId }));
+            };
+
+            socket.onmessage = (event) => {
+                try {
+                    const data = JSON.parse(event.data);
+
+                    // Handle LLM/tool logs
+                    if (data.type) {
+                        switch (data.type) {
+                            case 'llm_start':
+                                $('#chat-box').scrollTop($('#chat-box')[0].scrollHeight);
+                                break;
+                            // case 'agent_action':
+                            //     appendLogMessage(`Using tool: <strong>${data.tool}</strong> with input: <em>${data.input}</em>`, 'agent-action');
+                            //     break;
+                            case 'tool_start':
+                                appendLogMessage(`Using tool: <strong>${data.tool}</strong> with input: <em>${data.input}</em>`, 'tool-start')
+                                break;
+                            case 'tool_end':
+                                appendLogMessage(`Tool output: <details><summary>Click to view</summary><pre>${data.output}</pre></details>`, 'tool-end');
+                                break;
+                            case 'agent_finish':
+                                const answer = data.output;
+                                let botMessage = `
+                                <div class="chat-message bot-message">
+                                    <p>${answer}</p>
+                                </div>`;
+                                $('#chat-box').append(botMessage);
+                                $('#chat-box').scrollTop($('#chat-box')[0].scrollHeight);
+                                break;
+                            case 'llm_end':
+                                appendLogMessage(data.response, 'llm-end');
+                                break;
+                            case 'task_completed':
+                                appendLogMessage(`<strong>Task completed:</strong> ${data.report}`, 'task-complete');
+                                break;
+                            case 'tool_report':
+                                appendLogMessage(`<strong>Tool usage report:</strong> ${data.tools}`, 'tool-report');
+                                break;
+                            default:
+                                console.log(data)
+                        }
+                        return;
+                    }
+
+
+                    if (data.image_data) {
+                        imageElement.src = 'data:image/jpeg;base64,' + data.image_data;
+                    }
+                    if (data.timestamp) {
+                        const date = new Date(data.timestamp * 1000);
+                        timestampElement.textContent = date.toLocaleString();
+                    }
+                    if (data.waypoint_name && data.room_name) {
+                        locationElement.textContent = `'${data.waypoint_name}' in room '${data.room_name}'`
+                    }
+                    if (data.current_cmd) {
+                        const cmd = data.current_cmd;
+                        cmdElement.textContent = `Prompt: ${cmd.prompt} -> ${cmd.waypoint_name} [${cmd.status}]`;
+                    }
+                    if (data.robot_status) {
+                        robotStatusElement.textContent = data.robot_status;
+                        robotStatusElement.classList.toggle('connected', data.robot_status === 'UP');
+                    }
+                    if (data.uncaptioned_count != null) {
+                        uncaptionedCountElement.textContent = data.uncaptioned_count;
+                    }
+                } catch (e) {
+                    console.error('Failed to parse incoming message:', e, event.data);
+                }
+            };
+
+            socket.onclose = (event) => {
+                console.log('WebSocket connection closed. Reconnecting in 5s...', event);
+                socketStatusElement.textContent = 'Disconnected';
+                socketStatusElement.classList.remove('connected');
+                robotStatusElement.textContent = 'Disconnected';
+                robotStatusElement.classList.remove('connected');
+                setTimeout(connect, 5000);
+            };
+
+            socket.onerror = (error) => {
+                console.error('WebSocket Error:', error);
+                socketStatusElement.textContent = 'Error';
+                socketStatusElement.classList.remove('connected');
+                socket.close();
+            };
+        }
+
+        $('#new-thread-btn').on('click', function () {
+            if (socket) {
+                socket.close();
+            }
+            threadId = generateThreadId();
+            localStorage.setItem('chatThreadId', threadId);
+            $('#thread-id').text(threadId);
+            $('#chat-box').empty();
+        });
+
+        initializeThread();
+        connect();
+
+        $('#prompt-form').on('submit', function (e) {
+            e.preventDefault();
+            let promptText = $('#prompt-input').val().trim();
+            if (promptText === '') return;
+
+            userPrompt = promptText;
+
+            $('#chat-box').append('<div class="chat-message user-message">' + promptText + '</div>');
+            $('#prompt-input').val('');
+            $('#chat-box').scrollTop($('#chat-box')[0].scrollHeight);
+
+            $.ajax({
+                url: '/prompt',
+                type: 'POST',
+                contentType: 'application/json',
+                data: JSON.stringify({ prompt: promptText, thread_id: threadId }),
+                success: function (data) {
+                    console.log('Prompt sent successfully:', data.status);
+                },
+                error: function (xhr, status, error) {
+                    console.error("Error:", error);
+                    let errorMessage = '<div class="chat-message bot-message">Error: ' + xhr.responseText + '</div>';
+                    $('#chat-box').append(errorMessage);
+                    $('#chat-box').scrollTop($('#chat-box')[0].scrollHeight);
+                }
+            });
+        });
+    });
+</script>
+
+
+
+</body></html>

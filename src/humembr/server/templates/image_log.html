@@ -1,0 +1,147 @@
+{% extends "base.html" %}
+
+{% block title %}Image Log{% endblock %}
+
+{% block content %}
+<style>
+    .modal-content {
+        max-width: 90%;
+        max-height: 90vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: auto;
+    }
+    #modalImage {
+        max-width: 100%;
+        max-height: 80vh;
+        object-fit: contain;
+    }
+    #caption {
+        color: white;
+        text-align: center;
+        margin-top: 10px;
+        font-size: 1.2em;
+        padding: 10px;
+    }
+</style>
+
+<div class="main-content">
+    <h1>Image Log ({{ total_images_count }} results)</h1>
+
+    <div class="filters" style="margin-bottom: 20px;">
+        <form action="{{ url_for('image_log') }}" method="get" style="display: flex; gap: 15px; align-items: center; flex-wrap: wrap;">
+            <div>
+                <label for="identity_id">Filter by Person:</label>
+                <select name="identity_id" id="identity_id" onchange="this.form.submit()">
+                    <option value="all">All</option>
+                    <option value="any" {% if selected_identity_id == 'any' %}selected{% endif %}>Any Person</option>
+                    <option value="unmapped" {% if selected_identity_id == 'unmapped' %}selected{% endif %}>Unmapped Person</option>
+                    {% for identity in identities %}
+                    <option value="{{ identity.id }}" {% if selected_identity_id|string == identity.id|string %}selected{% endif %}>
+                        {{ identity.name }}
+                    </option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div>
+                <label for="query">Search Caption:</label>
+                <input type="text" name="query" id="query" value="{{ query or '' }}" placeholder="Enter search text..." style="padding: 5px;">
+            </div>
+            <div>
+                <label for="threshold">Distance Threshold (higher = more):</label>
+                <input type="number" name="threshold" id="threshold" value="{{ threshold }}" step="0.05" min="0" max="1" style="width: 60px; padding: 5px;">
+            </div>
+            <button type="submit" style="padding: 5px 10px; cursor: pointer;">Search</button>
+            <a href="{{ url_for('image_log') }}" style="text-decoration: none; padding: 5px 10px; border: 1px solid #ccc; background: #eee; border-radius: 3px; color: black;">Clear</a>
+        </form>
+    </div>
+
+    {% for day, daily_images in images_by_day.items() %}
+    <h2>{{ day }}</h2>
+    <table class="waypoint-table">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Time</th>
+                <th>Image</th>
+                <th>Waypoint</th>
+                <th>Caption</th>
+                <th>Person Observations</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for image in daily_images %}
+            <tr>
+                <td>{{ image.id }}</td>
+                <td>{{ image.creation_timestamp.strftime('%Y-%m-%d %H:%M:%S') }}</td>
+                <td>
+                    <img loading="lazy" 
+                         src="{{ url_for('image_content', image_id=image.id) }}" 
+                         width="100" 
+                         style="border-radius: 4px; cursor: pointer;"
+                         class="log-image"
+                         data-caption="{{ image.caption or 'No caption' }}">
+                </td>
+                <td>{{ image.waypoint_name or image.waypoint_id or "-" }}</td>
+                <td style="font-size: 0.9em;">{{ image.caption or "No caption" }}</td>
+                <td>
+                    {% if person_obs_by_image.get(image.id) %}
+                        <div style="display: flex; gap: 5px; flex-wrap: wrap;">
+                            {% for person in person_obs_by_image[image.id] %}
+                            <div style="text-align: center;">
+                                <img loading="lazy" src="{{ url_for('person_image_by_id', person_id=person.id) }}" width="40" height="40" style="border-radius: 50%;" title="Person ID: {{ person.id }}">
+                                <div style="font-size: 0.8em;">{{ person.identity_name or person.person_identity_id or "?" }}</div>
+                            </div>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        -
+                    {% endif %}
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% endfor %}
+</div>
+
+<!-- Modal -->
+<div id="imageModal" class="modal">
+    <span class="close">&times;</span>
+    <div class="modal-content" style="flex-direction: column;">
+        <img id="modalImage">
+        <div id="caption"></div>
+    </div>
+</div>
+
+{% endblock %}
+
+{% block scripts %}
+<script>
+    $(document).ready(function () {
+        var modal = $('#imageModal');
+        var modalImg = $('#modalImage');
+        var captionText = $('#caption');
+
+        $('.log-image').click(function () {
+            var src = $(this).attr('src');
+            var caption = $(this).data('caption');
+            
+            modal.show();
+            modalImg.attr('src', src);
+            captionText.text(caption);
+        });
+
+        $('.close').click(function () {
+            modal.hide();
+        });
+
+        $(window).click(function (event) {
+            if (event.target == modal[0]) {
+                modal.hide();
+            }
+        });
+    });
+</script>
+{% endblock %}

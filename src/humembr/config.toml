@@ -1,0 +1,39 @@
+map_dir = "/absolute/path/to/maps/downloaded_graph"
+hostname = "<robot-ip>"
+img_dir = "/absolute/path/to/testing-images"
+backup_dir = "/absolute/path/to/backups"
+
+[perception]
+face_conf = 0.7
+person_conf = 0.7
+face_cluster_eps = 0.52
+face_cluster_k = 3
+caption_url = "http://localhost:8000/v1"
+caption_model = "Qwen/Qwen3-VL-235B-A22B-Instruct-FP8"
+caption_prompt = "In which room are you (kitchen, office, ...)? Describe the people in the scene and with what they interact. Max 2 sentences."
+filter_sim = 0.95
+
+[robot]
+pitch_sit = -0.4
+yolo_mode = true
+enable_ctrl = true
+
+[agent]
+context_include_rooms = false
+time_penalty_max_hours = 120
+time_penalty_decay = 0.95
+weight_cosine = 3.0
+weight_time = 1.0
+
+[vision]
+width = 1280
+height = 800
+safe_single_images = false
+
+[evaluation]
+question_time_diff = 5.0
+question_duration_diff = 5.0
+question_spatial_diff = 5.0
+question_llm = "Qwen/Qwen3-VL-235B-A22B-Instruct-FP8"
+# question_llm = "gemini-3-flash-preview"
+tool_call_limit = 10

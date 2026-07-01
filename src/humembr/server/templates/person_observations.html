@@ -1,0 +1,190 @@
+{% extends "base.html" %}
+
+{% block title %}Person Observations{% endblock %}
+
+{% block content %}
+<style>
+    .modal-content {
+        max-width: 80%;
+        max-height: 80vh;
+        display: flex;
+        justify-content: center;
+        margin: auto;
+
+    }
+
+    .identity-select {
+        min-width: 180px;
+        padding: 4px 6px;
+    }
+
+    .save-toast {
+        position: fixed;
+        right: 16px;
+        bottom: 16px;
+        z-index: 2000;
+        min-width: 180px;
+        max-width: 320px;
+        padding: 8px 12px;
+        border-radius: 8px;
+        font-size: 0.9em;
+        box-shadow: 0 4px 14px rgba(0, 0, 0, 0.18);
+        color: #fff;
+        background: #444;
+        opacity: 0;
+        pointer-events: none;
+        transform: translateY(6px);
+        transition: opacity 120ms ease, transform 120ms ease;
+    }
+
+    .save-toast.visible {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    .save-toast.saving {
+        background: #7a5a1b;
+    }
+
+    .save-toast.saved {
+        background: #2e7d32;
+    }
+
+    .save-toast.error {
+        background: #c62828;
+    }
+</style>
+<div class="main-content">
+    <h1>Person Observations</h1>
+    <table class="waypoint-table">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Image</th>
+                <th>Identity Name</th>
+                <th>Face Det Score</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for person in observations %}
+            <tr>
+                <td>{{ person.id }}</td>
+                <td>
+                    <img loading="lazy" class="avatar person-image" data-person-id="{{ person.id }}" width="50" height="50"
+                        style="border-radius: 50%; cursor: pointer;">
+                </td>
+                <td>
+                    <select class="identity-select" data-person-id="{{ person.id }}" data-prev-value="{{ person.person_identity_id if person.person_identity_id else '' }}">
+                        <option value="">Unmapped</option>
+                        {% for identity in identity_options %}
+                        <option value="{{ identity.id }}" {% if person.person_identity_id == identity.id %}selected{% endif %}>{{ identity.name }}</option>
+                        {% endfor %}
+                    </select>
+                </td>
+                <td>{{ "%.3f"|format(person.face_det_score) if person.face_det_score is not none else "-" }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+<div id="saveToast" class="save-toast" aria-live="polite"></div>
+
+<!-- Modal -->
+<div id="imageModal" class="modal">
+    <span class="close">&times;</span>
+    <div class="modal-content">
+        <img id="modalImage">
+    </div>
+    <div id="caption"></div>
+</div>
+
+{% endblock %}
+
+{% block scripts %}
+<script>
+    $(document).ready(function () {
+        $('.person-image').each(function () {
+            var $img = $(this);
+            var personId = $img.data('person-id');
+            if (personId) {
+                $img.attr('src', '/person_image/' + personId);
+            }
+        });
+
+        var modal = $('#imageModal');
+        var modalImg = $('#modalImage');
+        var captionText = $('#caption');
+        var $saveToast = $('#saveToast');
+        var toastTimer = null;
+
+        function showSaveToast(message, type, durationMs) {
+            if (toastTimer) {
+                clearTimeout(toastTimer);
+                toastTimer = null;
+            }
+
+            $saveToast
+                .removeClass('saving saved error')
+                .addClass(type)
+                .text(message)
+                .addClass('visible');
+
+            toastTimer = setTimeout(function () {
+                $saveToast.removeClass('visible');
+            }, durationMs || 1000);
+        }
+
+        $('.person-image').click(function () {
+            var personId = $(this).data('person-id');
+            modal.show();
+            modalImg.attr('src', '/person_image/' + personId);
+            captionText.text('');
+        });
+
+        $('.close').click(function () {
+            modal.hide();
+        });
+
+        $(window).click(function (event) {
+            if (event.target == modal[0]) {
+                modal.hide();
+            }
+        });
+
+        $('.identity-select').on('change', function () {
+            var $select = $(this);
+            var personId = $select.data('person-id');
+            var selectedValue = $select.val();
+            var previousValue = $select.attr('data-prev-value');
+
+            showSaveToast('Saving...', 'saving', 800);
+            $select.prop('disabled', true);
+
+            $.ajax({
+                url: '/person_observations/' + personId + '/identity',
+                method: 'POST',
+                contentType: 'application/json',
+                data: JSON.stringify({
+                    identity_id: selectedValue === '' ? null : Number(selectedValue)
+                })
+            })
+                .done(function () {
+                    $select.attr('data-prev-value', selectedValue);
+                    showSaveToast('Saved', 'saved', 900);
+                })
+                .fail(function (xhr) {
+                    $select.val(previousValue);
+                    var message = 'Save failed';
+                    if (xhr.responseJSON && xhr.responseJSON.error) {
+                        message = xhr.responseJSON.error;
+                    }
+                    showSaveToast(message, 'error', 1800);
+                })
+                .always(function () {
+                    $select.prop('disabled', false);
+                });
+        });
+    });
+</script>
+{% endblock %}

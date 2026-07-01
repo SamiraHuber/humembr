@@ -1,0 +1,166 @@
+{% extends "base.html" %}
+
+{% block title %}Person Identities{% endblock %}
+
+{% block content %}
+<style>
+    .gallery {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+        gap: 1.5rem;
+        margin-top: 1rem;
+    }
+    
+    .identity-card {
+        background-color: var(--surface-color);
+        border: 1px solid var(--border-color);
+        border-radius: var(--border-radius);
+        padding: 1.5rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+        box-shadow: var(--box-shadow);
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    
+    .identity-card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+    
+    .avatar-wrapper {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 0.5rem;
+    }
+
+    .avatar-large {
+        width: 120px;
+        height: 120px;
+        border-radius: 50%;
+        object-fit: cover;
+        border: 4px solid var(--border-color);
+        transition: border-color 0.2s ease;
+        background-color: var(--background-color);
+    }
+    
+    .avatar-wrapper:hover .avatar-large {
+        border-color: var(--primary-color);
+    }
+    
+    .avatar-placeholder {
+        width: 120px;
+        height: 120px;
+        border-radius: 50%;
+        background-color: var(--background-color);
+        border: 4px solid var(--border-color);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--on-surface-variant-color);
+        font-size: 2rem;
+    }
+    
+    .meta-info {
+        font-size: 0.8rem;
+        color: var(--on-surface-variant-color);
+    }
+    
+    .rename-form {
+        width: 100%;
+        display: flex;
+        gap: 0.5rem;
+    }
+    
+    .name-input {
+        width: 100%;
+        padding: 0.5rem;
+        border: 1px solid var(--border-color);
+        border-radius: 4px;
+        text-align: center;
+        font-weight: 600;
+        font-size: 1rem;
+        background: transparent;
+        color: var(--on-surface-color);
+    }
+    
+    .name-input:focus {
+        border-color: var(--primary-color);
+        outline: none;
+    }
+    
+    .save-btn-icon {
+        padding: 0 0.75rem;
+        background-color: var(--surface-color);
+        border: 1px solid var(--border-color);
+        border-radius: 4px;
+        cursor: pointer;
+        color: var(--primary-color);
+        font-weight: bold;
+        transition: background-color 0.2s;
+    }
+    
+    .save-btn-icon:hover {
+        background-color: var(--background-color);
+    }
+    
+    .delete-form {
+        width: 100%;
+        margin-top: auto;
+    }
+    
+    .delete-btn-card {
+        width: 100%;
+        padding: 0.5rem;
+        background-color: rgba(220, 53, 69, 0.1);
+        color: #dc3545;
+        border: 1px solid rgba(220, 53, 69, 0.2);
+        border-radius: 4px;
+        cursor: pointer;
+        transition: all 0.2s;
+        font-size: 0.9rem;
+    }
+    
+    .delete-btn-card:hover {
+        background-color: #dc3545;
+        color: white;
+    }
+</style>
+
+<div class="main-content">
+    <h1>Person Identities</h1>
+    
+    <div class="gallery">
+        {% for mapping in mappings %}
+        <div class="identity-card">
+            <div class="avatar-wrapper">
+                {% if mapping.person_obs %}
+                <a href="{{ url_for('person_identity_detail', mapping_id=mapping.id) }}" title="View all {{ mapping.person_obs|length }} images">
+                    <img class="avatar-large" src="{{ url_for('person_image_by_id', person_id=mapping.person_obs[0].id) }}" alt="{{ mapping.name }}" />
+                </a>
+                <span class="meta-info">{{ mapping.person_obs|length }} images</span>
+                {% else %}
+                <div class="avatar-placeholder">
+                    <i class="fas fa-user"></i>
+                </div>
+                <span class="meta-info">No images</span>
+                {% endif %}
+            </div>
+
+            <form action="{{ url_for('update_person_identity_name', mapping_id=mapping.id) }}" method="post" class="rename-form">
+                <input type="text" name="name" value="{{ mapping.name }}" required class="name-input" title="Click to edit name">
+                <button type="submit" class="save-btn-icon" title="Save Name">✓</button>
+            </form>
+
+            <form action="{{ url_for('delete_person_identity', mapping_id=mapping.id) }}" method="post" class="delete-form">
+                <button type="submit" class="delete-btn-card" onclick="return confirm('Are you sure you want to delete identity &quot;{{ mapping.name }}&quot;?');">
+                    Delete
+                </button>
+            </form>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}
